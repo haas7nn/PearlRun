@@ -1,140 +1,175 @@
-<h1 align="center">🏝️ Legends of Dilmun</h1>
-<h3 align="center">A Bahraini Action-Adventure Game</h3>
+<div align="center">
 
-<p align="center">
-<b>Legends of Dilmun</b> is a third-person action-adventure game built in <b>Unity</b> that takes players on a mythological journey through ancient Bahrain.
-</p>
+# 🏝️ LEGENDS OF DILMUN
 
-<p align="center">
-Inspired by the legendary civilization of <b>Dilmun</b>, the game blends history, mythology, exploration, and combat into a unique cultural adventure.
-</p>
+### *Rise of the Island Guardian*
 
-<hr>
+<img src="https://img.shields.io/badge/Engine-Unity-black?style=for-the-badge&logo=unity">
+<img src="https://img.shields.io/badge/Language-C%23-purple?style=for-the-badge&logo=csharp">
+<img src="https://img.shields.io/badge/Platform-PC-blue?style=for-the-badge">
+<img src="https://img.shields.io/badge/Project-University%20Game-green?style=for-the-badge">
 
-<h2>⚔️ Story</h2>
+<br><br>
 
-<p>
-Long ago, the island of <b>Dilmun</b> was protected by six sacred relics blessed by the gods.
-These relics kept the island in balance and guarded its people from darkness.
-</p>
+<b>An action-adventure journey through the mythological world of ancient Bahrain.</b>
 
-<p>
-But a mysterious force has emerged from forgotten temples, stealing the relics and spreading corruption across the land.
-</p>
+Fight. Explore. Survive. Restore the sacred relics of Dilmun.
 
-<p>
-You play as <b>Awal</b>, a warrior chosen to restore balance. Your mission is to travel across ancient Bahrain, defeat corrupted enemies, solve puzzles, and recover the six sacred relics before darkness consumes the island.
-</p>
+</div>
 
-<hr>
+---
 
-<h2>🎮 Core Gameplay</h2>
+# 🌍 About The Game
 
-<ul>
-<li>Third-person action-adventure gameplay</li>
-<li>Sword combat against corrupted enemies</li>
-<li>Exploration across historic Bahraini locations</li>
-<li>Puzzle solving and environmental challenges</li>
-<li>Collect ancient coins and relic fragments</li>
-<li>Parkour movement and platforming</li>
-</ul>
+**Legends of Dilmun** is a **third-person action-adventure game built in Unity** where players explore a mythological version of ancient Bahrain.
 
-<hr>
+The island of **Dilmun**—once a paradise protected by sacred relics—has fallen into darkness.
+A mysterious force has stolen the six relics that maintain balance across the land.
 
-<h2>🗺️ Game Levels</h2>
+Now the fate of the island rests in the hands of a single warrior.
 
-<h3>🏰 Level 1 — Bahrain Fort (Tutorial)</h3>
-<p>
-Players begin their journey at the historic Bahrain Fort. This level introduces the core mechanics including movement, combat, and exploration.
-</p>
+You.
 
-<h3>⛰️ Level 2 — A'ali Burial Mounds</h3>
-<p>
-Ancient underground tunnels hide traps, puzzles, and enemies guarding one of the sacred relics.
-</p>
+---
 
-<h3>🏘️ Level 3 — Muharraq Old Town</h3>
-<p>
-A stealth and parkour focused level where players navigate narrow streets, rooftops, and hidden pathways.
-</p>
+# ⚔️ The Hero
 
-<h3>🌳 Level 4 — Tree of Life Desert</h3>
-<p>
-A survival level set in the harsh desert where sandstorms reduce visibility and threaten the player's progress.
-</p>
+### Awal — Guardian of Dilmun
 
-<h3>🏝️ Level 5 — Hawar Islands</h3>
-<p>
-Cave exploration and water platforming across the beautiful island environment.
-</p>
+Awal is the last protector chosen to restore the relics and defeat the darkness spreading across the island.
 
-<h3>🏛️ Level 6 — Temple of Enki</h3>
-<p>
-The final mythical temple where Awal faces the dark force responsible for stealing the relics.
-</p>
+Players will master:
 
-<hr>
+• Sword combat
+• Exploration
+• Puzzle solving
+• Platforming
+• Stealth movement
 
-<h2>✨ Features</h2>
+Across deserts, ruins, caves, and ancient cities.
 
-<h3>🎯 Advanced Feature</h3>
+---
 
-<ul>
-<li><b>Enemy AI System</b> using state machines</li>
-<ul>
-<li>Patrol behavior</li>
-<li>Player detection</li>
-<li>Chasing mechanics</li>
-<li>Combat attacks</li>
-</ul>
-</ul>
+# 🗺️ The World of Dilmun
 
-<h3>⚙️ Custom Systems</h3>
+Each level is inspired by **real Bahraini landmarks**, transformed into epic game environments.
 
-<ul>
-<li>Inventory system</li>
-<li>Dialogue and lore system about Bahraini history</li>
-<li>Checkpoint and save system</li>
-<li>Dynamic weather system (sandstorms)</li>
-<li>Minimap with compass navigation</li>
-</ul>
+### 🏰 Bahrain Fort
 
-<hr>
+The beginning of Awal’s journey. Learn combat, movement, and uncover the first signs of corruption.
 
-<h2>🎨 Technical Features</h2>
+### ⛰️ A'ali Burial Mounds
 
-<ul>
-<li>Third-person camera system</li>
-<li>Character animation system</li>
-<li>Visual effects (VFX) for combat and relic powers</li>
-<li>Ambient desert sound design</li>
-<li>Arabic inspired soundtrack using oud instruments</li>
-</ul>
+Ancient underground tombs filled with traps, puzzles, and hidden relic chambers.
 
-<hr>
+### 🏘️ Muharraq Old Town
 
-<h2>🛠️ Built With</h2>
+Stealth and parkour through narrow streets, rooftops, and secret pathways.
 
-<ul>
-<li>Unity Engine</li>
-<li>C#</li>
-<li>Unity Animator</li>
-<li>Unity Particle System</li>
-<li>Unity NavMesh AI</li>
-</ul>
+### 🌳 Tree of Life Desert
 
-<hr>
+A harsh survival environment where sandstorms threaten visibility and navigation.
 
-<h2>👥 Team</h2>
+### 🏝️ Hawar Islands
 
-<p>
-Developed as a <b>University Game Development Project</b>.
-</p>
+Cave exploration and platforming across cliffs and ocean caves.
 
-<p>
-Our goal was to create a unique game experience inspired by <b>Bahraini culture, history, and mythology</b>.
-</p>
+### 🏛️ Temple of Enki
 
-<hr>
+A mythical temple where the final battle for the relics begins.
 
-<h2 align="center">🌟 “Restore the relics. Protect Dilmun. Become the legend.”</h2>
+---
+
+# 🎮 Gameplay Features
+
+### ⚔️ Combat System
+
+Dynamic melee combat against corrupted enemies guarding the relics.
+
+### 🧩 Puzzle Exploration
+
+Ancient mechanisms, traps, and hidden chambers challenge the player's mind.
+
+### 🧗 Parkour & Movement
+
+Climb rooftops, cross ruins, and explore vertical environments.
+
+### 🪙 Collectibles
+
+Find ancient Dilmun coins hidden across the island.
+
+---
+
+# 🧠 Advanced Systems
+
+### Enemy AI System (State Machines)
+
+Enemies dynamically react to the player using AI states:
+
+• Patrol
+• Suspicion
+• Detection
+• Chase
+• Attack
+
+This creates engaging combat encounters and stealth gameplay opportunities.
+
+---
+
+# ⚙️ Custom Gameplay Systems
+
+The project includes several custom-built gameplay mechanics:
+
+• Inventory System
+• Dialogue & Lore System
+• Checkpoint Save System
+• Dynamic Sandstorm Weather
+• Minimap + Compass Navigation
+
+---
+
+# 🎨 Audio & Visual Design
+
+The game world brings Bahrain to life through:
+
+• Atmospheric desert environments
+• Particle VFX for combat and relic magic
+• Arabic-inspired soundtrack featuring **Oud instruments**
+• Ambient environmental sound design
+
+---
+
+# 🛠️ Built With
+
+• Unity Game Engine
+• C#
+• Unity Animator
+• NavMesh AI
+• Unity Particle System
+• Unity Audio System
+
+---
+
+# 📚 Educational Purpose
+
+This game was developed as a **university game development project** with the goal of creating a unique cultural game inspired by **Bahraini history and mythology**.
+
+---
+
+# 🌟 Vision
+
+*Legends of Dilmun aims to showcase Bahrain’s heritage through interactive storytelling.*
+
+A world where **history, myth, and adventure collide.**
+
+---
+
+<div align="center">
+
+### Restore the relics.
+
+### Save the island.
+
+### Become the Legend.
+
+</div>
