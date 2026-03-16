@@ -1,4 +1,4 @@
-# 🏃 PearlRun (بيرل رن)
+#  PearlRun
 
 A 2.5D side-scrolling action-adventure platformer set in modern-day Bahrain.
 
