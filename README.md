@@ -1,175 +1,146 @@
-<div align="center">
+# 🏃 PearlRun (بيرل رن)
 
-# 🏝️ LEGENDS OF DILMUN
+A 2.5D side-scrolling action-adventure platformer set in modern-day Bahrain.
 
-### *Rise of the Island Guardian*
-
-<img src="https://img.shields.io/badge/Engine-Unity-black?style=for-the-badge&logo=unity">
-<img src="https://img.shields.io/badge/Language-C%23-purple?style=for-the-badge&logo=csharp">
-<img src="https://img.shields.io/badge/Platform-PC-blue?style=for-the-badge">
-<img src="https://img.shields.io/badge/Project-University%20Game-green?style=for-the-badge">
-
-<br><br>
-
-<b>An action-adventure journey through the mythological world of ancient Bahrain.</b>
-
-Fight. Explore. Survive. Restore the sacred relics of Dilmun.
-
-</div>
+Built with **Unity 6** | Course: **IT8101 – Games Development** | Team: **PearlBytes**
 
 ---
 
-# 🌍 About The Game
+## 🎮 About The Game
 
-**Legends of Dilmun** is a **third-person action-adventure game built in Unity** where players explore a mythological version of ancient Bahrain.
+Awal is a young Bahraini running late for a traditional pearl diving competition. What starts as a simple rush quickly escalates into a wild chase across the entire country as he gets caught up in chaotic situations at each location. Along the way Awal collects pearls scattered across Bahrain. The player must avoid obstacles, jump over barriers, slide under blockages, and react quickly to keep progressing through the levels.
 
-The island of **Dilmun**—once a paradise protected by sacred relics—has fallen into darkness.
-A mysterious force has stolen the six relics that maintain balance across the land.
-
-Now the fate of the island rests in the hands of a single warrior.
-
-You.
+The gameplay is fast-paced, exciting, and filled with Bahraini cultural references, local humor, and recognizable landmarks that make every level feel fun and authentic.
 
 ---
 
-# ⚔️ The Hero
+## 🗺️ Levels
 
-### Awal — Guardian of Dilmun
-
-Awal is the last protector chosen to restore the relics and defeat the darkness spreading across the island.
-
-Players will master:
-
-• Sword combat
-• Exploration
-• Puzzle solving
-• Platforming
-• Stealth movement
-
-Across deserts, ruins, caves, and ancient cities.
+| Level | Location | Theme |
+|-------|----------|-------|
+| 1 | Muharraq Streets | Tutorial – Market obstacles and rooftops |
+| 2 | Manama City | Urban platforming and construction sites |
+| 3 | Qarqaoun Neighbourhood | Festival chaos at night |
+| 4 | Desert & Tree of Life | Desert survival with sandstorms |
+| 5 | Amwaj Islands | Coastal platforming and boat hopping |
+| 6 | Bahrain International Circuit | Final challenge with race cars |
 
 ---
 
-# 🗺️ The World of Dilmun
+## 🎯 Features
 
-Each level is inspired by **real Bahraini landmarks**, transformed into epic game environments.
+### Basic Features
+- Main Menu with New Game, Level Select, Instructions, Settings, Credits, Quit
+- 6 distinct playable levels with unique environments and obstacles
+- Animated player character with multiple states (run, jump, slide, attack, hurt, die)
+- Side-scrolling follow camera with look-ahead and screen shake
+- Keyboard controls consistent across all levels
+- Pearl collection reward system with HUD display
+- Sound effects, music, and ambient audio per level with Audio Manager
+- Particle effects and post-processing with unique color grading per level
+- Bug-free polished gameplay
+- Windows PC build
 
-### 🏰 Bahrain Fort
-
-The beginning of Awal’s journey. Learn combat, movement, and uncover the first signs of corruption.
-
-### ⛰️ A'ali Burial Mounds
-
-Ancient underground tombs filled with traps, puzzles, and hidden relic chambers.
-
-### 🏘️ Muharraq Old Town
-
-Stealth and parkour through narrow streets, rooftops, and secret pathways.
-
-### 🌳 Tree of Life Desert
-
-A harsh survival environment where sandstorms threaten visibility and navigation.
-
-### 🏝️ Hawar Islands
-
-Cave exploration and platforming across cliffs and ocean caves.
-
-### 🏛️ Temple of Enki
-
-A mythical temple where the final battle for the relics begins.
+### Custom Features
+- **Advanced: Dynamic Obstacle and Enemy AI System** – Finite State Machine AI with patrol, detect, chase, and attack states. Multiple enemy types per level. Timed car spawning system for Level 6
+- **Power-Up System** – Shield, Magnet, Slow Motion, Double Points
+- **Cutscene and Dialogue System** – Story transitions between levels with character dialogue
+- **Checkpoint and Save System** – Auto-save at checkpoints, respawn on death, level progress saved
+- **Dynamic Weather and Visual Effects** – Sandstorms, festive lights, water effects, unique post-processing per level
+- **Progress Bar and HUD System** – Real-time progress bar, score, lives, power-up timers
 
 ---
 
-# 🎮 Gameplay Features
+## 🕹️ Controls
 
-### ⚔️ Combat System
-
-Dynamic melee combat against corrupted enemies guarding the relics.
-
-### 🧩 Puzzle Exploration
-
-Ancient mechanisms, traps, and hidden chambers challenge the player's mind.
-
-### 🧗 Parkour & Movement
-
-Climb rooftops, cross ruins, and explore vertical environments.
-
-### 🪙 Collectibles
-
-Find ancient Dilmun coins hidden across the island.
+| Key | Action |
+|-----|--------|
+| A / Left Arrow | Move left |
+| D / Right Arrow | Move right |
+| Space | Jump |
+| Space (in air) | Double Jump |
+| S / Down Arrow | Slide |
+| F / Left Click | Punch Attack |
+| Left Shift | Sprint Burst |
+| Escape | Pause Menu |
 
 ---
 
-# 🧠 Advanced Systems
+## 👥 Team PearlBytes
 
-### Enemy AI System (State Machines)
-
-Enemies dynamically react to the player using AI states:
-
-• Patrol
-• Suspicion
-• Detection
-• Chase
-• Attack
-
-This creates engaging combat encounters and stealth gameplay opportunities.
+| Name | Role | Level |
+|------|------|-------|
+| Hasan | Scrum Master + Lead Programmer | Level 1: Muharraq |
+| Ameena | AI & Combat Programmer | Level 2: Manama |
+| Ruqaya | Systems Programmer | Level 3: Qarqaoun |
+| Adil | Level Designer | Level 4: Desert |
+| Rana | Animator & UI Designer | Level 5: Amwaj |
+| Samana | Audio & QA Tester | Level 6: Circuit |
 
 ---
 
-# ⚙️ Custom Gameplay Systems
+## 🛠️ Tech Stack
 
-The project includes several custom-built gameplay mechanics:
-
-• Inventory System
-• Dialogue & Lore System
-• Checkpoint Save System
-• Dynamic Sandstorm Weather
-• Minimap + Compass Navigation
+- **Engine:** Unity 6
+- **Language:** C#
+- **Art:** Mixamo (character), Unity Asset Store (environments)
+- **Audio:** Freesound.org, Pixabay, Mixkit
+- **Platform:** PC (Windows)
 
 ---
 
-# 🎨 Audio & Visual Design
-
-The game world brings Bahrain to life through:
-
-• Atmospheric desert environments
-• Particle VFX for combat and relic magic
-• Arabic-inspired soundtrack featuring **Oud instruments**
-• Ambient environmental sound design
-
----
-
-# 🛠️ Built With
-
-• Unity Game Engine
-• C#
-• Unity Animator
-• NavMesh AI
-• Unity Particle System
-• Unity Audio System
-
----
-
-# 📚 Educational Purpose
-
-This game was developed as a **university game development project** with the goal of creating a unique cultural game inspired by **Bahraini history and mythology**.
-
----
-
-# 🌟 Vision
-
-*Legends of Dilmun aims to showcase Bahrain’s heritage through interactive storytelling.*
-
-A world where **history, myth, and adventure collide.**
+## 📁 Project Structure
+Assets/
+├── Animations/ # Character and environment animations
+├── Audio/
+│ ├── Music/ # Background music per level
+│ └── SFX/ # Sound effects
+├── Materials/ # All materials and textures
+├── Prefabs/
+│ ├── Collectibles/ # Pearl prefabs
+│ ├── Enemies/ # Enemy prefabs
+│ ├── Obstacles/ # Obstacle prefabs
+│ └── PowerUps/ # Power-up prefabs
+├── Scenes/
+│ ├── MainMenu
+│ ├── Level1_Muharraq
+│ ├── Level2_Manama
+│ ├── Level3_Qarqaoun
+│ ├── Level4_Desert
+│ ├── Level5_Amwaj
+│ ├── Level6_Circuit
+│ └── Victory
+├── Scripts/
+│ ├── Player/ # Player controller, collision, animation
+│ ├── Enemies/ # Enemy AI scripts
+│ ├── Systems/ # Game manager, camera, audio
+│ └── UI/ # Menu, HUD, popup scripts
+└── UI/ # UI sprites and assets
 
 ---
 
-<div align="center">
+## 🏗️ Build Instructions
 
-### Restore the relics.
+1. Open the project in Unity 6
+2. Go to File > Build Settings
+3. Make sure all scenes are added in the correct order (MainMenu first)
+4. Select Platform: Windows
+5. Click Build
 
-### Save the island.
+---
 
-### Become the Legend.
+## 📅 Development Timeline
 
-</div>
+| Week | Focus |
+|------|-------|
+| 1 | Project setup, core mechanics, assets |
+| 2 | Systems, Level 1 and 2 built |
+| 3 | All 6 levels built |
+| 4 | Integration, polish, testing |
+| 5 | Bug fixing, final build, submission |
+
+---
+
+## 📝 License
+
+This project is created for educational purposes as part of the IT8101 Games Development course at Bahrain Polytechnic.
