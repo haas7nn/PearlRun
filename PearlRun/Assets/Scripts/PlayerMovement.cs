@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     public float slideDuration = 0.8f;
     public float slideHeight = 1f;
 
+    [Header("Lives")]
+    public int maxLives = 2;
+    private int currentLives;
+
     private CharacterController controller;
     private Animator anim;
     private Vector3 velocity;
@@ -38,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSliding;
     private bool isSprinting;
     private bool isGameFinished = false;
+    private bool isDead = false;
 
     private float sprintTimer;
     private float sprintCooldownTimer;
@@ -53,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
 
         normalControllerHeight = controller.height;
         normalControllerCenter = controller.center;
+
+        currentLives = maxLives;
     }
 
     void Update()
@@ -65,16 +72,38 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = 0;
         }
 
-        HandleSprint();
-        HandleSlide();
-        HandleJump(isGrounded);
+        // مؤقتًا للاختبار
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.hKey.wasPressedThisFrame)
+            {
+                TakeHit();
+            }
+
+            if (Keyboard.current.kKey.wasPressedThisFrame)
+            {
+                Die();
+            }
+
+            if (Keyboard.current.fKey.wasPressedThisFrame)
+            {
+                isGameFinished = true;
+            }
+        }
+
+        if (!isDead)
+        {
+            HandleSprint();
+            HandleSlide();
+            HandleJump(isGrounded);
+        }
 
         float currentForwardSpeed = baseForwardSpeed;
 
         if (isSprinting)
             currentForwardSpeed *= sprintMultiplier;
 
-        if (isGameFinished)
+        if (isGameFinished || isDead)
             currentForwardSpeed = 0f;
 
         Vector3 move = new Vector3(currentForwardSpeed, 0f, sideInput * sideSpeed);
@@ -94,11 +123,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isSliding", isSliding);
         anim.SetBool("isGameFinished", isGameFinished);
 
-        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
-        {
-            isGameFinished = true;
-        }
-
         jumpPressed = false;
         slidePressed = false;
         sprintPressed = false;
@@ -107,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
     void HandleJump(bool isGrounded)
     {
         if (!jumpPressed) return;
+        if (isDead) return;
 
         if (isGrounded || jumpCount < maxJumps)
         {
@@ -168,30 +193,83 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void TakeHit()
+    {
+        if (isDead) return;
+
+        currentLives--;
+
+        if (currentLives > 0)
+        {
+            anim.SetTrigger("GetHit");
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        if (isDead) return;
+
+        isDead = true;
+        isGameFinished = true;
+
+        isSliding = false;
+        isSprinting = false;
+        sideInput = 0f;
+        velocity = Vector3.zero;
+
+        controller.height = normalControllerHeight;
+        controller.center = normalControllerCenter;
+
+        anim.SetTrigger("Death");
+    }
+
+    public void RestoreLife(int amount = 1)
+    {
+        currentLives += amount;
+        if (currentLives > maxLives)
+            currentLives = maxLives;
+    }
+
     public void FinishGame()
     {
         isGameFinished = true;
     }
 
+    public int GetCurrentLives()
+    {
+        return currentLives;
+    }
+
     public void OnMove(InputValue value)
     {
+        if (isDead) return;
         sideInput = value.Get<float>();
     }
 
     public void OnJump(InputValue value)
     {
+        if (isDead) return;
+
         if (value.isPressed)
             jumpPressed = true;
     }
 
     public void OnSlide(InputValue value)
     {
+        if (isDead) return;
+
         if (value.isPressed)
             slidePressed = true;
     }
 
     public void OnSprint(InputValue value)
     {
+        if (isDead) return;
+
         if (value.isPressed)
             sprintPressed = true;
     }
