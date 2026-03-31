@@ -1,25 +1,58 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float speed = 5f;
-    public float rotationSpeed = 10f;
+    [Header("Forward Auto Run")]
+    public float baseForwardSpeed = 5f;
+    public float sideSpeed = 4f;
+
+    [Header("Side Limits")]
+    public float minZ = -2f;
+    public float maxZ = 2f;
+
+    [Header("Jump")]
     public float jumpHeight = 2f;
-    public float gravity = -9.81f;
+    public float gravity = -20f;
+    public int maxJumps = 2;
+
+    [Header("Sprint")]
+    public float sprintMultiplier = 1.8f;
+    public float sprintDuration = 2f;
+    public float sprintCooldown = 8f;
+
+    [Header("Slide")]
+    public float slideDuration = 0.8f;
+    public float slideHeight = 1f;
 
     private CharacterController controller;
-    private Animator animator;
-
-    private Vector2 moveInput;
+    private Animator anim;
     private Vector3 velocity;
+
+    private float sideInput;
     private bool jumpPressed;
+    private bool slidePressed;
+    private bool sprintPressed;
+
+    private int jumpCount;
+    private bool isSliding;
+    private bool isSprinting;
+    private bool isGameFinished = false;
+
+    private float sprintTimer;
+    private float sprintCooldownTimer;
+    private float slideTimer;
+
+    private float normalControllerHeight;
+    private Vector3 normalControllerCenter;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+
+        normalControllerHeight = controller.height;
+        normalControllerCenter = controller.center;
     }
 
     void Update()
@@ -29,50 +62,137 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0f)
         {
             velocity.y = -2f;
+            jumpCount = 0;
         }
 
-        Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+        HandleSprint();
+        HandleSlide();
+        HandleJump(isGrounded);
 
-        if (move.magnitude > 0.1f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(move);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                rotationSpeed * Time.deltaTime
-            );
+        float currentForwardSpeed = baseForwardSpeed;
 
-            controller.Move(move.normalized * speed * Time.deltaTime);
-        }
+        if (isSprinting)
+            currentForwardSpeed *= sprintMultiplier;
 
-        if (jumpPressed && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        if (isGameFinished)
+            currentForwardSpeed = 0f;
 
-            if (animator != null)
-                animator.SetTrigger("Jump");
-        }
+        Vector3 move = new Vector3(currentForwardSpeed, 0f, sideInput * sideSpeed);
+        controller.Move(move * Time.deltaTime);
 
-        jumpPressed = false;
+        Vector3 pos = transform.position;
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+        transform.position = pos;
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if (animator != null)
+        transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+
+        anim.SetFloat("Speed", currentForwardSpeed);
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isSliding", isSliding);
+        anim.SetBool("isGameFinished", isGameFinished);
+
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         {
-            animator.SetFloat("Speed", move.magnitude);
-            animator.SetBool("Grounded", isGrounded);
+            isGameFinished = true;
         }
+
+        jumpPressed = false;
+        slidePressed = false;
+        sprintPressed = false;
+    }
+
+    void HandleJump(bool isGrounded)
+    {
+        if (!jumpPressed) return;
+
+        if (isGrounded || jumpCount < maxJumps)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpCount++;
+
+            anim.SetTrigger("Jump");
+        }
+    }
+
+    void HandleSprint()
+    {
+        if (sprintCooldownTimer > 0f)
+            sprintCooldownTimer -= Time.deltaTime;
+
+        if (isSprinting)
+        {
+            sprintTimer -= Time.deltaTime;
+
+            if (sprintTimer <= 0f)
+            {
+                isSprinting = false;
+                sprintCooldownTimer = sprintCooldown;
+            }
+        }
+
+        if (sprintPressed && !isSprinting && sprintCooldownTimer <= 0f)
+        {
+            isSprinting = true;
+            sprintTimer = sprintDuration;
+        }
+    }
+
+    void HandleSlide()
+    {
+        if (slidePressed && !isSliding)
+        {
+            isSliding = true;
+            slideTimer = slideDuration;
+
+            controller.height = slideHeight;
+            controller.center = new Vector3(
+                normalControllerCenter.x,
+                slideHeight / 2f,
+                normalControllerCenter.z
+            );
+        }
+
+        if (isSliding)
+        {
+            slideTimer -= Time.deltaTime;
+
+            if (slideTimer <= 0f)
+            {
+                isSliding = false;
+                controller.height = normalControllerHeight;
+                controller.center = normalControllerCenter;
+            }
+        }
+    }
+
+    public void FinishGame()
+    {
+        isGameFinished = true;
     }
 
     public void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+        sideInput = value.Get<float>();
     }
 
     public void OnJump(InputValue value)
     {
         if (value.isPressed)
             jumpPressed = true;
+    }
+
+    public void OnSlide(InputValue value)
+    {
+        if (value.isPressed)
+            slidePressed = true;
+    }
+
+    public void OnSprint(InputValue value)
+    {
+        if (value.isPressed)
+            sprintPressed = true;
     }
 }
