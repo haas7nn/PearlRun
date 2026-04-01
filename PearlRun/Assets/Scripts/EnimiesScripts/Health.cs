@@ -2,21 +2,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float startingHealth = 5f;
-    public float currentHealth;
+    public int health = 5;
 
-    private void Awake()
+    public void TakeDamage(int amount)
     {
-        currentHealth = startingHealth;
-    }
+        health -= amount;
 
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-
-        Debug.Log("Player Health: " + currentHealth);
-
-        if (currentHealth <= 0)
+        if (health <= 0)
         {
             Die();
         }

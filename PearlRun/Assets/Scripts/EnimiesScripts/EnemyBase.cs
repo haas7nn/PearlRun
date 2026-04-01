@@ -2,20 +2,11 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public float health = 3f;
-    public float damage = 1f;
-    protected bool isDead;
-    protected Animator anim;
+    public int health = 3;
+    public int damage = 1;
 
-    protected virtual void Awake()
+    public virtual void TakeDamage(int amount)
     {
-        anim = GetComponent<Animator>();
-    }
-
-    public virtual void TakeDamage(float amount)
-    {
-        if (isDead) return;
-
         health -= amount;
 
         if (health <= 0)
@@ -26,31 +17,27 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        isDead = true;
+        Animator anim = GetComponent<Animator>();
+
         if (anim != null)
-            anim.SetTrigger("die");
-
-        Destroy(gameObject, 1f);
-    }
-
-    protected virtual void OnPlayerContact(GameObject player)
-    {
-        Health playerHealth = player.GetComponent<Health>();
-
-        if (playerHealth != null)
         {
-            playerHealth.TakeDamage(damage);
+            anim.SetTrigger("Die");
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health player = collision.gameObject.GetComponent<Health>();
-            if (player != null)
+            Health playerHealth = collision.gameObject.GetComponent<Health>();
+
+            if (playerHealth != null)
             {
-                player.TakeDamage(damage);
+                playerHealth.TakeDamage(damage);
             }
         }
     }
