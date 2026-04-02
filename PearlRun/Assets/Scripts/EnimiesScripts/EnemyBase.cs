@@ -33,12 +33,10 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health playerHealth = collision.gameObject.GetComponent<Health>();
+            Debug.Log("Player hit by enemy");
 
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damage);
-            }
+            // Send damage message to player (Health system will handle it later)
+            collision.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
