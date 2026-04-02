@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class ProjectileScript : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
-
-    public float speed = 5f;
+    public float speed = 2f;
     public int damage = 1;
-    public float lifeTime = 3f;
+    public float lifeTime = 5f;
 
     private Vector2 direction;
 
@@ -15,7 +14,6 @@ public class ProjectileScript : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
@@ -25,13 +23,16 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Health playerHealth = collision.GetComponent<Health>();
-            if(playerHealth != null)
+            Debug.Log("Player hit by projectile");
+
+            // This will work later when Health script exists
+            var playerHealth = collision.GetComponent("Health");
+            if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage);
+                collision.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             }
+
             Destroy(gameObject);
         }
-
     }
 }
