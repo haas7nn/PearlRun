@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
     public int maxLives = 2;
     private int currentLives;
 
+    [Header("Attack")]
+    public float attackDuration = 0.8f;
+
     private CharacterController controller;
     private Animator anim;
     private Vector3 velocity;
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isSprinting;
     private bool isGameFinished = false;
     private bool isDead = false;
+    private bool isAttacking = false;
 
     private float sprintTimer;
     private float sprintCooldownTimer;
@@ -91,6 +95,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // اختبار الهجوم بالرايت كلك
+        if (Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            PlayAttack();
+        }
+
         if (!isDead)
         {
             HandleSprint();
@@ -132,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!jumpPressed) return;
         if (isDead) return;
+        if (isAttacking) return;
 
         if (isGrounded || jumpCount < maxJumps)
         {
@@ -191,6 +202,28 @@ public class PlayerMovement : MonoBehaviour
                 controller.center = normalControllerCenter;
             }
         }
+    }
+
+    void PlayAttack()
+    {
+        if (isDead || isGameFinished || isAttacking)
+            return;
+
+        isAttacking = true;
+
+        isSliding = false;
+        isSprinting = false;
+
+        controller.height = normalControllerHeight;
+        controller.center = normalControllerCenter;
+
+        anim.SetTrigger("Attack");
+        Invoke(nameof(ResetAttack), attackDuration);
+    }
+
+    void ResetAttack()
+    {
+        isAttacking = false;
     }
 
     public void TakeHit()
