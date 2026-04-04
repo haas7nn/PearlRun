@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// Respawn system only.
+// Called when the player dies to return them to the last saved checkpoint.
+
 public class PlayerRespawn : MonoBehaviour
 {
     public void RespawnPlayer()
