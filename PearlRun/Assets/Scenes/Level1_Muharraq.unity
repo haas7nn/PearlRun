@@ -745,6 +745,37 @@ MeshFilter:
   m_GameObject: {fileID: 382044238}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &382044243
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd9a5212bc2174418a3ef32776cc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  menuMusic: {fileID: 0}
+  level1Music: {fileID: 0}
+  level2Music: {fileID: 0}
+  level3Music: {fileID: 0}
+  level4Music: {fileID: 0}
+  level5Music: {fileID: 0}
+  level6Music: {fileID: 0}
+  victoryMusic: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  slideSound: {fileID: 0}
+  punchSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  footstepSound: {fileID: 0}
+  pearlCollectSound: {fileID: 0}
+  lifePickupSound: {fileID: 0}
+  powerUpCollectSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  buttonHoverSound: {fileID: 0}
+  gameOverSound: {fileID: 0}
+  levelCompleteSound: {fileID: 0}
+  checkpointSound: {fileID: 0}
+--- !u!4 &680130024
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -872,6 +903,77 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630414750
+--- !u!1 &851218665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 851218667}
+  - component: {fileID: 851218666}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &851218666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851218665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd9a5212bc2174418a3ef32776cc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  menuMusic: {fileID: 0}
+  level1Music: {fileID: 0}
+  level2Music: {fileID: 0}
+  level3Music: {fileID: 0}
+  level4Music: {fileID: 0}
+  level5Music: {fileID: 0}
+  level6Music: {fileID: 0}
+  victoryMusic: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  slideSound: {fileID: 0}
+  punchSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  footstepSound: {fileID: 0}
+  pearlCollectSound: {fileID: 0}
+  lifePickupSound: {fileID: 0}
+  powerUpCollectSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  buttonHoverSound: {fileID: 0}
+  gameOverSound: {fileID: 0}
+  levelCompleteSound: {fileID: 0}
+  checkpointSound: {fileID: 0}
+--- !u!4 &851218667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851218665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28112, y: 0.19678, z: 0.28112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &881308026
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2836,3 +2938,19 @@ SceneRoots:
   - {fileID: 336500856}
   - {fileID: 42615678}
   - {fileID: 1232666004}
+  - {fileID: 639022262}
+  - {fileID: 49314649}
+  - {fileID: 309423597}
+  - {fileID: 1366243396}
+  - {fileID: 881308030}
+  - {fileID: 1718182874}
+  - {fileID: 680130024}
+  - {fileID: 1008415432}
+  - {fileID: 913087009}
+  - {fileID: 1598172566}
+  - {fileID: 1064660603}
+  - {fileID: 833055563}
+  - {fileID: 295635728}
+  - {fileID: 553149869}
+  - {fileID: 612450844}
+  - {fileID: 851218667}
