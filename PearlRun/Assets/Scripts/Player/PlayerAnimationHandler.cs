@@ -18,15 +18,9 @@ public class PlayerAnimationHandler : MonoBehaviour
 
         animator.SetFloat("speed", playerController.currentSpeed);
         animator.SetBool("isJumping", playerController.isJumping);
-        animator.SetBool("isSliding", playerController.isJumping == false && IsSliding());
+        animator.SetBool("isSliding", playerController.IsSliding);
         animator.SetBool("isPunching", playerController.isPunching);
         animator.SetBool("isHurt", playerController.isHurt);
         animator.SetBool("isDead", playerController.isDead);
-    }
-
-    bool IsSliding()
-    {
-        // Check if the slide button is being held
-        return Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
     }
 }

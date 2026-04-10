@@ -35,12 +35,13 @@ public class PlayerController : MonoBehaviour
     private float originalColliderHeight;
     private Vector3 originalColliderCenter;
 
-    // Animation parameters
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isPunching;
     [HideInInspector] public bool isHurt;
     [HideInInspector] public bool isDead;
     [HideInInspector] public float currentSpeed;
+
+    public bool IsSliding => isSliding;
 
     void Start()
     {
@@ -56,7 +57,6 @@ public class PlayerController : MonoBehaviour
         originalScale = transform.localScale;
         sprintCooldownTimer = 0f;
 
-        // Freeze Z position and all rotations for 2.5D
         rb.constraints = RigidbodyConstraints.FreezePositionZ |
                          RigidbodyConstraints.FreezeRotationX |
                          RigidbodyConstraints.FreezeRotationY |
@@ -77,7 +77,6 @@ public class PlayerController : MonoBehaviour
         HandleSprint();
         HandleAttack();
 
-        // Update animation speed parameter
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
@@ -100,7 +99,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Fallback raycast ground check
             isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
         }
 
@@ -116,14 +114,12 @@ public class PlayerController : MonoBehaviour
         if (isSliding)
             return;
 
-        // Automatic forward movement + player left/right control
         float horizontalInput = Input.GetAxis("Horizontal");
         float speed = moveSpeed;
 
         if (isSprinting)
             speed *= sprintMultiplier;
 
-        // Move right automatically + player can adjust left/right
         float moveX = speed + (horizontalInput * speed * 0.5f);
 
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
@@ -149,13 +145,11 @@ public class PlayerController : MonoBehaviour
 
     void HandleSlide()
     {
-        // Start slide
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
         {
             StartSlide();
         }
 
-        // Slide timer
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
@@ -171,7 +165,6 @@ public class PlayerController : MonoBehaviour
         isSliding = true;
         slideTimer = slideTime;
 
-        // Shrink collider for sliding under obstacles
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight * 0.4f;
@@ -183,7 +176,6 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = false;
 
-        // Restore collider
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight;
@@ -193,20 +185,17 @@ public class PlayerController : MonoBehaviour
 
     void HandleSprint()
     {
-        // Cooldown timer
         if (sprintCooldownTimer > 0)
         {
             sprintCooldownTimer -= Time.deltaTime;
         }
 
-        // Start sprint
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting && sprintCooldownTimer <= 0)
         {
             isSprinting = true;
             sprintTimer = sprintDuration;
         }
 
-        // Sprint timer
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
@@ -224,7 +213,6 @@ public class PlayerController : MonoBehaviour
         {
             isPunching = true;
 
-            // Detect enemies in range
             if (attackPoint != null)
             {
                 Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
@@ -237,7 +225,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
-                // Detect breakable obstacles
                 Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
                 foreach (Collider breakable in hitBreakables)
                 {
@@ -245,8 +232,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            // Reset punch animation after short delay
-            Invoke("ResetPunch", 0.3f);
+            Invoke(nameof(ResetPunch), 0.3f);
         }
     }
 
@@ -261,7 +247,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         isHurt = true;
-        Invoke("ResetHurt", 0.5f);
+        Invoke(nameof(ResetHurt), 0.5f);
 
         if (GameManager.instance != null)
         {
@@ -292,14 +278,12 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Show ground check radius
         if (groundCheck != null)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
-        // Show attack range
         if (attackPoint != null)
         {
             Gizmos.color = Color.red;
