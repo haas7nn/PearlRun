@@ -29,13 +29,11 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player hit by enemy");
-
-            // Send damage message to player (Health system will handle it later)
             collision.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
