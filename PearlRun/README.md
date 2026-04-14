@@ -1,146 +1,337 @@
-#  PearlRun
+<h1 align="center">🦪 PearlRun</h1>
 
-A 2.5D side-scrolling action-adventure platformer set in modern-day Bahrain.
+<p align="center">
+<b>A 2.5D Side-Scrolling Action Adventure set in Bahrain</b><br>
+Built with <b>Unity 6</b> • Course: <b>IT8101 – Games Development</b><br>
+Studio: <b>PearlBytes</b>
+</p>
 
-Built with **Unity 6** | Course: **IT8101 – Games Development** | Team: **PearlBytes**
+<hr>
+
+<style>
+
+body{
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+h1{
+font-size:60px;
+text-shadow:0 0 20px cyan;
+}
+
+h2{
+border-bottom:2px solid cyan;
+padding-bottom:6px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:12px;
+padding:15px;
+margin:10px;
+box-shadow:0 0 15px rgba(0,255,255,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+box-shadow:0 0 30px rgba(0,255,255,0.5);
+}
+
+.level-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.feature{
+background:rgba(0,0,0,0.4);
+padding:10px;
+border-left:5px solid cyan;
+margin-bottom:10px;
+border-radius:5px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th,td{
+border:1px solid rgba(255,255,255,0.2);
+padding:10px;
+text-align:left;
+}
+
+th{
+background:rgba(0,255,255,0.2);
+}
+
+footer{
+text-align:center;
+margin-top:40px;
+opacity:0.7;
+}
+
+</style>
 
 ---
 
 ## 🎮 About The Game
 
-Awal is a young Bahraini running late for a traditional pearl diving competition. What starts as a simple rush quickly escalates into a wild chase across the entire country as he gets caught up in chaotic situations at each location. Along the way Awal collects pearls scattered across Bahrain. The player must avoid obstacles, jump over barriers, slide under blockages, and react quickly to keep progressing through the levels.
+<div class="card">
 
-The gameplay is fast-paced, exciting, and filled with Bahraini cultural references, local humor, and recognizable landmarks that make every level feel fun and authentic.
+Awal is a young Bahraini running late for a **traditional pearl diving competition**.  
+
+What starts as a simple rush quickly becomes a **country-wide chase across Bahrain**.  
+
+The player must **jump, slide, dodge obstacles, and collect pearls** while racing through iconic locations.
+
+Each level is packed with **local culture, humor, and recognizable landmarks** that make the experience feel authentically Bahraini.
+
+</div>
 
 ---
 
 ## 🗺️ Levels
 
-| Level | Location | Theme |
-|-------|----------|-------|
-| 1 | Muharraq Streets | Tutorial – Market obstacles and rooftops |
-| 2 | Manama City | Urban platforming and construction sites |
-| 3 | Qarqaoun Neighbourhood | Festival chaos at night |
-| 4 | Desert & Tree of Life | Desert survival with sandstorms |
-| 5 | Amwaj Islands | Coastal platforming and boat hopping |
-| 6 | Bahrain International Circuit | Final challenge with race cars |
+<div class="level-grid">
+
+<div class="card">
+<h3>Level 1 – Muharraq Streets</h3>
+Tutorial level with market stalls, rooftops, and narrow alleys.
+</div>
+
+<div class="card">
+<h3>Level 2 – Manama City</h3>
+Urban parkour with cranes, traffic, and construction hazards.
+</div>
+
+<div class="card">
+<h3>Level 3 – Qarqaoun Night</h3>
+Festive chaos with lights, sweets, and cultural celebration.
+</div>
+
+<div class="card">
+<h3>Level 4 – Desert & Tree of Life</h3>
+Sandstorms, dunes, and survival mechanics.
+</div>
+
+<div class="card">
+<h3>Level 5 – Amwaj Islands</h3>
+Coastal platforming across boats and docks.
+</div>
+
+<div class="card">
+<h3>Level 6 – Bahrain International Circuit</h3>
+Final challenge dodging race cars and high-speed obstacles.
+</div>
+
+</div>
 
 ---
 
-## 🎯 Features
+## 🎯 Game Features
 
-### Basic Features
-- Main Menu with New Game, Level Select, Instructions, Settings, Credits, Quit
-- 6 distinct playable levels with unique environments and obstacles
-- Animated player character with multiple states (run, jump, slide, attack, hurt, die)
-- Side-scrolling follow camera with look-ahead and screen shake
-- Keyboard controls consistent across all levels
-- Pearl collection reward system with HUD display
-- Sound effects, music, and ambient audio per level with Audio Manager
-- Particle effects and post-processing with unique color grading per level
-- Bug-free polished gameplay
-- Windows PC build
+<h3>Basic Features</h3>
 
-### Custom Features
-- **Advanced: Dynamic Obstacle and Enemy AI System** – Finite State Machine AI with patrol, detect, chase, and attack states. Multiple enemy types per level. Timed car spawning system for Level 6
-- **Power-Up System** – Shield, Magnet, Slow Motion, Double Points
-- **Cutscene and Dialogue System** – Story transitions between levels with character dialogue
-- **Checkpoint and Save System** – Auto-save at checkpoints, respawn on death, level progress saved
-- **Dynamic Weather and Visual Effects** – Sandstorms, festive lights, water effects, unique post-processing per level
-- **Progress Bar and HUD System** – Real-time progress bar, score, lives, power-up timers
+<div class="feature">✔ Main Menu (New Game, Level Select, Settings, Credits)</div>
+<div class="feature">✔ 6 unique playable levels</div>
+<div class="feature">✔ Animated character (run, jump, slide, attack)</div>
+<div class="feature">✔ Pearl collection system</div>
+<div class="feature">✔ HUD with score and progress</div>
+<div class="feature">✔ Music and sound effects</div>
+<div class="feature">✔ Windows PC build</div>
+
+---
+
+<h3>Custom Advanced Features</h3>
+
+<div class="feature"><b>Dynamic Enemy AI System</b> – FSM enemies with patrol, detect, chase, attack</div>
+
+<div class="feature"><b>Power-Up System</b> – Shield, Magnet, Slow Motion, Double Points</div>
+
+<div class="feature"><b>Cutscene System</b> – Dialogue story transitions</div>
+
+<div class="feature"><b>Checkpoint System</b> – Auto-save and respawn</div>
+
+<div class="feature"><b>Dynamic Weather</b> – Sandstorms, festival lights, water effects</div>
+
+<div class="feature"><b>Progress HUD</b> – Real-time progress bar and timers</div>
 
 ---
 
 ## 🕹️ Controls
 
-| Key | Action |
-|-----|--------|
-| A / Left Arrow | Move left |
-| D / Right Arrow | Move right |
-| Space | Jump |
-| Space (in air) | Double Jump |
-| S / Down Arrow | Slide |
-| F / Left Click | Punch Attack |
-| Left Shift | Sprint Burst |
-| Escape | Pause Menu |
+<table>
+
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>A / ←</td>
+<td>Move Left</td>
+</tr>
+
+<tr>
+<td>D / →</td>
+<td>Move Right</td>
+</tr>
+
+<tr>
+<td>Space</td>
+<td>Jump / Double Jump</td>
+</tr>
+
+<tr>
+<td>S / ↓</td>
+<td>Slide</td>
+</tr>
+
+<tr>
+<td>F / Click</td>
+<td>Punch Attack</td>
+</tr>
+
+<tr>
+<td>Shift</td>
+<td>Sprint Burst</td>
+</tr>
+
+<tr>
+<td>Esc</td>
+<td>Pause Menu</td>
+</tr>
+
+</table>
 
 ---
 
 ## 👥 Team PearlBytes
 
-| Name | Role | Level |
-|------|------|-------|
-| Hasan | Scrum Master + Lead Programmer | Level 1: Muharraq |
-| Ameena | AI & Combat Programmer | Level 2: Manama |
-| Ruqaya | Systems Programmer | Level 3: Qarqaoun |
-| Adil | Level Designer | Level 4: Desert |
-| Rana | Animator & UI Designer | Level 5: Amwaj |
-| Samana | Audio & QA Tester | Level 6: Circuit |
+<table>
+
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>Level</th>
+</tr>
+
+<tr>
+<td>Hasan</td>
+<td>Scrum Master + Lead Programmer</td>
+<td>Muharraq</td>
+</tr>
+
+<tr>
+<td>Ameena</td>
+<td>AI & Combat Programmer</td>
+<td>Manama</td>
+</tr>
+
+<tr>
+<td>Ruqaya</td>
+<td>Systems Programmer</td>
+<td>Qarqaoun</td>
+</tr>
+
+<tr>
+<td>Adil</td>
+<td>Level Designer</td>
+<td>Desert</td>
+</tr>
+
+<tr>
+<td>Rana</td>
+<td>Animator & UI Designer</td>
+<td>Amwaj</td>
+</tr>
+
+<tr>
+<td>Samana</td>
+<td>Audio & QA</td>
+<td>Circuit</td>
+</tr>
+
+</table>
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Engine:** Unity 6
-- **Language:** C#
-- **Art:** Mixamo (character), Unity Asset Store (environments)
-- **Audio:** Freesound.org, Pixabay, Mixkit
-- **Platform:** PC (Windows)
+<div class="card">
 
----
+<b>Engine:</b> Unity 6  
+<b>Language:</b> C#  
+<b>Art:</b> Mixamo + Unity Asset Store  
+<b>Audio:</b> Freesound, Pixabay, Mixkit  
+<b>Platform:</b> Windows PC  
 
-## 📁 Project Structure
-Assets/
-├── Animations/ # Character and environment animations
-├── Audio/
-│ ├── Music/ # Background music per level
-│ └── SFX/ # Sound effects
-├── Materials/ # All materials and textures
-├── Prefabs/
-│ ├── Collectibles/ # Pearl prefabs
-│ ├── Enemies/ # Enemy prefabs
-│ ├── Obstacles/ # Obstacle prefabs
-│ └── PowerUps/ # Power-up prefabs
-├── Scenes/
-│ ├── MainMenu
-│ ├── Level1_Muharraq
-│ ├── Level2_Manama
-│ ├── Level3_Qarqaoun
-│ ├── Level4_Desert
-│ ├── Level5_Amwaj
-│ ├── Level6_Circuit
-│ └── Victory
-├── Scripts/
-│ ├── Player/ # Player controller, collision, animation
-│ ├── Enemies/ # Enemy AI scripts
-│ ├── Systems/ # Game manager, camera, audio
-│ └── UI/ # Menu, HUD, popup scripts
-└── UI/ # UI sprites and assets
+</div>
 
 ---
 
 ## 🏗️ Build Instructions
 
-1. Open the project in Unity 6
-2. Go to File > Build Settings
-3. Make sure all scenes are added in the correct order (MainMenu first)
-4. Select Platform: Windows
-5. Click Build
+<div class="card">
+
+1. Open the project in **Unity 6**  
+2. Go to **File → Build Settings**  
+3. Add scenes in correct order  
+4. Select **Windows Platform**  
+5. Click **Build**
+
+</div>
 
 ---
 
 ## 📅 Development Timeline
 
-| Week | Focus |
-|------|-------|
-| 1 | Project setup, core mechanics, assets |
-| 2 | Systems, Level 1 and 2 built |
-| 3 | All 6 levels built |
-| 4 | Integration, polish, testing |
-| 5 | Bug fixing, final build, submission |
+<table>
+
+<tr>
+<th>Week</th>
+<th>Focus</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Project setup, mechanics, assets</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Core systems + Level 1 & 2</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>All 6 levels completed</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Integration and polish</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Bug fixing and final submission</td>
+</tr>
+
+</table>
 
 ---
 
-## 📝 License
+<footer>
 
-This project is created for educational purposes as part of the IT8101 Games Development course at Bahrain Polytechnic.
+Created for **IT8101 – Games Development**  
+Bahrain Polytechnic  
+
+</footer>
