@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class ScoreManager : MonoBehaviour
     public float sTime = 60f;
     public float aTime = 90f;
     public float bTime = 120f;
+
+    [Header("Level Complete UI")]
+    public TMP_Text pearlsText;
+    public TMP_Text timeText;
+    public TMP_Text livesText;
+    public TMP_Text gradeText;
 
     private void Awake()
     {
@@ -65,12 +72,26 @@ public class ScoreManager : MonoBehaviour
 
         string finalGrade = CalculateGrade();
 
+        //show in ui 
+        if (pearlsText != null)
+            pearlsText.text = "Pearls: " + currentPearls + " / " + maxPearlsInLevel;
+
+        if (timeText != null)
+            timeText.text = "Time: " + elapsedTime.ToString("F1") + "s";
+
+        if (livesText != null)
+            livesText.text = "Lives: " + livesRemaining;
+
+        if (gradeText != null)
+            gradeText.text = "Grade: " + finalGrade;
+
         Debug.Log(" LEVEL COMPLETE ");
         Debug.Log("Pearls Collected: " + currentPearls);
         Debug.Log("Time Taken: " + elapsedTime.ToString("F2"));
         Debug.Log("Lives Remaining: " + livesRemaining);
         Debug.Log("Grade: " + finalGrade);
 
+        // save data
         SaveSystem.SaveBestScore(currentLevel, currentPearls);
         SaveSystem.SaveBestTime(currentLevel, elapsedTime);
         SaveSystem.SaveBestGrade(currentLevel, finalGrade);
