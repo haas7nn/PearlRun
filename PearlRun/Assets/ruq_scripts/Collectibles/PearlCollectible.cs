@@ -13,6 +13,10 @@ public class PearlCollectible : MonoBehaviour
 
     [SerializeField] private PearlType pearlType;
 
+    [Header("Effects")]
+    [SerializeField] private GameObject collectEffect;
+    [SerializeField] private AudioClip collectSound;
+
     private bool collected;
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +25,18 @@ public class PearlCollectible : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         collected = true;
+
+        //Particle
+        if (collectEffect != null)
+        {
+            Instantiate(collectEffect, transform.position, Quaternion.identity);
+        }
+
+        //Sound
+        if (collectSound != null)
+        {
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        }
 
         ApplyEffect();
 
@@ -36,23 +52,10 @@ public class PearlCollectible : MonoBehaviour
     {
         switch (pearlType)
         {
-            case PearlType.White:
-                return 1;
-
-            case PearlType.Blue:
-                return 5;
-
-            case PearlType.Golden:
-                return 0;
-
-            case PearlType.Red:
-                return 0;
-
-            case PearlType.Qarqaoun:
-                return 3;
-
-            default:
-                return 0;
+            case PearlType.White: return 1;
+            case PearlType.Blue: return 5;
+            case PearlType.Qarqaoun: return 3;
+            default: return 0;
         }
     }
 
@@ -60,24 +63,14 @@ public class PearlCollectible : MonoBehaviour
     {
         switch (pearlType)
         {
-            case PearlType.White:
-                Debug.Log("White pearl collected: +1 point");
-                break;
-
-            case PearlType.Blue:
-                Debug.Log("Blue pearl collected: +5 points");
-                break;
-
             case PearlType.Golden:
-                Debug.Log("Golden pearl collected: restore life");
+                Debug.Log("Restore health");
+                // TODO:Health system
                 break;
 
             case PearlType.Red:
-                Debug.Log("Red pearl collected: extra life");
-                break;
-
-            case PearlType.Qarqaoun:
-                Debug.Log("Qarqaoun sweet collected: +3 points");
+                Debug.Log("Extra life");
+                // TODO:Life system
                 break;
         }
     }
