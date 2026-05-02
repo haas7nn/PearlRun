@@ -25,6 +25,11 @@ public class RunnerController : MonoBehaviour
     public float attackStopDuration = 0.15f;
     public float attackRecoverDuration = 0.35f;
 
+    [Header("Obstacle Hit")]
+    public float obstacleSlowMultiplier = 0.35f;
+    public float obstacleSlowDuration = 0.45f;
+    public float obstacleRecoverDuration = 0.35f;
+
     [Header("Audio Sources")]
     public AudioSource sfxSource;
     public AudioSource runSource;
@@ -65,6 +70,11 @@ public class RunnerController : MonoBehaviour
     private float attackStopTimer;
     private float attackRecoverTimer;
 
+    private float obstacleSlowTimer;
+    private float obstacleRecoverTimer;
+    private float obstacleCurrentMultiplier = 1f;
+    private float obstacleStartRecoverMultiplier = 1f;
+
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isPunching;
     [HideInInspector] public bool isHurt;
@@ -94,13 +104,14 @@ public class RunnerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
+        if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
         {
             StopRunningSound();
             return;
         }
 
         UpdateAttackTimers();
+        UpdateObstacleSlowdown();
         CheckGround();
         HandleJump();
         HandleSlide();
@@ -115,7 +126,7 @@ public class RunnerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
+        if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
             return;
 
         HandleMovement();
@@ -160,6 +171,34 @@ public class RunnerController : MonoBehaviour
             attackRecoverTimer -= Time.deltaTime;
     }
 
+    void UpdateObstacleSlowdown()
+    {
+        if (obstacleSlowTimer > 0f)
+        {
+            obstacleSlowTimer -= Time.deltaTime;
+            obstacleCurrentMultiplier = obstacleSlowMultiplier;
+
+            if (obstacleSlowTimer <= 0f)
+            {
+                obstacleRecoverTimer = obstacleRecoverDuration;
+                obstacleStartRecoverMultiplier = obstacleCurrentMultiplier;
+            }
+        }
+        else if (obstacleRecoverTimer > 0f)
+        {
+            obstacleRecoverTimer -= Time.deltaTime;
+            float t = 1f - (obstacleRecoverTimer / obstacleRecoverDuration);
+            obstacleCurrentMultiplier = Mathf.Lerp(obstacleStartRecoverMultiplier, 1f, t);
+
+            if (obstacleRecoverTimer <= 0f)
+                obstacleCurrentMultiplier = 1f;
+        }
+        else
+        {
+            obstacleCurrentMultiplier = 1f;
+        }
+    }
+
     void CheckGround()
     {
         bool wasGrounded = isGrounded;
@@ -179,6 +218,9 @@ public class RunnerController : MonoBehaviour
 
     void HandleJump()
     {
+        if (isSliding)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded && jumpCount == 0)
@@ -187,16 +229,18 @@ public class RunnerController : MonoBehaviour
                 PerformJump(jumpForce);
                 jumpCount = 1;
                 isJumping = true;
+                isDoubleJumping = false;
                 jumpTimestamp = Time.time;
                 PlaySFX(jumpClip);
             }
-            else if (jumpCount == 1)
+            else if (!isGrounded && jumpCount == 1)
             {
                 StopRunningSound();
                 PerformJump(doubleJumpForce);
                 jumpCount = 2;
                 isDoubleJumping = true;
                 isJumping = true;
+                jumpTimestamp = Time.time;
                 PlaySFX(jumpClip);
             }
         }
@@ -232,7 +276,9 @@ public class RunnerController : MonoBehaviour
             attackSpeedMultiplier = Mathf.Clamp01(t);
         }
 
-        float moveX = (speed + (horizontalInput * speed * 0.5f)) * attackSpeedMultiplier;
+        float totalMultiplier = attackSpeedMultiplier * obstacleCurrentMultiplier;
+
+        float moveX = (speed + (horizontalInput * speed * 0.5f)) * totalMultiplier;
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
     }
 
@@ -400,6 +446,15 @@ public class RunnerController : MonoBehaviour
         return false;
     }
 
+    public void ApplyObstacleSlowdown(float slowMultiplier, float slowDuration)
+    {
+        obstacleSlowMultiplier = Mathf.Clamp01(slowMultiplier);
+        obstacleSlowDuration = Mathf.Max(0.05f, slowDuration);
+        obstacleSlowTimer = obstacleSlowDuration;
+        obstacleRecoverTimer = 0f;
+        obstacleCurrentMultiplier = obstacleSlowMultiplier;
+    }
+
     public void TakeDamage()
     {
         if (isDead)
@@ -407,8 +462,9 @@ public class RunnerController : MonoBehaviour
 
         isHurt = true;
         PlaySFX(hurtClip);
+        CancelInvoke(nameof(ResetHurt));
         Invoke(nameof(ResetHurt), 0.5f);
-        GameManager.instance?.PlayerHit();
+        RunnerGameManager.instance?.PlayerHit();
     }
 
     void ResetHurt()
@@ -432,6 +488,14 @@ public class RunnerController : MonoBehaviour
         isHurt = false;
         isJumping = false;
         isDoubleJumping = false;
+        isPunching = false;
+        isSliding = false;
+        isRunningBackward = false;
+        jumpCount = 0;
+        obstacleCurrentMultiplier = 1f;
+        obstacleSlowTimer = 0f;
+        obstacleRecoverTimer = 0f;
+
         rb.useGravity = true;
         transform.position = pos;
         rb.linearVelocity = Vector3.zero;

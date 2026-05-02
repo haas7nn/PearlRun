@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RunnerAnimationController : MonoBehaviour
+public class RunnerAnimationHandler : MonoBehaviour
 {
     private Animator animator;
     private RunnerController runnerController;
@@ -13,20 +13,15 @@ public class RunnerAnimationController : MonoBehaviour
 
     void Update()
     {
-        if (animator == null || runnerController == null) return;
+        if (animator == null || runnerController == null)
+            return;
 
         animator.SetFloat("speed", runnerController.currentSpeed);
         animator.SetBool("isJumping", runnerController.isJumping);
-        animator.SetBool("isDoubleJumping", runnerController.isDoubleJumping);
         animator.SetBool("isSliding", runnerController.IsSliding);
         animator.SetBool("isPunching", runnerController.isPunching);
         animator.SetBool("isHurt", runnerController.isHurt);
         animator.SetBool("isDead", runnerController.isDead);
         animator.SetBool("isRunningBackward", runnerController.isRunningBackward);
-
-        if (runnerController.ConsumeRollFallTrigger())
-        {
-            animator.SetTrigger("doRollFall");
-        }
     }
 }

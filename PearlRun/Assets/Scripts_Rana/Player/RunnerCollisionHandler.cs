@@ -11,12 +11,25 @@ public class RunnerCollisionHandler : MonoBehaviour
         runnerController = GetComponent<RunnerController>();
     }
 
+    public void HitByObstacle(float slowMultiplier, float slowDuration)
+    {
+        if (isInvincible)
+            return;
+
+        if (runnerController != null)
+        {
+            runnerController.TakeDamage();
+            runnerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
+            StartCoroutine(InvincibilityFrames());
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (isInvincible)
             return;
 
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             if (runnerController != null)
             {
@@ -27,10 +40,7 @@ public class RunnerCollisionHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.PlayerDied();
-            }
+            RunnerGameManager.instance?.PlayerDied();
         }
     }
 
@@ -38,26 +48,17 @@ public class RunnerCollisionHandler : MonoBehaviour
     {
         if (other.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.PlayerDied();
-            }
+            RunnerGameManager.instance?.PlayerDied();
         }
 
         if (other.CompareTag("Finish"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.LevelComplete();
-            }
+            RunnerGameManager.instance?.LevelComplete();
         }
 
         if (other.CompareTag("Checkpoint"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.SetCheckpoint(transform.position);
-            }
+            RunnerGameManager.instance?.SetCheckpoint(transform.position);
         }
     }
 
@@ -66,15 +67,18 @@ public class RunnerCollisionHandler : MonoBehaviour
         isInvincible = true;
 
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
+
         if (playerRenderer != null)
         {
             float flashTimer = 0f;
+
             while (flashTimer < invincibilityTime)
             {
                 playerRenderer.enabled = !playerRenderer.enabled;
                 yield return new WaitForSeconds(0.1f);
                 flashTimer += 0.1f;
             }
+
             playerRenderer.enabled = true;
         }
         else
