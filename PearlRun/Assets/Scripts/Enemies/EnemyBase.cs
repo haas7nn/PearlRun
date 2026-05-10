@@ -18,7 +18,8 @@ public class EnemyBase : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-		if (isDead) return;
+		if (isDead)
+			return;
 
 		health -= damage;
 
@@ -36,6 +37,7 @@ public class EnemyBase : MonoBehaviour
 			AudioManager.instance.PlayDeath();
 
 		MovingObstacle move = GetComponent<MovingObstacle>();
+
 		if (move != null)
 			move.enabled = false;
 
@@ -44,12 +46,20 @@ public class EnemyBase : MonoBehaviour
 			rb.isKinematic = false;
 			rb.useGravity = true;
 
-			rb.constraints = RigidbodyConstraints.FreezePositionZ |
-							 RigidbodyConstraints.FreezeRotationX |
-							 RigidbodyConstraints.FreezeRotationY;
+			rb.constraints =
+				RigidbodyConstraints.FreezePositionZ |
+				RigidbodyConstraints.FreezeRotationX |
+				RigidbodyConstraints.FreezeRotationY;
 
-			rb.AddForce(Vector3.right * 3f, ForceMode.Impulse);
-			rb.AddTorque(Vector3.forward * 5f, ForceMode.Impulse);
+			rb.AddForce(
+				Vector3.right * 3f,
+				ForceMode.Impulse
+			);
+
+			rb.AddTorque(
+				Vector3.forward * 5f,
+				ForceMode.Impulse
+			);
 		}
 
 		if (col != null)
