@@ -10,7 +10,6 @@ TagManager:
   - Checkpoint
   - PowerUp
   - KillZone
-  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - player
-  - ground
+  - 
+  - 
   - 
   - 
   - 
