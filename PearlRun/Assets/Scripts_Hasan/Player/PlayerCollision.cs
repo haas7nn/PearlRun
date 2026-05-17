@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
         if (playerController == null) return;
 
         // Check if shield power up is active
-        if (powerUpSystem != null && powerUpSystem.IsShieldActive())
+        if (powerUpSystem != null && powerUpSystem.isShieldActive)
             return;
 
         playerController.TakeDamage();
@@ -52,7 +52,7 @@ public class PlayerCollision : MonoBehaviour
         // Obstacle tag damage
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            if (powerUpSystem != null && powerUpSystem.IsShieldActive())
+            if (powerUpSystem != null && powerUpSystem.isShieldActive)
                 return;
 
             playerController.TakeDamage();
