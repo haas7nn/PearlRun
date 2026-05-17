@@ -17,30 +17,33 @@ public class EnemyPatrol : EnemyBase
     {
         if (pointA == null || pointB == null) return;
 
-        // Move enemy
-        transform.position = Vector2.MoveTowards(
+        // Move enemy in 3D space
+        transform.position = Vector3.MoveTowards(
             transform.position,
             target.position,
             speed * Time.deltaTime
         );
 
         // Check if reached waypoint
-        if (Vector2.Distance(transform.position, target.position) < 0.1f)
+        if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
-            // Switch target
             if (target == pointA)
                 target = pointB;
             else
                 target = pointA;
 
-            Flip();
+            FaceTarget();
         }
     }
 
-    void Flip()
+    private void FaceTarget()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0f;
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
     }
 }
