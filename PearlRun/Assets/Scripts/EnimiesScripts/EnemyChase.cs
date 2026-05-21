@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyChase : EnemyBase
 {
+
     [Header("Player")]
     public Transform player;
 
@@ -11,6 +12,10 @@ public class EnemyChase : EnemyBase
     public float chaseSpeed = 4f;
     public float patrolSpeed = 2f;
     public float stoppingDistance = 1.2f;
+
+    [Header("Forced Chase")]
+    public float spawnBehindDistance = 4f;
+    public float spawnHeightOffset = 0f;
 
     [Header("Lose Player")]
     public float losePlayerDelay = 2f;
@@ -94,6 +99,40 @@ public class EnemyChase : EnemyBase
         }
     }
 
+    public void ForceChaseFromBehind()
+    {
+        if (player == null)
+        {
+            GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
+
+            if (foundPlayer != null)
+            {
+                player = foundPlayer.transform;
+            }
+        }
+
+        if (player == null) return;
+
+        // Put enemy directly behind the player
+        Vector3 spawnPosition = player.position - player.forward * spawnBehindDistance;
+        spawnPosition.y = player.position.y + spawnHeightOffset;
+
+        transform.position = spawnPosition;
+
+        // Start chasing immediately
+        isChasing = true;
+        losePlayerTimer = 0f;
+
+        if (patrol != null)
+        {
+            patrol.enabled = false;
+        }
+
+        gameObject.SetActive(true);
+
+        Debug.Log("Enemy appeared behind player and started chasing.");
+    }
+
     private void ChasePlayer()
     {
         Vector3 targetPosition = player.position;
@@ -118,11 +157,13 @@ public class EnemyChase : EnemyBase
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enemy hit the player!");
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
-            // Later: connect this to Player Health
-            // Example:
-            // collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+                Debug.Log("Enemy damaged the player!");
+            }
         }
     }
 
