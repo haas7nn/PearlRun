@@ -145,7 +145,10 @@ public class PowerUpSystem : MonoBehaviour
     // ─────────────────────────────────────────
     //  PUBLIC GETTERS FOR HUD
     // ─────────────────────────────────────────
-
+    public bool IsShieldActive()
+    {
+        return isShieldActive;
+    }
     public bool IsAnyPowerUpActive()
     {
         return isShieldActive || isMagnetActive ||
