@@ -89158,7 +89158,7 @@ MonoBehaviour:
   player: {fileID: 1366243396}
   detectionRange: 4.95
   stopChaseRange: 9.13
-  chaseSpeed: 5.56
+  chaseSpeed: 7.68
   patrolSpeed: 3.94
   stoppingDistance: 1.87
   losePlayerDelay: 3
@@ -108167,7 +108167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793e4666dcb43bf45930047396d6395b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 6
+  moveSpeed: 9
   jumpForce: 7
   doubleJumpForce: 11
   slideTime: 0.6
