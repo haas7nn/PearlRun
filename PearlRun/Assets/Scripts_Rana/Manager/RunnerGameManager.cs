@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +26,10 @@ public class RunnerGameManager : MonoBehaviour
     private Vector3 lastCheckpointPosition;
     private bool hasCheckpoint = false;
 
+    // Cached references — never search the scene again after Start()
+    private RunnerController _player;
+    private ObstacleDamage[] _obstacles;   // FIX: cache all obstacles once
+
     void Awake()
     {
         if (instance == null)
@@ -47,6 +52,16 @@ public class RunnerGameManager : MonoBehaviour
         pearlsCollected = 0;
         timeElapsed = 0f;
         Time.timeScale = 1f;
+
+        // Clear leftover checkpoint from any previous session
+        RunnerProgressSystem.ClearCheckpoint();
+        hasCheckpoint = false;
+
+        // Cache everything once — zero scene scans during gameplay
+        _player = FindAnyObjectByType<RunnerController>();
+        _obstacles = FindObjectsByType<ObstacleDamage>(FindObjectsSortMode.None);
+
+        Debug.Log("RunnerGameManager: cached " + _obstacles.Length + " obstacles.");
     }
 
     void Update()
@@ -56,8 +71,7 @@ public class RunnerGameManager : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
 
-        RunnerController player = FindAnyObjectByType<RunnerController>();
-        if (player != null && player.transform.position.y < -20f)
+        if (_player != null && _player.transform.position.y < -20f)
             PlayerDied();
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -110,24 +124,27 @@ public class RunnerGameManager : MonoBehaviour
 
     void RespawnPlayer()
     {
-        RunnerController player = FindAnyObjectByType<RunnerController>();
-
-        if (player != null)
+        if (_player != null)
         {
             if (hasCheckpoint)
-                player.Respawn(lastCheckpointPosition);
+                _player.Respawn(lastCheckpointPosition);
             else
-            {
-                Vector3 saved = RunnerProgressSystem.LoadCheckpoint();
-                if (saved != Vector3.zero)
-                    player.Respawn(saved);
-                else
-                    player.Respawn(player.transform.position);
-            }
+                _player.Respawn(_player.transform.position);
         }
 
-        foreach (ObstacleDamage obs in FindObjectsByType<ObstacleDamage>(FindObjectsSortMode.None))
-            obs.ResetDamageFlag();
+        StartCoroutine(ResetObstaclesDelayed());
+    }
+
+    private IEnumerator ResetObstaclesDelayed()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        // FIX: use the cached array — no scene scan at all
+        for (int i = 0; i < _obstacles.Length; i++)
+        {
+            if (_obstacles[i] != null)
+                _obstacles[i].ResetDamageFlag();
+        }
     }
 
     public void SetCheckpoint(Vector3 position)
@@ -143,9 +160,8 @@ public class RunnerGameManager : MonoBehaviour
 
         isGameOver = true;
 
-        RunnerController player = FindAnyObjectByType<RunnerController>();
-        if (player != null)
-            player.Die();
+        if (_player != null)
+            _player.Die();
     }
 
     public void FreezeGameAfterDeath()
@@ -173,7 +189,6 @@ public class RunnerGameManager : MonoBehaviour
         PlayerPrefs.SetInt(currentScene + "_Completed", 1);
 
         RunnerProgressSystem.ClearCheckpoint();
-
         PlayerPrefs.Save();
     }
 

@@ -130,6 +130,9 @@ public class RunnerController : MonoBehaviour
     {
         if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
         {
+            Debug.LogWarning("BLOCKED at X=" + transform.position.x +
+                " | isDead=" + isDead +
+                " | isGameOver=" + RunnerGameManager.instance?.isGameOver);
             StopRunningSound();
             return;
         }
@@ -137,12 +140,10 @@ public class RunnerController : MonoBehaviour
         UpdateTimers();
         CheckGround();
         ReadInput();
-
         HandleJump();
         HandleSlide();
         HandleSprint();
         HandleAttack();
-
         UpdateAnimationFlags();
 
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);

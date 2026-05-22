@@ -7,6 +7,10 @@ public static class RunnerProgressSystem
     private const string KEY_Z = "RunnerCheckpoint_Z";
     private const string KEY_HAS = "RunnerCheckpoint_HasSave";
 
+    /// <summary>
+    /// Saves a checkpoint position to PlayerPrefs.
+    /// NOTE: always pass a position whose Z matches the player's lane (see RunnerCheckpoint fix).
+    /// </summary>
     public static void SaveCheckpoint(Vector3 position)
     {
         PlayerPrefs.SetFloat(KEY_X, position.x);
@@ -17,6 +21,9 @@ public static class RunnerProgressSystem
         Debug.Log("RunnerProgressSystem: Saved checkpoint at " + position);
     }
 
+    /// <summary>
+    /// Returns the saved checkpoint position, or Vector3.zero if none exists.
+    /// </summary>
     public static Vector3 LoadCheckpoint()
     {
         if (PlayerPrefs.GetInt(KEY_HAS, 0) == 0)
