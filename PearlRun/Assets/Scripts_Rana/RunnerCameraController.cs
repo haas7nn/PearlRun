@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class RunnerCameraController : MonoBehaviour
 {
     [Header("Target")]
     public Transform target;
@@ -15,7 +15,6 @@ public class CameraController : MonoBehaviour
     public float normalZoom = -10f;
     public float chaseZoom = -14f;
     public float zoomSpeed = 2f;
-    private float currentZoom;
 
     [Header("Screen Shake")]
     private float shakeTimer = 0f;
@@ -24,48 +23,57 @@ public class CameraController : MonoBehaviour
     [Header("Boundaries")]
     public float minY = 2f;
 
+    private float currentZoom;
     private float currentLookAhead = 0f;
     private bool isChaseMode = false;
 
-    void Start()
+    private void Start()
     {
         currentZoom = normalZoom;
 
         if (target == null)
         {
-            PlayerController player = FindAnyObjectByType<PlayerController>();
-            if (player != null)
+            RunnerController runner = FindAnyObjectByType<RunnerController>();
+
+            if (runner != null)
             {
-                target = player.transform;
+                target = runner.transform;
             }
         }
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (target == null)
             return;
 
-        // Calculate look ahead
         float targetLookAhead = lookAheadDistance;
-        currentLookAhead = Mathf.Lerp(currentLookAhead, targetLookAhead, lookAheadSpeed * Time.deltaTime);
+        currentLookAhead = Mathf.Lerp(
+            currentLookAhead,
+            targetLookAhead,
+            lookAheadSpeed * Time.deltaTime
+        );
 
-        // Calculate zoom
         float targetZoom = isChaseMode ? chaseZoom : normalZoom;
-        currentZoom = Mathf.Lerp(currentZoom, targetZoom, zoomSpeed * Time.deltaTime);
+        currentZoom = Mathf.Lerp(
+            currentZoom,
+            targetZoom,
+            zoomSpeed * Time.deltaTime
+        );
 
-        // Calculate target position
         Vector3 desiredPosition = new Vector3(
             target.position.x + offset.x + currentLookAhead,
             Mathf.Max(target.position.y + offset.y, minY),
             currentZoom
         );
 
-        // Smooth follow
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        Vector3 smoothedPosition = Vector3.Lerp(
+            transform.position,
+            desiredPosition,
+            smoothSpeed * Time.deltaTime
+        );
 
-        // Apply screen shake
-        if (shakeTimer > 0)
+        if (shakeTimer > 0f)
         {
             smoothedPosition += Random.insideUnitSphere * shakeIntensity;
             shakeTimer -= Time.deltaTime;
@@ -73,11 +81,6 @@ public class CameraController : MonoBehaviour
 
         transform.position = smoothedPosition;
 
-        // Look at the player with slight offset ahead
-        Vector3 lookTarget = new Vector3(target.position.x + currentLookAhead * 0.5f, target.position.y, target.position.z);
-        transform.LookAt(lookTarget);
-
-        // Override rotation to keep camera level for side-scroller
         transform.rotation = Quaternion.Euler(10f, 0f, 0f);
     }
 

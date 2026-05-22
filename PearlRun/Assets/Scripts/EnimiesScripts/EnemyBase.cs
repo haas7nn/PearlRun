@@ -32,7 +32,8 @@ public class EnemyBase : MonoBehaviour
     // ─────────────────────────────────────
     public virtual void TakeDamage(int amount)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         health -= amount;
 
@@ -49,12 +50,14 @@ public class EnemyBase : MonoBehaviour
     // ─────────────────────────────────────
     protected virtual void Die()
     {
-        if (isDead) return;
+        if (isDead)
+            return;
+
         isDead = true;
 
-        // Disable collider so player cant 
-        // keep hitting dead enemy
+        // Disable collider
         Collider col = GetComponent<Collider>();
+
         if (col != null)
             col.enabled = false;
 
@@ -62,33 +65,34 @@ public class EnemyBase : MonoBehaviour
         if (anim != null)
         {
             anim.SetTrigger("Die");
-            // Destroy after animation plays
+
+            // Destroy after animation
             Destroy(gameObject, 1.5f);
         }
         else
         {
-            // No animator - destroy immediately
             Destroy(gameObject, 0.2f);
         }
     }
 
     // ─────────────────────────────────────
     //  Collision With Player
-    //  Only notify player - let PlayerCollision
-    //  handle the actual damage
     // ─────────────────────────────────────
     private void OnCollisionEnter(Collision collision)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Direct GetComponent - NOT SendMessage
-            PlayerCollision playerCollision =
-                collision.gameObject.GetComponent<PlayerCollision>();
+            RunnerCollisionHandler runnerCollisionHandler =
+                collision.gameObject.GetComponent<RunnerCollisionHandler>();
 
-            if (playerCollision != null)
-                playerCollision.HandleEnemyCollision();
+            if (runnerCollisionHandler != null)
+            {
+                runnerCollisionHandler.SendMessage("DamagePlayer", false,
+                    SendMessageOptions.DontRequireReceiver);
+            }
         }
     }
 }

@@ -15,9 +15,9 @@ public class LevelFinish : MonoBehaviour
 
         finished = true;
 
-        var playerController = other.GetComponent<PlayerController>();
-        if (playerController != null)
-            playerController.enabled = false;
+        var runnerController = other.GetComponent<RunnerController>();
+        if (runnerController != null)
+            runnerController.enabled = false;
 
         var rb = other.GetComponent<Rigidbody>();
         if (rb != null)

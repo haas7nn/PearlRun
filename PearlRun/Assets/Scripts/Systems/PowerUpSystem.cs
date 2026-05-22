@@ -25,26 +25,15 @@ public class PowerUpSystem : MonoBehaviour
     public bool isSlowMotionActive = false;
     public bool isDoublePointsActive = false;
 
-    private PlayerCollision playerCollision;
-
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
 
-    void Start()
-    {
-        playerCollision = GetComponent<PlayerCollision>();
-    }
-
-    void Update()
+    private void Update()
     {
         HandleMagnet();
     }
-
-    // ─────────────────────────────────────────
-    //  ACTIVATE METHODS
-    // ─────────────────────────────────────────
 
     public void ActivateShield()
     {
@@ -70,36 +59,24 @@ public class PowerUpSystem : MonoBehaviour
         StartCoroutine(nameof(DoublePointsRoutine));
     }
 
-    // ─────────────────────────────────────────
-    //  COROUTINES
-    // ─────────────────────────────────────────
-
-    IEnumerator ShieldRoutine()
+    private IEnumerator ShieldRoutine()
     {
         isShieldActive = true;
-
-        // Tell PlayerCollision to ignore damage
-        if (playerCollision != null)
-            playerCollision.SetInvincible(true);
-
         yield return new WaitForSeconds(shieldDuration);
-
         isShieldActive = false;
-
-        if (playerCollision != null)
-            playerCollision.SetInvincible(false);
     }
 
-    IEnumerator MagnetRoutine()
+    private IEnumerator MagnetRoutine()
     {
         isMagnetActive = true;
         yield return new WaitForSeconds(magnetDuration);
         isMagnetActive = false;
     }
 
-    IEnumerator SlowMotionRoutine()
+    private IEnumerator SlowMotionRoutine()
     {
         isSlowMotionActive = true;
+
         Time.timeScale = slowMotionScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
@@ -107,25 +84,22 @@ public class PowerUpSystem : MonoBehaviour
 
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
+
         isSlowMotionActive = false;
     }
 
-    IEnumerator DoublePointsRoutine()
+    private IEnumerator DoublePointsRoutine()
     {
         isDoublePointsActive = true;
         yield return new WaitForSeconds(doublePointsDuration);
         isDoublePointsActive = false;
     }
 
-    // ─────────────────────────────────────────
-    //  MAGNET LOGIC
-    // ─────────────────────────────────────────
-
-    void HandleMagnet()
+    private void HandleMagnet()
     {
-        if (!isMagnetActive) return;
+        if (!isMagnetActive)
+            return;
 
-        // Find all pearls in radius and pull them toward player
         Collider[] pearls = Physics.OverlapSphere(
             transform.position,
             magnetRadius,
@@ -142,14 +116,14 @@ public class PowerUpSystem : MonoBehaviour
         }
     }
 
-    // ─────────────────────────────────────────
-    //  PUBLIC GETTERS FOR HUD
-    // ─────────────────────────────────────────
+    public bool IsShieldActive()
+    {
+        return isShieldActive;
+    }
 
     public bool IsAnyPowerUpActive()
     {
-        return isShieldActive || isMagnetActive ||
-               isSlowMotionActive || isDoublePointsActive;
+        return isShieldActive || isMagnetActive || isSlowMotionActive || isDoublePointsActive;
     }
 
     public string GetActivePowerUpName()
@@ -158,12 +132,12 @@ public class PowerUpSystem : MonoBehaviour
         if (isMagnetActive) return "Magnet";
         if (isSlowMotionActive) return "Slow Motion";
         if (isDoublePointsActive) return "Double Points";
+
         return "";
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
-        // Show magnet radius in editor
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, magnetRadius);
     }

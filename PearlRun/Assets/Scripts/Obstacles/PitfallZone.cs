@@ -7,13 +7,14 @@ public class PitfallZone : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        // Die() is in PlayerController not PlayerCollision
-        PlayerController playerController =
-            other.GetComponent<PlayerController>();
+        // Get RunnerController instead of PlayerController
+        RunnerController runnerController =
+            other.GetComponent<RunnerController>();
 
-        if (playerController != null)
+        if (runnerController != null)
         {
-            playerController.TakeDamage();
+            runnerController.TakeDamage();
+
             Debug.Log("PitfallZone: Player fell into pit!");
         }
     }
