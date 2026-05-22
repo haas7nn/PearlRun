@@ -1,46 +1,44 @@
+using System.Collections;
 using UnityEngine;
 
 public class RunnerCollisionHandler : MonoBehaviour
 {
     private RunnerController runnerController;
+
+    [Header("Invincibility")]
+    public float invincibilityTime = 1.5f;
     private bool isInvincible = false;
-    private float invincibilityTime = 1.5f;
+
+    [Header("Jump Obstacles")]
+    public string jumpObstacleTag = "JumpObstacle";
+    public float obstacleSlowMultiplier = 0.35f;
+    public float obstacleSlowDuration = 0.45f;
+
+    [Header("Landing Check")]
+    public float topHitNormalY = 0.45f;
 
     void Start()
     {
         runnerController = GetComponent<RunnerController>();
     }
 
-    public void HitByObstacle(float slowMultiplier, float slowDuration)
-    {
-        if (isInvincible)
-            return;
-
-        if (runnerController != null)
-        {
-            runnerController.TakeDamage();
-            runnerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
-            StartCoroutine(InvincibilityFrames());
-        }
-    }
-
     void OnCollisionEnter(Collision collision)
     {
-        if (isInvincible)
-            return;
-
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (runnerController != null)
-            {
-                runnerController.TakeDamage();
-                StartCoroutine(InvincibilityFrames());
-            }
-        }
-
         if (collision.gameObject.CompareTag("KillZone"))
         {
             RunnerGameManager.instance?.PlayerDied();
+            return;
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            DamagePlayer(false);
+            return;
+        }
+
+        if (collision.gameObject.CompareTag(jumpObstacleTag))
+        {
+            HandleJumpObstacleCollision(collision);
         }
     }
 
@@ -49,20 +47,85 @@ public class RunnerCollisionHandler : MonoBehaviour
         if (other.CompareTag("KillZone"))
         {
             RunnerGameManager.instance?.PlayerDied();
+            return;
         }
 
         if (other.CompareTag("Finish"))
         {
             RunnerGameManager.instance?.LevelComplete();
+            return;
         }
 
         if (other.CompareTag("Checkpoint"))
         {
             RunnerGameManager.instance?.SetCheckpoint(transform.position);
+            return;
         }
     }
 
-    System.Collections.IEnumerator InvincibilityFrames()
+    void HandleJumpObstacleCollision(Collision collision)
+    {
+        bool landedOnTop = false;
+
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            if (contact.normal.y > topHitNormalY)
+            {
+                landedOnTop = true;
+                break;
+            }
+        }
+
+        if (landedOnTop)
+        {
+            return;
+        }
+
+        DamagePlayer(true);
+    }
+
+    void HandleJumpObstacleTrigger()
+    {
+        if (runnerController == null || runnerController.isDead)
+            return;
+
+        if (isInvincible)
+            return;
+
+        runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
+        StartCoroutine(InvincibilityFrames());
+    }
+
+    void DamagePlayer(bool applySlowdown)
+    {
+        if (isInvincible)
+            return;
+
+        if (runnerController == null || runnerController.isDead)
+            return;
+
+        runnerController.TakeDamage();
+
+        if (applySlowdown)
+            runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
+
+        StartCoroutine(InvincibilityFrames());
+    }
+
+    public void HitByObstacle(float slowMultiplier, float slowDuration)
+    {
+        if (isInvincible)
+            return;
+
+        if (runnerController == null || runnerController.isDead)
+            return;
+
+        runnerController.TakeDamage();
+        runnerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
+        StartCoroutine(InvincibilityFrames());
+    }
+
+    IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
 

@@ -73,6 +73,9 @@ public class RunnerGameManager : MonoBehaviour
     {
         score += points;
         pearlsCollected++;
+
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.AddPearls(1);
     }
 
     public void AddLife()
@@ -114,8 +117,17 @@ public class RunnerGameManager : MonoBehaviour
             if (hasCheckpoint)
                 player.Respawn(lastCheckpointPosition);
             else
-                player.Respawn(player.transform.position);
+            {
+                Vector3 saved = RunnerProgressSystem.LoadCheckpoint();
+                if (saved != Vector3.zero)
+                    player.Respawn(saved);
+                else
+                    player.Respawn(player.transform.position);
+            }
         }
+
+        foreach (ObstacleDamage obs in FindObjectsByType<ObstacleDamage>(FindObjectsSortMode.None))
+            obs.ResetDamageFlag();
     }
 
     public void SetCheckpoint(Vector3 position)
@@ -159,6 +171,9 @@ public class RunnerGameManager : MonoBehaviour
             PlayerPrefs.SetFloat(currentScene + "_BestTime", timeElapsed);
 
         PlayerPrefs.SetInt(currentScene + "_Completed", 1);
+
+        RunnerProgressSystem.ClearCheckpoint();
+
         PlayerPrefs.Save();
     }
 

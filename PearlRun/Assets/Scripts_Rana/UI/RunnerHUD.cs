@@ -24,7 +24,7 @@ public class RunnerHUD : MonoBehaviour
             return;
 
         if (scoreText != null)
-            scoreText.text = "Score: " + RunnerGameManager.instance.score;
+            scoreText.text = "Score: " + ScoreManager.Instance.currentPearls;
 
         if (livesText != null)
             livesText.text = "Lives: " + RunnerGameManager.instance.currentLives;

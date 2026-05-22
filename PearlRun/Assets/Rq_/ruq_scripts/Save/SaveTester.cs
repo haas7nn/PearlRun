@@ -12,7 +12,7 @@ public class SaveTester : MonoBehaviour
         SaveSystem.SaveLevelCompleted(1);
         SaveSystem.UnlockLevel(2);
 
-        CheckpointSystem.SaveCheckpoint(new Vector3(5f, 2f, 0f));
+        RunnerProgressSystem.SaveCheckpoint(new Vector3(5f, 2f, 0f));
 
         Debug.Log("Best Score: " + SaveSystem.LoadBestScore(1));
         Debug.Log("Best Time: " + SaveSystem.LoadBestTime(1));
@@ -20,7 +20,7 @@ public class SaveTester : MonoBehaviour
         Debug.Log("Level 1 Completed: " + SaveSystem.IsLevelCompleted(1));
         Debug.Log("Level 2 Unlocked: " + SaveSystem.IsLevelUnlocked(2));
 
-        Vector3 checkpointPos = CheckpointSystem.LoadCheckpoint();
+        Vector3 checkpointPos = RunnerProgressSystem.LoadCheckpoint();
         Debug.Log("Checkpoint Position: " + checkpointPos);
 
         Debug.Log("=== SAVE SYSTEM TEST END ===");

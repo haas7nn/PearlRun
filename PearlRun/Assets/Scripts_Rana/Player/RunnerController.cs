@@ -4,12 +4,17 @@ public class RunnerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 8f;
-    public float jumpForce = 12f;
-    public float doubleJumpForce = 10f;
+    public float jumpForce = 10f;
+    public float doubleJumpForce = 9f;
     public float slideTime = 0.6f;
     public float sprintMultiplier = 1.5f;
     public float sprintDuration = 2f;
     public float sprintCooldown = 8f;
+
+    [Header("Better Jump")]
+    public float fallMultiplier = 4f;
+    public float lowJumpMultiplier = 2f;
+    public float maxFallSpeed = 22f;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -31,9 +36,9 @@ public class RunnerController : MonoBehaviour
     public float obstacleRecoverDuration = 0.35f;
 
     [Header("Input Feel")]
-    public float jumpBufferTime = 0.12f;
+    public float jumpBufferTime = 0.18f;
     public float actionBufferTime = 0.10f;
-    public float coyoteTime = 0.10f;
+    public float coyoteTime = 0.14f;
 
     [Header("Audio Sources")]
     public AudioSource sfxSource;
@@ -149,6 +154,7 @@ public class RunnerController : MonoBehaviour
         if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
             return;
 
+        BetterJump();
         HandleMovement();
     }
 
@@ -222,13 +228,15 @@ public class RunnerController : MonoBehaviour
         if (jumpBufferTimer <= 0f)
             return;
 
-        if (isSliding || isPunching || isHurt)
+        if (isSliding)
             return;
 
         if ((isGrounded || coyoteTimer > 0f) && jumpCount == 0)
         {
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
+
+            CancelAttackLock();
 
             jumpCount = 1;
             hasReachedApex = false;
@@ -247,6 +255,8 @@ public class RunnerController : MonoBehaviour
         {
             jumpBufferTimer = 0f;
 
+            CancelAttackLock();
+
             jumpCount = 2;
             hasReachedApex = false;
 
@@ -261,9 +271,34 @@ public class RunnerController : MonoBehaviour
         }
     }
 
+    void CancelAttackLock()
+    {
+        isPunching = false;
+        attackAnimTimer = 0f;
+        attackStopTimer = 0f;
+        attackRecoverTimer = 0f;
+    }
+
+    void BetterJump()
+    {
+        if (rb.linearVelocity.y < 0f)
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1f) * Time.fixedDeltaTime;
+        }
+        else if (rb.linearVelocity.y > 0f && !Input.GetKey(KeyCode.Space))
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
+        }
+
+        if (rb.linearVelocity.y < -maxFallSpeed)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, -maxFallSpeed, rb.linearVelocity.z);
+        }
+    }
+
     void HandleSlide()
     {
-        if (slideBufferTimer > 0f && isGrounded && !isSliding && !isPunching && !isJumping && !isDoubleJumping && !isHurt)
+        if (slideBufferTimer > 0f && isGrounded && !isSliding && !isJumping && !isDoubleJumping)
         {
             slideBufferTimer = 0f;
             StartSlide();
@@ -312,7 +347,7 @@ public class RunnerController : MonoBehaviour
         if (attackBufferTimer <= 0f)
             return;
 
-        if (!isGrounded || isSliding || isPunching || isJumping || isDoubleJumping || isHurt)
+        if (!isGrounded || isSliding || isPunching || isJumping || isDoubleJumping)
             return;
 
         attackBufferTimer = 0f;
@@ -539,7 +574,7 @@ public class RunnerController : MonoBehaviour
         PlaySFX(hurtClip);
 
         CancelInvoke(nameof(ResetHurt));
-        Invoke(nameof(ResetHurt), 0.5f);
+        Invoke(nameof(ResetHurt), 0.2f);
 
         RunnerGameManager.instance?.PlayerHit();
     }

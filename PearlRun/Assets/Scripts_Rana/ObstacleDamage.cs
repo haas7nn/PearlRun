@@ -12,15 +12,17 @@ public class ObstacleDamage : MonoBehaviour
         if (hasDamagedPlayer)
             return;
 
-        RunnerCollisionHandler collisionHandler = other.GetComponent<RunnerCollisionHandler>();
+        RunnerCollisionHandler ch = other.GetComponent<RunnerCollisionHandler>()
+                                 ?? other.GetComponentInParent<RunnerCollisionHandler>();
+        if (ch == null)
+            return;
 
-        if (collisionHandler == null)
-            collisionHandler = other.GetComponentInParent<RunnerCollisionHandler>();
+        hasDamagedPlayer = true;
+        ch.HitByObstacle(slowMultiplier, slowDuration);
+    }
 
-        if (collisionHandler != null)
-        {
-            hasDamagedPlayer = true;
-            collisionHandler.HitByObstacle(slowMultiplier, slowDuration);
-        }
+    public void ResetDamageFlag()
+    {
+        hasDamagedPlayer = false;
     }
 }
