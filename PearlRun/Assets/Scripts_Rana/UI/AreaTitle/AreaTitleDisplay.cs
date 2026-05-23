@@ -9,7 +9,7 @@ public class AreaTitleDisplay : MonoBehaviour
 
     [Header("UI References")]
     public TextMeshProUGUI titleText;
-    public RectTransform backgroundRect;   // drag your Background here
+    public RectTransform backgroundRect;
 
     [Header("Timing")]
     public float slideInDuration = 0.4f;
@@ -17,20 +17,24 @@ public class AreaTitleDisplay : MonoBehaviour
     public float slideOutDuration = 0.4f;
 
     [Header("Slide Distance")]
-    public float slideOffsetX = 1400f;   // how far off-screen it starts/ends
+    public float slideOffsetX = 1400f;
+
+    [Header("Audio")]
+    public AudioClip appearSound;      // plays when background slides in
+    public AudioClip disappearSound;   // plays when background slides out
+    [Range(0f, 1f)] public float soundVolume = 1f;
+    public AudioSource audioSource;    // optional, leave empty to use PlayClipAtPoint
 
     private Coroutine _current;
-    private Vector2 _bgStartPos;       // the center position you set in editor
+    private Vector2 _bgStartPos;
 
     void Awake()
     {
         instance = this;
 
-        // Remember the designed center position
         if (backgroundRect != null)
             _bgStartPos = backgroundRect.anchoredPosition;
 
-        // Hide everything at start
         SetVisible(false);
     }
 
@@ -46,10 +50,11 @@ public class AreaTitleDisplay : MonoBehaviour
         titleText.text = text;
         SetVisible(true);
 
-        // ── SLIDE IN (background comes from right) ──
-        Vector2 offRight = _bgStartPos + new Vector2(slideOffsetX, 0f);
+        // Play appear sound
+        PlaySound(appearSound);
 
-        // Start text invisible
+        // ── SLIDE IN ──
+        Vector2 offRight = _bgStartPos + new Vector2(slideOffsetX, 0f);
         SetTextAlpha(0f);
 
         float t = 0f;
@@ -62,7 +67,7 @@ public class AreaTitleDisplay : MonoBehaviour
         }
         backgroundRect.anchoredPosition = _bgStartPos;
 
-        // ── FADE IN text after background lands ──
+        // ── FADE IN text ──
         t = 0f;
         float textFadeIn = 0.25f;
         while (t < textFadeIn)
@@ -76,7 +81,7 @@ public class AreaTitleDisplay : MonoBehaviour
         // ── HOLD ──
         yield return new WaitForSeconds(holdDuration);
 
-        // ── FADE OUT text first ──
+        // ── FADE OUT text ──
         t = 0f;
         float textFadeOut = 0.2f;
         while (t < textFadeOut)
@@ -87,9 +92,11 @@ public class AreaTitleDisplay : MonoBehaviour
         }
         SetTextAlpha(0f);
 
-        // ── SLIDE OUT (background exits to left) ──
-        Vector2 offLeft = _bgStartPos - new Vector2(slideOffsetX, 0f);
+        // Play disappear sound
+        PlaySound(disappearSound);
 
+        // ── SLIDE OUT ──
+        Vector2 offLeft = _bgStartPos - new Vector2(slideOffsetX, 0f);
         t = 0f;
         while (t < slideOutDuration)
         {
@@ -100,10 +107,17 @@ public class AreaTitleDisplay : MonoBehaviour
         }
 
         SetVisible(false);
-
-        // Reset position for next time
         backgroundRect.anchoredPosition = _bgStartPos;
         _current = null;
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip == null) return;
+        if (audioSource != null)
+            audioSource.PlayOneShot(clip, soundVolume);
+        else
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, soundVolume);
     }
 
     private void SetVisible(bool show)

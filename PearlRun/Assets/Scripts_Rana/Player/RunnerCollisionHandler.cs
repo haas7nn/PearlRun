@@ -66,7 +66,6 @@ public class RunnerCollisionHandler : MonoBehaviour
     void HandleJumpObstacleCollision(Collision collision)
     {
         bool landedOnTop = false;
-
         foreach (ContactPoint contact in collision.contacts)
         {
             if (contact.normal.y > topHitNormalY)
@@ -76,21 +75,46 @@ public class RunnerCollisionHandler : MonoBehaviour
             }
         }
 
-        if (landedOnTop)
+        // Clean landing on top — no damage, no nudge
+        if (landedOnTop) return;
+
+        // Direct damage only — bypass invincibility system entirely
+        if (runnerController != null && !runnerController.isDead)
+            runnerController.TakeDamage();
+
+        // Snap to top of obstacle
+        Collider obstacleCol = collision.collider;
+        float obstacleTop = obstacleCol.bounds.max.y;
+        Collider myCol = GetComponent<Collider>();
+        float halfHeight = myCol != null ? myCol.bounds.extents.y : 0.9f;
+
+        Vector3 pos = transform.position;
+        pos.y = obstacleTop + halfHeight;
+        transform.position = pos;
+
+        // Kill vertical velocity
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            return;
+            Vector3 v = rb.linearVelocity;
+            v.y = 0f;
+            rb.linearVelocity = v;
         }
 
-        DamagePlayer(true);
+        // Reset all jump/hurt states instantly
+        runnerController?.ForceGrounded();
+
+        // Kill any running invincibility coroutine
+        StopAllCoroutines();
+        Renderer playerRenderer = GetComponentInChildren<Renderer>();
+        if (playerRenderer != null) playerRenderer.enabled = true;
+        isInvincible = false;
     }
 
     void HandleJumpObstacleTrigger()
     {
-        if (runnerController == null || runnerController.isDead)
-            return;
-
-        if (isInvincible)
-            return;
+        if (runnerController == null || runnerController.isDead) return;
+        if (isInvincible) return;
 
         runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
         StartCoroutine(InvincibilityFrames());
@@ -98,14 +122,10 @@ public class RunnerCollisionHandler : MonoBehaviour
 
     void DamagePlayer(bool applySlowdown)
     {
-        if (isInvincible)
-            return;
-
-        if (runnerController == null || runnerController.isDead)
-            return;
+        if (isInvincible) return;
+        if (runnerController == null || runnerController.isDead) return;
 
         runnerController.TakeDamage();
-
         if (applySlowdown)
             runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
 
@@ -114,11 +134,8 @@ public class RunnerCollisionHandler : MonoBehaviour
 
     public void HitByObstacle(float slowMultiplier, float slowDuration)
     {
-        if (isInvincible)
-            return;
-
-        if (runnerController == null || runnerController.isDead)
-            return;
+        if (isInvincible) return;
+        if (runnerController == null || runnerController.isDead) return;
 
         runnerController.TakeDamage();
         runnerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
@@ -128,20 +145,17 @@ public class RunnerCollisionHandler : MonoBehaviour
     IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
-
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
 
         if (playerRenderer != null)
         {
             float flashTimer = 0f;
-
             while (flashTimer < invincibilityTime)
             {
                 playerRenderer.enabled = !playerRenderer.enabled;
                 yield return new WaitForSeconds(0.1f);
                 flashTimer += 0.1f;
             }
-
             playerRenderer.enabled = true;
         }
         else
