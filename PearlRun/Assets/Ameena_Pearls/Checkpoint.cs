@@ -4,6 +4,7 @@ public class Checkpoint : MonoBehaviour
 {
     public Renderer flagRenderer;
     private bool activated = false;
+    [SerializeField] private AudioSource checkpointAudio;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +24,11 @@ public class Checkpoint : MonoBehaviour
             transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
 
             Debug.Log("Checkpoint Saved");
+        }
+
+        if (checkpointAudio != null)
+        {
+            checkpointAudio.Play();
         }
     }
 }

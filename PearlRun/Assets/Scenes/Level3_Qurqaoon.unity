@@ -359,7 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &3204761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &5324969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &7592392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &10543588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &27436883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &38914995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7494,7 +7494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &113141078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7792,7 +7792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &117910065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7904,7 +7904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &119340041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8203,7 +8203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &121671791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11186,7 +11186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &161633587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11226,7 +11226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &164710988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12024,7 +12024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &176900819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13843,7 +13843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &204552848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14524,7 +14524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &217260691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15286,7 +15286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &232613545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15896,7 +15896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &256106638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16065,7 +16065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &256335236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16959,7 +16959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &268502137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17400,7 +17400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &276028538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18150,7 +18150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &300450508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18233,7 +18233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &302937011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19001,7 +19001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &313640012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19871,7 +19871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &323900999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20282,7 +20282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &327562611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20571,7 +20571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &330359438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20922,7 +20922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &348305186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22260,7 +22260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &382758840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22901,7 +22901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &393214325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23121,7 +23121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &398365013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23891,7 +23891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &409251233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26288,7 +26288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &432464744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26941,7 +26941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &443810396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28455,7 +28455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &468489917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29056,7 +29056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &475329977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29096,7 +29096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &475418573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30109,7 +30109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &493305126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31061,7 +31061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &507954535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31776,7 +31776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &517184699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33440,7 +33440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &531091083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33704,7 +33704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &536243449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36515,7 +36515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &569525292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37200,7 +37200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &576595166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38158,7 +38158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &589559443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38686,7 +38686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &594117065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39593,7 +39593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &607379564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40370,7 +40370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &622214263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40776,7 +40776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &630751535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41287,7 +41287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &635205801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42110,7 +42110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &643616380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42213,7 +42213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &644456940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42253,7 +42253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &645157965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42739,7 +42739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &652717610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42853,7 +42853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &658213220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45702,7 +45702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &692509431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46158,7 +46158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &699032548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47405,7 +47405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &719241699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48515,7 +48515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &734905629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50217,7 +50217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &752476751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51123,7 +51123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &766715971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52820,7 +52820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &793353070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52939,7 +52939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &799958798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53341,7 +53341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &806223516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53871,7 +53871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &811898816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53995,7 +53995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &815378101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56125,7 +56125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &863935045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56153,6 +56153,10 @@ PrefabInstance:
       propertyPath: pearlType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
     - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: collectEffect
       value: 
@@ -58386,7 +58390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &899849022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58817,7 +58821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &901874891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60233,7 +60237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &917126630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60458,7 +60462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &920570197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803590418286029823, guid: 89340c34cb7cd124883d3f31b9835bfd, type: 3}
@@ -60598,7 +60602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7028185250714726009, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 329.1
+      value: 332.2
       objectReference: {fileID: 0}
     - target: {fileID: 7028185250714726009, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -60650,6 +60654,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7692976728218399939, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1289266359}
+    - targetCorrespondingSourceObject: {fileID: 7692976728218399939, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1289266362}
   m_SourcePrefab: {fileID: 100100000, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
 --- !u!1 &926745277
 GameObject:
@@ -61082,7 +61089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &934917879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61425,7 +61432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &939554743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61802,7 +61809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &942427790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64202,7 +64209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &964386267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65098,7 +65105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &977894677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66367,7 +66374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1000512034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68583,7 +68590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1033896472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70275,7 +70282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1059314079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70633,7 +70640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1065165550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70683,7 +70690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1067109606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72981,7 +72988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1111956987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73350,7 +73357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1115962460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73532,7 +73539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1118278892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73667,7 +73674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1126588113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74112,7 +74119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1130276394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75959,7 +75966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1152227941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77062,7 +77069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1172648193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77905,7 +77912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1184359618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78724,7 +78731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1198844948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79127,7 +79134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1206462910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79299,7 +79306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1206795002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79560,7 +79567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1211072819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79871,7 +79878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1217762988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80326,7 +80333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1223707742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83056,7 +83063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1268082318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83503,7 +83510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1272503660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84224,7 +84231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1286388973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84337,6 +84344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
   flagRenderer: {fileID: 1753831897}
+  checkpointAudio: {fileID: 1289266362}
 --- !u!65 &1289266359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84358,6 +84366,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.64, y: 1.67, z: 16.16}
   m_Center: {x: 0, y: 0, z: -5.31}
+--- !u!82 &1289266362
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289266354}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e5a0362637d540245a440dede80c3c48, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1293055994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84593,7 +84698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1294185826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85321,7 +85426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1303850436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86119,6 +86224,10 @@ PrefabInstance:
       propertyPath: pearlType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1281008801818004424, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
     - target: {fileID: 1281008801818004424, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
       propertyPath: collectEffect
       value: 
@@ -86924,7 +87033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1334721146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87718,7 +87827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1344945664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89162,7 +89271,7 @@ MonoBehaviour:
   attackRange: 1
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   breakableLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -89625,7 +89734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1369867548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90872,7 +90981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1391185147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91310,7 +91419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1401932129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93500,7 +93609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1435525440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97834,7 +97943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1488291832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98398,7 +98507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1496916508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100121,7 +100230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1527589814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101801,7 +101910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1551585350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102197,7 +102306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1556613876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103092,7 +103201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1568824700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103939,7 +104048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1581550843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105411,7 +105520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1597583087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106470,6 +106579,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6527092360070023719, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
+    - target: {fileID: 6527092360070023719, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
       propertyPath: collectEffect
       value: 
       objectReference: {fileID: 8129476902046414101, guid: b2b19ec3c2c4de6499789d843bfb02f4, type: 3}
@@ -106547,7 +106660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1629536452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106756,7 +106869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1633185740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107627,7 +107740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1641689571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108177,7 +108290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1645770850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109737,7 +109850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1663033569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112039,6 +112152,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687983297}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1690544817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690544819}
+  - component: {fileID: 1690544818}
+  m_Layer: 0
+  m_Name: Level3_AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1690544818
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690544817}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 577b18baf8a046449870aaf033afaac7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.178
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1690544819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690544817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.63, y: 1.15994, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1690678345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2215780272130632361, guid: cc0ec0b5e67f69a4194d5901231da299, type: 3}
@@ -112210,7 +112452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1696016159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113277,6 +113519,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
+    - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: collectEffect
       value: 
       objectReference: {fileID: 4580576338452538486, guid: 7e38ce476c39ff0479b10d5ac0645e1b, type: 3}
@@ -113420,7 +113666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1711729730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114646,6 +114892,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
+    - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: collectEffect
       value: 
       objectReference: {fileID: 4580576338452538486, guid: 7e38ce476c39ff0479b10d5ac0645e1b, type: 3}
@@ -115055,7 +115305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1737190205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115232,7 +115482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1738282483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115776,7 +116026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1746749096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115884,7 +116134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1749289662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119156,7 +119406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1804037118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119557,7 +119807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1811364691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119987,7 +120237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1817256950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120687,7 +120937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1833001970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121548,7 +121798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1847102612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122782,7 +123032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1867190834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123395,6 +123645,104 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoint
   flagRenderer: {fileID: 81053334}
+  checkpointAudio: {fileID: 1870408481}
+--- !u!82 &1870408481
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870408474}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e5a0362637d540245a440dede80c3c48, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1870821070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
@@ -123419,7 +123767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1870821076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124353,7 +124701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1884871653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124777,7 +125125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1893060361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125041,7 +125389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1895138053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126033,7 +126381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1914122063
 GameObject:
   m_ObjectHideFlags: 0
@@ -126839,6 +127187,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7692976728218399939, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870408477}
+    - targetCorrespondingSourceObject: {fileID: 7692976728218399939, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1870408481}
   m_SourcePrefab: {fileID: 100100000, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
 --- !u!4 &1925244574 stripped
 Transform:
@@ -128600,7 +128951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1948499034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129789,7 +130140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1963502871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130298,7 +130649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1968529145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130502,6 +130853,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
+    - target: {fileID: 1739277764757867979, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: collectEffect
       value: 
       objectReference: {fileID: 4580576338452538486, guid: 7e38ce476c39ff0479b10d5ac0645e1b, type: 3}
@@ -130582,7 +130937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1974477090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130813,7 +131168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1977343333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130983,7 +131338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1979178730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131135,7 +131490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1981054518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132391,7 +132746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1995857820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133755,7 +134110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2023499246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133937,7 +134292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2028741877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134901,7 +135256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2041060318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138473,7 +138828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2102819275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139494,7 +139849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2119611317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139837,7 +140192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2126212452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140287,7 +140642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2133239799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141306,7 +141661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
   pearlType: 0
   collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2144713138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141584,3 +141939,4 @@ SceneRoots:
   - {fileID: 1927072300}
   - {fileID: 886624397}
   - {fileID: 1460609142}
+  - {fileID: 1690544819}
