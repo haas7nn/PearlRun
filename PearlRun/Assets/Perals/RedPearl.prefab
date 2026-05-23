@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c49d8680a91f1b649a72735c5c5ffb6e, type: 2}
+  - {fileID: 2100000, guid: 1d7238180fa8ad14294ff31302b15e45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
+  pearlType: 3
+  collectEffect: {fileID: 0}
+  collectSound: {fileID: 0}
 --- !u!114 &8019943778219507400
 MonoBehaviour:
   m_ObjectHideFlags: 0
