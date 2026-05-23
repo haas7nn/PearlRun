@@ -15,7 +15,7 @@ public class EnemyProjectile : EnemyBase
 
     private void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Awal");
 
         if (playerObject != null)
             player = playerObject.transform;

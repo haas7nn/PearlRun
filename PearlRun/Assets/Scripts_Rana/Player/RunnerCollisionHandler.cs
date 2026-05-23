@@ -75,10 +75,14 @@ public class RunnerCollisionHandler : MonoBehaviour
             }
         }
 
-        // Clean landing on top — no damage, no nudge
-        if (landedOnTop) return;
+        // Clean landing on top — reset jump states and continue running
+        if (landedOnTop)
+        {
+            runnerController?.ForceGrounded();
+            return;
+        }
 
-        // Direct damage only — bypass invincibility system entirely
+        // Side hit — direct damage, bypass invincibility system entirely
         if (runnerController != null && !runnerController.isDead)
             runnerController.TakeDamage();
 

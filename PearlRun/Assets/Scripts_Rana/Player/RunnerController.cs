@@ -196,10 +196,32 @@ public class RunnerController : MonoBehaviour
     {
         wasGrounded = isGrounded;
 
+        LayerMask groundAndObstacle = groundLayer | LayerMask.GetMask("Obstacle");
+
+        bool sphereCheck = false;
+        bool castCheck = false;
+
         if (groundCheck != null)
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
-        else
-            isGrounded = false;
+        {
+            sphereCheck = Physics.CheckSphere(
+                groundCheck.position,
+                groundCheckRadius,
+                groundAndObstacle,
+                QueryTriggerInteraction.Ignore
+            );
+
+            castCheck = Physics.SphereCast(
+                groundCheck.position + Vector3.up * 0.15f,
+                groundCheckRadius,
+                Vector3.down,
+                out RaycastHit hit,
+                0.45f,
+                groundAndObstacle,
+                QueryTriggerInteraction.Ignore
+            );
+        }
+
+        isGrounded = sphereCheck || castCheck;
 
         if (isGrounded)
             coyoteTimer = coyoteTime;
@@ -343,7 +365,7 @@ public class RunnerController : MonoBehaviour
 
         if (attackPoint != null)
         {
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, enemyLayer);
             foreach (Collider enemy in hitEnemies)
                 enemy.GetComponent<EnemyBase>()?.TakeDamage(1);
 
@@ -552,7 +574,6 @@ public class RunnerController : MonoBehaviour
         RunnerGameManager.instance?.PlayerHit();
     }
 
-    // ── NEW ── called after snapping Awal on top of a JumpObstacle
     public void ForceGrounded()
     {
         isJumping = false;
