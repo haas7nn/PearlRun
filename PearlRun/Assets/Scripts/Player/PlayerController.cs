@@ -22,8 +22,17 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask breakableLayer;
 
+    [Header("Player Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource runningAudioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landingSound;
+    [SerializeField] private AudioClip runningSound;
+    [SerializeField] private AudioClip deathSound;
+
     private Rigidbody rb;
     private bool isGrounded;
+    private bool wasGrounded;
     private bool canDoubleJump;
     private bool isSliding;
     private float slideTimer;
@@ -47,6 +56,18 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
 
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        if (runningAudioSource != null && runningSound != null)
+        {
+            runningAudioSource.clip = runningSound;
+            runningAudioSource.loop = true;
+            runningAudioSource.playOnAwake = false;
+        }
+
         if (capsuleCollider != null)
         {
             originalColliderHeight = capsuleCollider.height;
@@ -56,7 +77,6 @@ public class PlayerController : MonoBehaviour
         originalScale = transform.localScale;
         sprintCooldownTimer = 0f;
 
-        // Freeze Z position and all rotations for 2.5D
         rb.constraints = RigidbodyConstraints.FreezePositionZ |
                          RigidbodyConstraints.FreezeRotationX |
                          RigidbodyConstraints.FreezeRotationY |
@@ -66,18 +86,27 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (GameManager.instance != null && GameManager.instance.isGameOver)
+        {
+            StopRunningSound();
             return;
+        }
 
         if (isDead)
+        {
+            StopRunningSound();
             return;
+        }
+
+        wasGrounded = isGrounded;
 
         CheckGround();
+        CheckLandingSound();
         HandleJump();
         HandleSlide();
         HandleSprint();
         HandleAttack();
+        HandleRunningSound();
 
-        // Update animation speed parameter
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
@@ -100,7 +129,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Fallback raycast ground check
             isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
         }
 
@@ -111,19 +139,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void CheckLandingSound()
+    {
+        if (!wasGrounded && isGrounded)
+        {
+            PlaySound(landingSound);
+        }
+    }
+
     void HandleMovement()
     {
         if (isSliding)
             return;
 
-        // Automatic forward movement + player left/right control
         float horizontalInput = Input.GetAxis("Horizontal");
         float speed = moveSpeed;
 
         if (isSprinting)
             speed *= sprintMultiplier;
 
-        // Move right automatically + player can adjust left/right
         float moveX = speed + (horizontalInput * speed * 0.5f);
 
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
@@ -138,24 +172,24 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, 0f);
                 isJumping = true;
                 canDoubleJump = true;
+                PlaySound(jumpSound);
             }
             else if (canDoubleJump)
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, doubleJumpForce, 0f);
                 canDoubleJump = false;
+                PlaySound(jumpSound);
             }
         }
     }
 
     void HandleSlide()
     {
-        // Start slide
         if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
         {
             StartSlide();
         }
 
-        // Slide timer
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
@@ -171,11 +205,14 @@ public class PlayerController : MonoBehaviour
         isSliding = true;
         slideTimer = slideTime;
 
-        // Shrink collider for sliding under obstacles
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight * 0.4f;
-            capsuleCollider.center = new Vector3(originalColliderCenter.x, originalColliderCenter.y * 0.4f, originalColliderCenter.z);
+            capsuleCollider.center = new Vector3(
+                originalColliderCenter.x,
+                originalColliderCenter.y * 0.4f,
+                originalColliderCenter.z
+            );
         }
     }
 
@@ -183,7 +220,6 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = false;
 
-        // Restore collider
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight;
@@ -193,20 +229,17 @@ public class PlayerController : MonoBehaviour
 
     void HandleSprint()
     {
-        // Cooldown timer
         if (sprintCooldownTimer > 0)
         {
             sprintCooldownTimer -= Time.deltaTime;
         }
 
-        // Start sprint
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting && sprintCooldownTimer <= 0)
         {
             isSprinting = true;
             sprintTimer = sprintDuration;
         }
 
-        // Sprint timer
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
@@ -224,7 +257,6 @@ public class PlayerController : MonoBehaviour
         {
             isPunching = true;
 
-            // Detect enemies in range
             if (attackPoint != null)
             {
                 Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
@@ -237,7 +269,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
-                // Detect breakable obstacles
                 Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
                 foreach (Collider breakable in hitBreakables)
                 {
@@ -245,7 +276,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            // Reset punch animation after short delay
             Invoke("ResetPunch", 0.3f);
         }
     }
@@ -276,7 +306,13 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if (isDead)
+            return;
+
         isDead = true;
+        StopRunningSound();
+        PlaySound(deathSound);
+
         rb.linearVelocity = Vector3.zero;
         rb.useGravity = false;
     }
@@ -290,16 +326,50 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
     }
 
+    void HandleRunningSound()
+    {
+        if (runningAudioSource == null || runningSound == null)
+            return;
+
+        bool shouldPlayRunSound = isGrounded && !isSliding && !isDead && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+
+        if (shouldPlayRunSound)
+        {
+            if (!runningAudioSource.isPlaying)
+            {
+                runningAudioSource.Play();
+            }
+        }
+        else
+        {
+            StopRunningSound();
+        }
+    }
+
+    void StopRunningSound()
+    {
+        if (runningAudioSource != null && runningAudioSource.isPlaying)
+        {
+            runningAudioSource.Stop();
+        }
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
-        // Show ground check radius
         if (groundCheck != null)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
-        // Show attack range
         if (attackPoint != null)
         {
             Gizmos.color = Color.red;
