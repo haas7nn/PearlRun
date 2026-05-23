@@ -233,7 +233,9 @@ public class RunnerController : MonoBehaviour
 
         if (!wasGrounded && isGrounded && jumpCount > 0 && hasReachedApex)
         {
-            if (jumpCount >= 2)
+            // Don't fire the heavy-landing animation if the player is hurt —
+            // it conflicts with the Hurt state and freezes the animator.
+            if (jumpCount >= 2 && !isHurt)
                 triggerRollFallOnLand = true;
 
             jumpCount = 0;
@@ -565,6 +567,19 @@ public class RunnerController : MonoBehaviour
         isPunching = false;
         isSliding = false;
 
+        // FIX: clear all airborne / landing flags so the animator
+        // never has Hurt + Jump + DoubleJump + RollFall true at once.
+        isJumping = false;
+        isDoubleJumping = false;
+        jumpCount = 0;
+        hasReachedApex = false;
+        triggerRollFallOnLand = false;
+
+        // FIX: also clear attack timers so movement isn't locked while hurt.
+        attackAnimTimer = 0f;
+        attackStopTimer = 0f;
+        attackRecoverTimer = 0f;
+
         StopSlide();
         PlaySFX(hurtClip);
 
@@ -583,6 +598,10 @@ public class RunnerController : MonoBehaviour
         isGrounded = true;
         isHurt = false;
 
+        // FIX: clear the pending heavy-landing trigger so it
+        // doesn't fire after a forced snap onto an obstacle.
+        triggerRollFallOnLand = false;
+
         CancelInvoke(nameof(ResetHurt));
 
         obstacleSlowTimer = 0f;
@@ -593,6 +612,18 @@ public class RunnerController : MonoBehaviour
     void ResetHurt()
     {
         isHurt = false;
+
+        // FIX: guarantee a clean run state when hurt ends.
+        // Scrub any leftover landing trigger or jump residue that
+        // could re-freeze the animator on the next frame.
+        if (isGrounded)
+        {
+            triggerRollFallOnLand = false;
+            isJumping = false;
+            isDoubleJumping = false;
+            jumpCount = 0;
+            hasReachedApex = false;
+        }
     }
 
     public void Die()
@@ -636,6 +667,7 @@ public class RunnerController : MonoBehaviour
         hasReachedApex = false;
         isGrounded = true;
         wasGrounded = true;
+        triggerRollFallOnLand = false;
 
         jumpBufferTimer = 0f;
         slideBufferTimer = 0f;
