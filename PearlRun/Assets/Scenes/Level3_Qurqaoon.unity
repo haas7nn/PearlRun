@@ -280,6 +280,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -838.08997
@@ -357,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &3204761
 MonoBehaviour:
@@ -1535,6 +1539,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -827.8
@@ -1612,8 +1620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &27436883
 MonoBehaviour:
@@ -2548,6 +2556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -954.32
@@ -2625,8 +2637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &38914995
 MonoBehaviour:
@@ -3820,6 +3832,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -895.84
@@ -4734,6 +4750,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -702.55
@@ -4797,9 +4817,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -886.91
+      value: -887.67
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6942,6 +6966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -919.3
@@ -13972,8 +14000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &204552848
 MonoBehaviour:
@@ -16025,8 +16053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &256106638
 MonoBehaviour:
@@ -16294,6 +16322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -923.82996
@@ -18362,8 +18394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &302937011
 MonoBehaviour:
@@ -19130,8 +19162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &313640012
 MonoBehaviour:
@@ -19381,6 +19413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -852.39
@@ -19444,6 +19480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -745.8
@@ -20000,8 +20040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &323900999
 MonoBehaviour:
@@ -20700,8 +20740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &330359438
 MonoBehaviour:
@@ -22389,8 +22429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &382758840
 MonoBehaviour:
@@ -24020,8 +24060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &409251233
 MonoBehaviour:
@@ -28093,6 +28133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -720.29
@@ -28619,6 +28663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -397.7
@@ -28696,8 +28744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &468489917
 MonoBehaviour:
@@ -29212,109 +29260,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ae354e933211c0c4faa36e0cb8d08f41, type: 3}
   m_PrefabInstance: {fileID: 474923350}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &475329970
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1647949019}
-    m_Modifications:
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -516.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Name
-      value: WhitePearl (117)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 475329973}
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 475329977}
-  m_SourcePrefab: {fileID: 100100000, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
---- !u!4 &475329971 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 475329970}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &475329972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 475329970}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &475329973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475329972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
---- !u!114 &475329977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475329972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a762cb2f1f6a2248afae8a12c56dc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlFloatRotate
-  rotationSpeed: 60
-  floatSpeed: 2
-  floatHeight: 0.25
 --- !u!1 &475418567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
@@ -31145,6 +31090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -928.3
@@ -31302,8 +31251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &507954535
 MonoBehaviour:
@@ -33532,27 +33481,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.91
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34014,8 +33963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &536243449
 MonoBehaviour:
@@ -36839,8 +36788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &569525292
 MonoBehaviour:
@@ -39220,6 +39169,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -978.85
@@ -40128,6 +40081,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -692.7
@@ -42308,7 +42265,7 @@ Transform:
   m_GameObject: {fileID: 639022259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.72, y: 6.76, z: -30.06}
+  m_LocalPosition: {x: 8.32, y: 6, z: -20.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42331,10 +42288,10 @@ MonoBehaviour:
   smoothSpeed: 5
   lookAheadDistance: 3
   lookAheadSpeed: 2
-  normalZoom: -10
+  normalZoom: -5
   chaseZoom: -14
   zoomSpeed: 2
-  minY: 2
+  minY: 3
 --- !u!114 &639022264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42444,6 +42401,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -767.38
@@ -43401,8 +43362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &658213220
 MonoBehaviour:
@@ -46621,109 +46582,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697451274}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &699032541
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1647949019}
-    m_Modifications:
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -519.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Name
-      value: WhitePearl (115)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 699032544}
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 699032548}
-  m_SourcePrefab: {fileID: 100100000, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
---- !u!4 &699032542 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 699032541}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &699032543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 699032541}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &699032544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699032543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
---- !u!114 &699032548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699032543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a762cb2f1f6a2248afae8a12c56dc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlFloatRotate
-  rotationSpeed: 60
-  floatSpeed: 2
-  floatHeight: 0.25
 --- !u!1001 &699433179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47319,6 +47177,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -731.93
@@ -47953,8 +47815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &719241699
 MonoBehaviour:
@@ -50765,8 +50627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &752476751
 MonoBehaviour:
@@ -50860,6 +50722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -647.5
@@ -51671,8 +51537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &766715971
 MonoBehaviour:
@@ -52378,6 +52244,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -687.44
@@ -53368,8 +53238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &793353070
 MonoBehaviour:
@@ -53487,8 +53357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &799958798
 MonoBehaviour:
@@ -54001,8 +53871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &806223516
 MonoBehaviour:
@@ -56932,6 +56802,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -288
@@ -57009,8 +56883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &863935045
 MonoBehaviour:
@@ -57054,6 +56928,18 @@ PrefabInstance:
     - target: {fileID: 5984660977850906882, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_Name
       value: BluePearl
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65214,6 +65100,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -671.3
@@ -67205,8 +67095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1000512034
 MonoBehaviour:
@@ -71844,6 +71734,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -634.7
@@ -74188,8 +74082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1115962460
 MonoBehaviour:
@@ -75658,6 +75552,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -795.2
@@ -76227,6 +76125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -659.32
@@ -77143,6 +77045,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -974.14
@@ -80060,6 +79966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -383.1
@@ -80137,8 +80047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1206795002
 MonoBehaviour:
@@ -80424,6 +80334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -715.79
@@ -81087,6 +81001,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -943.36
@@ -81164,8 +81082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1223707742
 MonoBehaviour:
@@ -84453,8 +84371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1272503660
 MonoBehaviour:
@@ -85174,8 +85092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1286388973
 MonoBehaviour:
@@ -85309,7 +85227,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.64, y: 1.67, z: 16.16}
+  m_Size: {x: 3, y: 19, z: 17}
   m_Center: {x: 0, y: 0, z: -5.31}
 --- !u!82 &1289266362
 AudioSource:
@@ -86776,6 +86694,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -726.79
@@ -87102,6 +87024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -582.54
@@ -87177,6 +87103,18 @@ PrefabInstance:
       propertyPath: collectEffect
       value: 
       objectReference: {fileID: 7252239801448164564, guid: 21ceb1f7d1e7fba4ea05463215b4877f, type: 3}
+    - target: {fileID: 2446984390971852987, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446984390971852987, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446984390971852987, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2446984390971852987, guid: 5adac7ddf970b2f48af94478aa8fe703, type: 3}
       propertyPath: m_LocalPosition.x
       value: -461.3119
@@ -87976,8 +87914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1334721146
 MonoBehaviour:
@@ -90349,7 +90287,7 @@ Transform:
   m_GameObject: {fileID: 1366243388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.86, z: 0}
+  m_LocalPosition: {x: -2.41, y: -0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90975,6 +90913,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -812.69
@@ -92127,8 +92069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1391185147
 MonoBehaviour:
@@ -92415,6 +92357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -879.82
@@ -94987,6 +94933,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -804.61
@@ -99896,8 +99846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1496916508
 MonoBehaviour:
@@ -101619,8 +101569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1527589814
 MonoBehaviour:
@@ -105293,6 +105243,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -862.68
@@ -105901,6 +105855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -698.33
@@ -108090,6 +108048,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8129476902046414101, guid: b2b19ec3c2c4de6499789d843bfb02f4, type: 3}
     - target: {fileID: 7639236845143928482, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639236845143928482, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639236845143928482, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639236845143928482, guid: 9666356ad559cc44cbb92724c31c360f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -195.66
       objectReference: {fileID: 0}
@@ -108370,8 +108340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1633185740
 MonoBehaviour:
@@ -110056,11 +110026,7 @@ Transform:
   - {fileID: 1206794996}
   - {fileID: 1033896466}
   - {fileID: 1130276388}
-  - {fileID: 2023499240}
-  - {fileID: 699032542}
   - {fileID: 1118278886}
-  - {fileID: 475329971}
-  - {fileID: 1711729724}
   - {fileID: 644456934}
   - {fileID: 1893060355}
   - {fileID: 1111956981}
@@ -111386,6 +111352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -363.5
@@ -111463,8 +111433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1663033569
 MonoBehaviour:
@@ -115150,6 +115120,18 @@ PrefabInstance:
       value: BluePearl (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -679.47656
       objectReference: {fileID: 0}
@@ -115194,109 +115176,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
---- !u!1001 &1711729723
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1647949019}
-    m_Modifications:
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -512.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Name
-      value: WhitePearl (118)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1711729726}
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1711729730}
-  m_SourcePrefab: {fileID: 100100000, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
---- !u!4 &1711729724 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 1711729723}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1711729725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 1711729723}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1711729726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711729725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
---- !u!114 &1711729730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711729725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a762cb2f1f6a2248afae8a12c56dc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlFloatRotate
-  rotationSpeed: 60
-  floatSpeed: 2
-  floatHeight: 0.25
 --- !u!1001 &1711925622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115565,6 +115444,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -590.22
@@ -116635,6 +116518,18 @@ PrefabInstance:
       value: BluePearl
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -324.15002
       objectReference: {fileID: 0}
@@ -117207,8 +117102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1738282483
 MonoBehaviour:
@@ -122774,8 +122669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1833001970
 MonoBehaviour:
@@ -123635,8 +123530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1847102612
 MonoBehaviour:
@@ -125469,7 +125364,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.25, y: 1.23, z: 21.23}
+  m_Size: {x: 3, y: 19, z: 17}
   m_Center: {x: 0, y: 0, z: -8.08}
 --- !u!114 &1870408478
 MonoBehaviour:
@@ -132708,6 +132603,18 @@ PrefabInstance:
       value: BluePearl (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -543.2783
       objectReference: {fileID: 0}
@@ -134120,6 +134027,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -599.7
@@ -135862,109 +135773,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023351033}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &2023499239
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1647949019}
-    m_Modifications:
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -519.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Name
-      value: WhitePearl (114)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2023499242}
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2023499246}
-  m_SourcePrefab: {fileID: 100100000, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
---- !u!4 &2023499240 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 2023499239}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2023499241 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 2023499239}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2023499242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023499241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
---- !u!114 &2023499246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023499241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a762cb2f1f6a2248afae8a12c56dc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlFloatRotate
-  rotationSpeed: 60
-  floatSpeed: 2
-  floatHeight: 0.25
 --- !u!1001 &2026316311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136563,6 +136371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -754.67
@@ -141686,8 +141498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2119611317
 MonoBehaviour:
@@ -143533,6 +143345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1647949019}
     m_Modifications:
+    - target: {fileID: 3039056855536809904, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 075e5f73819ef614a83d0352e49b5b1a, type: 2}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -410.4
@@ -143610,8 +143426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982ebff63049dd54b814e55500e846c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PearlCollectible
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
+  pearlType: 4
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2144713138
 MonoBehaviour:
