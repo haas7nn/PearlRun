@@ -97,6 +97,12 @@ public class RunnerGameManager : MonoBehaviour
         currentLives++;
     }
 
+    public void RestoreFullLives()
+    {
+        currentLives = maxLives;
+        currentHits = 0;
+    }
+
     public void PlayerHit()
     {
         if (isGameOver)
