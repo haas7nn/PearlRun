@@ -31,7 +31,7 @@ public class Level3CollisionHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("KillZone"))
         {
-            Level3GameManager.instance?.PlayerDied();
+            Level3RunnerGameManager.instance?.PlayerDied();
             return;
         }
 
@@ -51,7 +51,7 @@ public class Level3CollisionHandler : MonoBehaviour
     {
         if (other.CompareTag("KillZone"))
         {
-            Level3GameManager.instance?.PlayerDied();
+            Level3RunnerGameManager.instance?.PlayerDied();
             return;
         }
 
@@ -63,7 +63,7 @@ public class Level3CollisionHandler : MonoBehaviour
 
         if (other.CompareTag("Checkpoint"))
         {
-            Level3GameManager.instance?.SetCheckpoint(transform.position);
+            Level3RunnerGameManager.instance?.SetCheckpoint(transform.position);
             return;
         }
     }
