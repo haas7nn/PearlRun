@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class VictoryPanelAnimator : MonoBehaviour
+public class Level3VictoryPanelAnimator : MonoBehaviour
 {
     [Header("Texts unique to this panel")]
     public TMP_Text titleText;
@@ -15,20 +15,20 @@ public class VictoryPanelAnimator : MonoBehaviour
     public TMP_Text livesText;
     public TMP_Text gradeText;
 
-    [Header("Stat colors (visual differentiation)")]
-    public Color pearlsColor = new Color(1f, 0.85f, 0.3f);   // gold
-    public Color timeColor = new Color(0.4f, 0.85f, 1f);   // cyan
-    public Color livesColor = new Color(1f, 0.45f, 0.45f);  // red/pink
-    public Color gradeColor = new Color(0.7f, 1f, 0.55f);   // green
+    [Header("Stat colors")]
+    public Color pearlsColor = new Color(1f, 0.85f, 0.3f);
+    public Color timeColor = new Color(0.4f, 0.85f, 1f);
+    public Color livesColor = new Color(1f, 0.45f, 0.45f);
+    public Color gradeColor = new Color(0.7f, 1f, 0.55f);
 
-    [Header("Buttons (order: 0=Left, 1=Center, 2=Right)")]
-    public Button replayButton;     // Left
-    public Button nextLevelButton;  // Center
-    public Button mainMenuButton;   // Right
+    [Header("Buttons")]
+    public Button replayButton;
+    public Button nextLevelButton;
+    public Button mainMenuButton;
 
     [Header("Button highlight")]
     public Color buttonNormalColor = Color.white;
-    public Color buttonSelectedColor = new Color(1f, 0.85f, 0.3f); // gold tint
+    public Color buttonSelectedColor = new Color(1f, 0.85f, 0.3f);
     public float buttonSelectedScale = 1.12f;
 
     [Header("Particle Effect")]
@@ -45,9 +45,9 @@ public class VictoryPanelAnimator : MonoBehaviour
     public float delayBeforeStart = 0.3f;
     public float delayBetweenStats = 0.4f;
     public float popDuration = 0.35f;
-    public float popOvershoot = 1.35f;   // peak scale during pop
+    public float popOvershoot = 1.35f;
 
-    private int selectedIndex = 1;       // start with Center (Next Level)
+    private int selectedIndex = 1;
     private bool inputEnabled = false;
 
     private Button[] buttons;
@@ -55,79 +55,87 @@ public class VictoryPanelAnimator : MonoBehaviour
 
     private void OnEnable()
     {
-        // Title
         if (titleText != null)
             titleText.text = "Awal Made It!";
 
-        // Hide "To Be Continued" until the end
         if (toBeContinuedText != null)
             toBeContinuedText.gameObject.SetActive(false);
 
-        // Particle burst
         if (celebrationParticles != null)
             celebrationParticles.Play();
 
-        // Apply stat colors
         ApplyStatColors();
-
-        // Fill stat values from the live HUD sources
-        FillStatsFromHUDSources();
-
-        // Cache buttons + base scales, init highlight
+        FillStatsFromGameManager();
         SetupButtons();
 
-        // Start the reveal animation
+        StopAllCoroutines();
         StartCoroutine(RevealOneByOne());
     }
 
     private void Update()
     {
-        if (!inputEnabled) return;
+        if (!inputEnabled)
+            return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             MoveSelection(-1);
 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-            MoveSelection(+1);
+            MoveSelection(1);
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter) ||
+            Input.GetKeyDown(KeyCode.Space))
+        {
             ConfirmSelection();
+        }
     }
-
-    // ---------- Setup ----------
 
     private void ApplyStatColors()
     {
-        if (pearlsText != null) pearlsText.color = pearlsColor;
-        if (timeText != null) timeText.color = timeColor;
-        if (livesText != null) livesText.color = livesColor;
-        if (gradeText != null) gradeText.color = gradeColor;
+        if (pearlsText != null)
+            pearlsText.color = pearlsColor;
+
+        if (timeText != null)
+            timeText.color = timeColor;
+
+        if (livesText != null)
+            livesText.color = livesColor;
+
+        if (gradeText != null)
+            gradeText.color = gradeColor;
     }
 
-    private void FillStatsFromHUDSources()
+    private void FillStatsFromGameManager()
     {
-        RunnerGameManager gm = RunnerGameManager.instance;
-        ScoreManager sm = ScoreManager.Instance;
+        Level3RunnerGameManager gm = Level3RunnerGameManager.instance;
 
         if (pearlsText != null)
         {
-            int pearls = (sm != null) ? sm.currentPearls : 0;
+            int pearls = gm != null ? gm.pearlsCollected : 0;
             pearlsText.text = "Score: " + pearls;
         }
 
-        if (timeText != null && gm != null)
+        if (timeText != null)
         {
-            float t = gm.timeElapsed;
+            float t = gm != null ? gm.timeElapsed : 0f;
             int minutes = Mathf.FloorToInt(t / 60f);
             int seconds = Mathf.FloorToInt(t % 60f);
+
             timeText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
-        if (livesText != null && gm != null)
-            livesText.text = "Lives: " + gm.currentLives;
+        if (livesText != null)
+        {
+            int lives = gm != null ? gm.currentLives : 0;
+            livesText.text = "Lives: " + lives;
+        }
 
-        if (gradeText != null && gm != null)
-            gradeText.text = "Grade: " + gm.GetGrade();
+        if (gradeText != null)
+        {
+            string grade = gm != null ? gm.GetGrade() : "C";
+            gradeText.text = "Grade: " + grade;
+        }
     }
 
     private void SetupButtons()
@@ -146,11 +154,10 @@ public class VictoryPanelAnimator : MonoBehaviour
         UpdateButtonHighlight();
     }
 
-    // ---------- Reveal coroutine ----------
-
     private IEnumerator RevealOneByOne()
     {
-        // Hide all stats
+        inputEnabled = false;
+
         Hide(pearlsText);
         Hide(timeText);
         Hide(livesText);
@@ -173,75 +180,86 @@ public class VictoryPanelAnimator : MonoBehaviour
         if (toBeContinuedText != null)
             toBeContinuedText.gameObject.SetActive(true);
 
-        // Allow keyboard input only after everything is shown
         inputEnabled = true;
     }
 
-    private IEnumerator PopIn(TMP_Text t)
+    private IEnumerator PopIn(TMP_Text text)
     {
-        if (t == null) yield break;
+        if (text == null)
+            yield break;
 
-        Transform tr = t.transform;
-        Vector3 baseScale = tr.localScale;
-        if (baseScale == Vector3.zero) baseScale = Vector3.one;
+        Transform textTransform = text.transform;
 
-        tr.localScale = Vector3.zero;
-        t.gameObject.SetActive(true);
+        Vector3 baseScale = textTransform.localScale;
+        if (baseScale == Vector3.zero)
+            baseScale = Vector3.one;
+
+        textTransform.localScale = Vector3.zero;
+        text.gameObject.SetActive(true);
 
         PlaySound(statAppearSound);
 
         float elapsed = 0f;
+
         while (elapsed < popDuration)
         {
             elapsed += Time.unscaledDeltaTime;
-            float p = Mathf.Clamp01(elapsed / popDuration);
-            // Ease-out back: overshoots then settles
-            float s = EaseOutBack(p, popOvershoot);
-            tr.localScale = baseScale * s;
+
+            float progress = Mathf.Clamp01(elapsed / popDuration);
+            float scale = EaseOutBack(progress, popOvershoot);
+
+            textTransform.localScale = baseScale * scale;
+
             yield return null;
         }
 
-        tr.localScale = baseScale;
+        textTransform.localScale = baseScale;
     }
 
     private float EaseOutBack(float t, float overshoot)
     {
-        // Standard "back" easing
         float c1 = (overshoot - 1f) * 2.7f;
         float c3 = c1 + 1f;
         float inv = t - 1f;
+
         return 1f + c3 * inv * inv * inv + c1 * inv * inv;
     }
-
-    // ---------- Keyboard navigation ----------
 
     private void MoveSelection(int direction)
     {
         int newIndex = Mathf.Clamp(selectedIndex + direction, 0, buttons.Length - 1);
-        if (newIndex == selectedIndex) return;
+
+        if (newIndex == selectedIndex)
+            return;
 
         selectedIndex = newIndex;
+
         PlaySound(navMoveSound);
         UpdateButtonHighlight();
     }
 
     private void UpdateButtonHighlight()
     {
+        if (buttons == null || buttonBaseScales == null)
+            return;
+
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (buttons[i] == null) continue;
+            if (buttons[i] == null)
+                continue;
 
-            bool isSelected = (i == selectedIndex);
+            bool isSelected = i == selectedIndex;
 
-            // Scale
             buttons[i].transform.localScale =
                 buttonBaseScales[i] * (isSelected ? buttonSelectedScale : 1f);
 
-            // Color tint via the button's target Image
-            Image img = buttons[i].targetGraphic as Image;
-            if (img == null) img = buttons[i].GetComponent<Image>();
-            if (img != null)
-                img.color = isSelected ? buttonSelectedColor : buttonNormalColor;
+            Image image = buttons[i].targetGraphic as Image;
+
+            if (image == null)
+                image = buttons[i].GetComponent<Image>();
+
+            if (image != null)
+                image.color = isSelected ? buttonSelectedColor : buttonNormalColor;
         }
     }
 
@@ -252,42 +270,60 @@ public class VictoryPanelAnimator : MonoBehaviour
 
         switch (selectedIndex)
         {
-            case 0: OnReplayButton(); break;
-            case 1: OnNextLevelButton(); break;
-            case 2: OnMainMenuButton(); break;
+            case 0:
+                OnReplayButton();
+                break;
+
+            case 1:
+                OnNextLevelButton();
+                break;
+
+            case 2:
+                OnMainMenuButton();
+                break;
         }
     }
 
-    // ---------- Button callbacks (also called by mouse clicks) ----------
-
     public void OnReplayButton()
     {
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.RestartLevel();
+        if (Level3RunnerGameManager.instance != null)
+            Level3RunnerGameManager.instance.RestartLevel();
     }
 
     public void OnNextLevelButton()
     {
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.LoadNextLevel();
+        if (Level3RunnerGameManager.instance != null)
+            Level3RunnerGameManager.instance.LoadNextLevel();
     }
 
     public void OnMainMenuButton()
     {
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.LoadMainMenu();
+        if (Level3RunnerGameManager.instance != null)
+            Level3RunnerGameManager.instance.LoadMainMenu();
     }
-
-    // ---------- Helpers ----------
 
     private void PlaySound(AudioClip clip)
     {
-        if (clip == null) return;
+        if (clip == null)
+            return;
+
         if (sfxSource != null)
+        {
             sfxSource.PlayOneShot(clip, sfxVolume);
+        }
         else
-            AudioSource.PlayClipAtPoint(clip, Camera.main != null ? Camera.main.transform.position : Vector3.zero, sfxVolume);
+        {
+            Vector3 soundPosition = Camera.main != null
+                ? Camera.main.transform.position
+                : Vector3.zero;
+
+            AudioSource.PlayClipAtPoint(clip, soundPosition, sfxVolume);
+        }
     }
 
-    private void Hide(TMP_Text t) { if (t != null) t.gameObject.SetActive(false); }
+    private void Hide(TMP_Text text)
+    {
+        if (text != null)
+            text.gameObject.SetActive(false);
+    }
 }

@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class RunnerCollisionHandler : MonoBehaviour
+public class Level3CollisionHandler : MonoBehaviour
 {
-    private RunnerController runnerController;
+    private Level3PlayerController playerController;
 
     [Header("Invincibility")]
     public float invincibilityTime = 1.5f;
@@ -19,14 +19,19 @@ public class RunnerCollisionHandler : MonoBehaviour
 
     void Start()
     {
-        runnerController = GetComponent<RunnerController>();
+        playerController = GetComponent<Level3PlayerController>();
+
+        if (playerController == null)
+        {
+            Debug.LogWarning("Level3CollisionHandler needs Level3PlayerController on the same Player object.");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("KillZone"))
         {
-            RunnerGameManager.instance?.PlayerDied();
+            Level3GameManager.instance?.PlayerDied();
             return;
         }
 
@@ -46,19 +51,19 @@ public class RunnerCollisionHandler : MonoBehaviour
     {
         if (other.CompareTag("KillZone"))
         {
-            RunnerGameManager.instance?.PlayerDied();
+            Level3GameManager.instance?.PlayerDied();
             return;
         }
 
         if (other.CompareTag("Finish"))
         {
-            RunnerGameManager.instance?.LevelComplete();
+            Level3GameManager.instance?.LevelComplete();
             return;
         }
 
         if (other.CompareTag("Checkpoint"))
         {
-            RunnerGameManager.instance?.SetCheckpoint(transform.position);
+            Level3GameManager.instance?.SetCheckpoint(transform.position);
             return;
         }
     }
@@ -66,6 +71,7 @@ public class RunnerCollisionHandler : MonoBehaviour
     void HandleJumpObstacleCollision(Collision collision)
     {
         bool landedOnTop = false;
+
         foreach (ContactPoint contact in collision.contacts)
         {
             if (contact.normal.y > topHitNormalY)
@@ -75,20 +81,23 @@ public class RunnerCollisionHandler : MonoBehaviour
             }
         }
 
-        // Clean landing on top — reset jump states and continue running
+        // If the player lands cleanly on top of the obstacle
         if (landedOnTop)
         {
-            runnerController?.ForceGrounded();
+            playerController?.ForceGrounded();
             return;
         }
 
-        // Side hit — direct damage, bypass invincibility system entirely
-        if (runnerController != null && !runnerController.isDead)
-            runnerController.TakeDamage();
+        // If the player hits the side of the obstacle
+        if (playerController != null && !playerController.isDead)
+        {
+            playerController.TakeDamage();
+        }
 
-        // Snap to top of obstacle
+        // Move player to the top of the obstacle so they do not get stuck inside it
         Collider obstacleCol = collision.collider;
         float obstacleTop = obstacleCol.bounds.max.y;
+
         Collider myCol = GetComponent<Collider>();
         float halfHeight = myCol != null ? myCol.bounds.extents.y : 0.9f;
 
@@ -96,70 +105,80 @@ public class RunnerCollisionHandler : MonoBehaviour
         pos.y = obstacleTop + halfHeight;
         transform.position = pos;
 
-        // Kill vertical velocity
+        // Stop vertical movement
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 v = rb.linearVelocity;
-            v.y = 0f;
-            rb.linearVelocity = v;
+            Vector3 velocity = rb.linearVelocity;
+            velocity.y = 0f;
+            rb.linearVelocity = velocity;
         }
 
-        // Reset all jump/hurt states instantly
-        runnerController?.ForceGrounded();
+        // Reset jump and hurt states
+        playerController?.ForceGrounded();
 
-        // Kill any running invincibility coroutine
+        // Stop invincibility flashing if it was active
         StopAllCoroutines();
+
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
-        if (playerRenderer != null) playerRenderer.enabled = true;
+        if (playerRenderer != null)
+        {
+            playerRenderer.enabled = true;
+        }
+
         isInvincible = false;
-    }
-
-    void HandleJumpObstacleTrigger()
-    {
-        if (runnerController == null || runnerController.isDead) return;
-        if (isInvincible) return;
-
-        runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
-        StartCoroutine(InvincibilityFrames());
     }
 
     void DamagePlayer(bool applySlowdown)
     {
-        if (isInvincible) return;
-        if (runnerController == null || runnerController.isDead) return;
+        if (isInvincible)
+            return;
 
-        runnerController.TakeDamage();
+        if (playerController == null || playerController.isDead)
+            return;
+
+        playerController.TakeDamage();
+
         if (applySlowdown)
-            runnerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
+        {
+            playerController.ApplyObstacleSlowdown(obstacleSlowMultiplier, obstacleSlowDuration);
+        }
 
         StartCoroutine(InvincibilityFrames());
     }
 
     public void HitByObstacle(float slowMultiplier, float slowDuration)
     {
-        if (isInvincible) return;
-        if (runnerController == null || runnerController.isDead) return;
+        if (isInvincible)
+            return;
 
-        runnerController.TakeDamage();
-        runnerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
+        if (playerController == null || playerController.isDead)
+            return;
+
+        playerController.TakeDamage();
+        playerController.ApplyObstacleSlowdown(slowMultiplier, slowDuration);
+
         StartCoroutine(InvincibilityFrames());
     }
 
     IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
+
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
 
         if (playerRenderer != null)
         {
             float flashTimer = 0f;
+
             while (flashTimer < invincibilityTime)
             {
                 playerRenderer.enabled = !playerRenderer.enabled;
+
                 yield return new WaitForSeconds(0.1f);
                 flashTimer += 0.1f;
             }
+
             playerRenderer.enabled = true;
         }
         else

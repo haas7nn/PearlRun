@@ -1,46 +1,56 @@
 using UnityEngine;
 using System.Collections;
 
-public class RunnerAnimationHandler : MonoBehaviour
+public class Level3AnimationHandler : MonoBehaviour
 {
     private Animator animator;
-    private RunnerController runnerController;
+    private Level3PlayerController playerController;
     private bool isPlayingRollFall;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        runnerController = GetComponent<RunnerController>();
+        playerController = GetComponent<Level3PlayerController>();
+
+        if (animator == null)
+        {
+            Debug.LogWarning("Level3AnimationHandler: Animator was not found in children.");
+        }
+
+        if (playerController == null)
+        {
+            Debug.LogWarning("Level3AnimationHandler: Level3PlayerController was not found on this GameObject.");
+        }
     }
 
     void Update()
     {
-        if (animator == null || runnerController == null)
+        if (animator == null || playerController == null)
             return;
 
-        bool dead = runnerController.isDead;
-        bool hurt = runnerController.isHurt && !dead;
+        bool dead = playerController.isDead;
+        bool hurt = playerController.isHurt && !dead;
 
         bool rollFall = isPlayingRollFall && !dead && !hurt;
 
         bool slide =
-            runnerController.IsSliding &&
-            runnerController.IsGrounded &&
+            playerController.IsSliding &&
+            playerController.IsGrounded &&
             !dead &&
             !hurt &&
             !rollFall;
 
         bool punch =
-            runnerController.isPunching &&
-            runnerController.IsGrounded &&
+            playerController.isPunching &&
+            playerController.IsGrounded &&
             !dead &&
             !hurt &&
             !slide &&
             !rollFall;
 
         bool doubleJump =
-            runnerController.isDoubleJumping &&
-            !runnerController.IsGrounded &&
+            playerController.isDoubleJumping &&
+            !playerController.IsGrounded &&
             !dead &&
             !hurt &&
             !slide &&
@@ -48,8 +58,8 @@ public class RunnerAnimationHandler : MonoBehaviour
             !rollFall;
 
         bool jump =
-            runnerController.isJumping &&
-            !runnerController.IsGrounded &&
+            playerController.isJumping &&
+            !playerController.IsGrounded &&
             !doubleJump &&
             !dead &&
             !hurt &&
@@ -58,8 +68,8 @@ public class RunnerAnimationHandler : MonoBehaviour
             !rollFall;
 
         bool runBack =
-            runnerController.isRunningBackward &&
-            runnerController.IsGrounded &&
+            playerController.isRunningBackward &&
+            playerController.IsGrounded &&
             !dead &&
             !hurt &&
             !slide &&
@@ -68,7 +78,7 @@ public class RunnerAnimationHandler : MonoBehaviour
             !doubleJump &&
             !rollFall;
 
-        animator.SetFloat("speed", runnerController.currentSpeed, 0.08f, Time.deltaTime);
+        animator.SetFloat("speed", playerController.currentSpeed, 0.08f, Time.deltaTime);
 
         animator.SetBool("isDead", dead);
         animator.SetBool("isHurt", hurt);
@@ -79,8 +89,10 @@ public class RunnerAnimationHandler : MonoBehaviour
         animator.SetBool("isRunningBackward", runBack);
         animator.SetBool("isRollFall", rollFall);
 
-        if (runnerController.ConsumeRollFallTrigger() && !isPlayingRollFall && !dead && !hurt)
+        if (playerController.ConsumeRollFallTrigger() && !isPlayingRollFall && !dead && !hurt)
+        {
             StartCoroutine(PlayRollFall());
+        }
     }
 
     IEnumerator PlayRollFall()

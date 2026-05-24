@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class Level3GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static Level3GameManager instance;
 
     [Header("Game State")]
     public bool isGameOver = false;
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
     private Vector3 lastCheckpointPosition;
     private bool hasCheckpoint = false;
 
+    private PlayerController player;
+    private ObstacleHitTrigger[] obstacles;
+
     void Awake()
     {
         if (instance == null)
@@ -42,13 +46,22 @@ public class GameManager : MonoBehaviour
     {
         currentLives = maxLives;
         currentHits = 0;
+
         isGameOver = false;
         isLevelComplete = false;
         isPaused = false;
+
         score = 0;
         pearlsCollected = 0;
         timeElapsed = 0f;
+
         Time.timeScale = 1f;
+
+        player = FindAnyObjectByType<PlayerController>();
+        obstacles = FindObjectsByType<ObstacleHitTrigger>(FindObjectsSortMode.None);
+
+        Debug.Log("GameManager: found player = " + (player != null));
+        Debug.Log("GameManager: cached obstacles = " + obstacles.Length);
     }
 
     void Update()
@@ -56,16 +69,14 @@ public class GameManager : MonoBehaviour
         if (isGameOver || isLevelComplete)
             return;
 
-        // Track time
         timeElapsed += Time.deltaTime;
 
-        // Safety check - if player falls too far, kill them
-        PlayerController player = FindAnyObjectByType<PlayerController>();
+        // If player falls too far, count it as death
         if (player != null && player.transform.position.y < -20f)
         {
             PlayerDied();
         }
-        // Pause toggle
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -113,14 +124,15 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Respawn at checkpoint
             RespawnPlayer();
         }
     }
 
     void RespawnPlayer()
     {
-        PlayerController player = FindAnyObjectByType<PlayerController>();
+        if (player == null)
+            player = FindAnyObjectByType<PlayerController>();
+
         if (player != null)
         {
             if (hasCheckpoint)
@@ -129,9 +141,24 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                // Respawn at start of level
                 player.Respawn(player.transform.position);
             }
+        }
+
+        StartCoroutine(ResetObstaclesAfterRespawn());
+    }
+
+    private IEnumerator ResetObstaclesAfterRespawn()
+    {
+        yield return new WaitForSeconds(0.15f);
+
+        if (obstacles == null || obstacles.Length == 0)
+            obstacles = FindObjectsByType<ObstacleHitTrigger>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            if (obstacles[i] != null)
+                obstacles[i].ResetHit();
         }
     }
 
@@ -143,14 +170,20 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
-        Time.timeScale = 0f;
+        if (isGameOver)
+            return;
 
-        PlayerController player = FindAnyObjectByType<PlayerController>();
+        isGameOver = true;
+
+        if (player == null)
+            player = FindAnyObjectByType<PlayerController>();
+
         if (player != null)
         {
             player.Die();
         }
+
+        Time.timeScale = 0f;
     }
 
     public void LevelComplete()
@@ -160,8 +193,8 @@ public class GameManager : MonoBehaviour
 
         isLevelComplete = true;
 
-        // Save level data
         string currentScene = SceneManager.GetActiveScene().name;
+
         int bestScore = PlayerPrefs.GetInt(currentScene + "_BestScore", 0);
         if (score > bestScore)
         {
@@ -200,7 +233,9 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         Time.timeScale = 1f;
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             instance = null;
@@ -229,7 +264,6 @@ public class GameManager : MonoBehaviour
 
     public string GetGrade()
     {
-        // Simple grading based on lives remaining and pearls
         if (currentLives == maxLives && pearlsCollected > 50)
             return "S";
         else if (currentLives >= 2 && pearlsCollected > 30)

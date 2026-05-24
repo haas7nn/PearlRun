@@ -1,14 +1,20 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCollision : MonoBehaviour
 {
-    private PlayerController playerController;
+    private Level3PlayerController playerController;
     private bool isInvincible = false;
     private float invincibilityTime = 1.5f;
 
     void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        playerController = GetComponent<Level3PlayerController>();
+
+        if (playerController == null)
+        {
+            Debug.LogWarning("PlayerCollision needs Level3PlayerController on the same Player object.");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -27,9 +33,9 @@ public class PlayerCollision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
+            if (Level3RunnerGameManager.instance != null)
             {
-                GameManager.instance.PlayerDied();
+                Level3RunnerGameManager.instance.PlayerDied();
             }
         }
     }
@@ -38,44 +44,46 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
+            if (Level3RunnerGameManager.instance != null)
             {
-                GameManager.instance.PlayerDied();
+                Level3RunnerGameManager.instance.PlayerDied();
             }
         }
 
         if (other.CompareTag("Finish"))
         {
-            if (GameManager.instance != null)
+            if (Level3RunnerGameManager.instance != null)
             {
-                GameManager.instance.LevelComplete();
+                Level3RunnerGameManager.instance.LevelComplete();
             }
         }
 
         if (other.CompareTag("Checkpoint"))
         {
-            if (GameManager.instance != null)
+            if (Level3RunnerGameManager.instance != null)
             {
-                GameManager.instance.SetCheckpoint(transform.position);
+                Level3RunnerGameManager.instance.SetCheckpoint(transform.position);
             }
         }
     }
 
-    System.Collections.IEnumerator InvincibilityFrames()
+    IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
 
-        // Flash the player to show invincibility
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
+
         if (playerRenderer != null)
         {
             float flashTimer = 0f;
+
             while (flashTimer < invincibilityTime)
             {
                 playerRenderer.enabled = !playerRenderer.enabled;
                 yield return new WaitForSeconds(0.1f);
                 flashTimer += 0.1f;
             }
+
             playerRenderer.enabled = true;
         }
         else

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,17 +39,18 @@ public class PlayerController : MonoBehaviour
     private bool isSprinting;
     private float sprintTimer;
     private float sprintCooldownTimer;
-    private Vector3 originalScale;
     private CapsuleCollider capsuleCollider;
     private float originalColliderHeight;
     private Vector3 originalColliderCenter;
 
-    // Animation parameters
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isPunching;
     [HideInInspector] public bool isHurt;
     [HideInInspector] public bool isDead;
     [HideInInspector] public float currentSpeed;
+
+    public bool IsSliding => isSliding;
+    public bool IsGrounded => isGrounded;
 
     void Start()
     {
@@ -57,9 +58,7 @@ public class PlayerController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         if (audioSource == null)
-        {
             audioSource = GetComponent<AudioSource>();
-        }
 
         if (runningAudioSource != null && runningSound != null)
         {
@@ -74,18 +73,20 @@ public class PlayerController : MonoBehaviour
             originalColliderCenter = capsuleCollider.center;
         }
 
-        originalScale = transform.localScale;
         sprintCooldownTimer = 0f;
 
-        rb.constraints = RigidbodyConstraints.FreezePositionZ |
-                         RigidbodyConstraints.FreezeRotationX |
-                         RigidbodyConstraints.FreezeRotationY |
-                         RigidbodyConstraints.FreezeRotationZ;
+        if (rb != null)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionZ |
+                             RigidbodyConstraints.FreezeRotationX |
+                             RigidbodyConstraints.FreezeRotationY |
+                             RigidbodyConstraints.FreezeRotationZ;
+        }
     }
 
     void Update()
     {
-        if (GameManager.instance != null && GameManager.instance.isGameOver)
+        if (Level3RunnerGameManager.instance != null && Level3RunnerGameManager.instance.isGameOver)
         {
             StopRunningSound();
             return;
@@ -107,12 +108,13 @@ public class PlayerController : MonoBehaviour
         HandleAttack();
         HandleRunningSound();
 
-        currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+        if (rb != null)
+            currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
     void FixedUpdate()
     {
-        if (GameManager.instance != null && GameManager.instance.isGameOver)
+        if (Level3RunnerGameManager.instance != null && Level3RunnerGameManager.instance.isGameOver)
             return;
 
         if (isDead)
@@ -125,11 +127,20 @@ public class PlayerController : MonoBehaviour
     {
         if (groundCheck != null)
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+            isGrounded = Physics.CheckSphere(
+                groundCheck.position,
+                groundCheckRadius,
+                groundLayer
+            );
         }
         else
         {
-            isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
+            isGrounded = Physics.Raycast(
+                transform.position,
+                Vector3.down,
+                1.1f,
+                groundLayer
+            );
         }
 
         if (isGrounded)
@@ -149,6 +160,9 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
+        if (rb == null)
+            return;
+
         if (isSliding)
             return;
 
@@ -165,6 +179,9 @@ public class PlayerController : MonoBehaviour
 
     void HandleJump()
     {
+        if (rb == null)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
@@ -193,6 +210,7 @@ public class PlayerController : MonoBehaviour
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
+
             if (slideTimer <= 0)
             {
                 StopSlide();
@@ -243,6 +261,7 @@ public class PlayerController : MonoBehaviour
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
+
             if (sprintTimer <= 0)
             {
                 isSprinting = false;
@@ -260,9 +279,11 @@ public class PlayerController : MonoBehaviour
             if (attackPoint != null)
             {
                 Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+
                 foreach (Collider enemy in hitEnemies)
                 {
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+
                     if (enemyScript != null)
                     {
                         enemyScript.TakeDamage(1);
@@ -270,13 +291,14 @@ public class PlayerController : MonoBehaviour
                 }
 
                 Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
+
                 foreach (Collider breakable in hitBreakables)
                 {
                     Destroy(breakable.gameObject);
                 }
             }
 
-            Invoke("ResetPunch", 0.3f);
+            Invoke(nameof(ResetPunch), 0.3f);
         }
     }
 
@@ -291,11 +313,11 @@ public class PlayerController : MonoBehaviour
             return;
 
         isHurt = true;
-        Invoke("ResetHurt", 0.5f);
+        Invoke(nameof(ResetHurt), 0.5f);
 
-        if (GameManager.instance != null)
+        if (Level3RunnerGameManager.instance != null)
         {
-            GameManager.instance.PlayerHit();
+            Level3RunnerGameManager.instance.PlayerHit();
         }
     }
 
@@ -310,28 +332,67 @@ public class PlayerController : MonoBehaviour
             return;
 
         isDead = true;
+
         StopRunningSound();
         PlaySound(deathSound);
 
-        rb.linearVelocity = Vector3.zero;
-        rb.useGravity = false;
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.useGravity = false;
+        }
     }
 
     public void Respawn(Vector3 respawnPosition)
     {
         isDead = false;
         isHurt = false;
-        rb.useGravity = true;
+        isJumping = false;
+        isPunching = false;
+        isSliding = false;
+
+        if (rb != null)
+        {
+            rb.useGravity = true;
+            rb.linearVelocity = Vector3.zero;
+        }
+
         transform.position = respawnPosition;
-        rb.linearVelocity = Vector3.zero;
+
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.height = originalColliderHeight;
+            capsuleCollider.center = originalColliderCenter;
+        }
+    }
+
+    public void ForceGrounded()
+    {
+        isGrounded = true;
+        isJumping = false;
+        isHurt = false;
+        canDoubleJump = true;
+    }
+
+    public void ApplyObstacleSlowdown(float slowMultiplier, float slowDuration)
+    {
+        // هذا موجود عشان أي سكربت ثاني يناديه وما يطلع Error
+        // إذا نحتاجه فعليًا بعدين، نضيف نظام التبطئة.
     }
 
     void HandleRunningSound()
     {
+        if (rb == null)
+            return;
+
         if (runningAudioSource == null || runningSound == null)
             return;
 
-        bool shouldPlayRunSound = isGrounded && !isSliding && !isDead && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        bool shouldPlayRunSound =
+            isGrounded &&
+            !isSliding &&
+            !isDead &&
+            Mathf.Abs(rb.linearVelocity.x) > 0.1f;
 
         if (shouldPlayRunSound)
         {

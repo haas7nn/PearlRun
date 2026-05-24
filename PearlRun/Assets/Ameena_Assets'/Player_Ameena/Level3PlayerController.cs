@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class RunnerController : MonoBehaviour
+public class Level3PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed = 8f;
@@ -111,6 +111,13 @@ public class RunnerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
 
+        if (rb == null)
+        {
+            Debug.LogError("Level3PlayerController needs a Rigidbody on the Player.");
+            enabled = false;
+            return;
+        }
+
         if (capsuleCollider != null)
         {
             originalColliderHeight = capsuleCollider.height;
@@ -128,7 +135,7 @@ public class RunnerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
+        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
         {
             StopRunningSound();
             return;
@@ -149,7 +156,7 @@ public class RunnerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDead || (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver))
+        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
             return;
 
         BetterJump();
@@ -177,6 +184,7 @@ public class RunnerController : MonoBehaviour
         if (attackAnimTimer > 0f)
         {
             attackAnimTimer -= Time.deltaTime;
+
             if (attackAnimTimer <= 0f)
                 isPunching = false;
         }
@@ -233,8 +241,6 @@ public class RunnerController : MonoBehaviour
 
         if (!wasGrounded && isGrounded && jumpCount > 0 && hasReachedApex)
         {
-            // Don't fire the heavy-landing animation if the player is hurt —
-            // it conflicts with the Hurt state and freezes the animator.
             if (jumpCount >= 2 && !isHurt)
                 triggerRollFallOnLand = true;
 
@@ -254,6 +260,7 @@ public class RunnerController : MonoBehaviour
         {
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
+
             CancelAttackLock();
 
             jumpCount = 1;
@@ -271,6 +278,7 @@ public class RunnerController : MonoBehaviour
         else if (!isGrounded && jumpCount == 1)
         {
             jumpBufferTimer = 0f;
+
             CancelAttackLock();
 
             jumpCount = 2;
@@ -297,12 +305,18 @@ public class RunnerController : MonoBehaviour
     void BetterJump()
     {
         if (rb.linearVelocity.y < 0f)
+        {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1f) * Time.fixedDeltaTime;
+        }
         else if (rb.linearVelocity.y > 0f && !Input.GetKey(KeyCode.Space))
+        {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
+        }
 
         if (rb.linearVelocity.y < -maxFallSpeed)
+        {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, -maxFallSpeed, rb.linearVelocity.z);
+        }
     }
 
     void HandleSlide()
@@ -316,6 +330,7 @@ public class RunnerController : MonoBehaviour
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
+
             if (slideTimer <= 0f)
                 StopSlide();
         }
@@ -357,6 +372,7 @@ public class RunnerController : MonoBehaviour
         if (!isGrounded || isSliding || isPunching || isJumping || isDoubleJumping) return;
 
         attackBufferTimer = 0f;
+
         isPunching = true;
         attackAnimTimer = attackAnimationDuration;
         attackStopTimer = attackStopDuration;
@@ -367,19 +383,30 @@ public class RunnerController : MonoBehaviour
 
         if (attackPoint != null)
         {
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, enemyLayer);
+            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+
             foreach (Collider enemy in hitEnemies)
+            {
                 enemy.GetComponent<EnemyBase>()?.TakeDamage(1);
+            }
 
             Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
-            foreach (Collider b in hitBreakables)
-                Destroy(b.gameObject);
+
+            foreach (Collider breakableObject in hitBreakables)
+            {
+                Destroy(breakableObject.gameObject);
+            }
         }
     }
 
     void HandleSprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded && !isSprinting && sprintCooldownTimer <= 0f && !isSliding && !isPunching)
+        if (Input.GetKeyDown(KeyCode.LeftShift) &&
+            isGrounded &&
+            !isSprinting &&
+            sprintCooldownTimer <= 0f &&
+            !isSliding &&
+            !isPunching)
         {
             isSprinting = true;
             sprintTimer = sprintDuration;
@@ -388,6 +415,7 @@ public class RunnerController : MonoBehaviour
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
+
             if (sprintTimer <= 0f || !isGrounded)
             {
                 isSprinting = false;
@@ -398,17 +426,21 @@ public class RunnerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if (isSliding) return;
+        if (isSliding)
+            return;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float speed = moveSpeed;
 
-        if (isSprinting) speed *= sprintMultiplier;
+        if (isSprinting)
+            speed *= sprintMultiplier;
 
         float attackSpeedMultiplier = 1f;
 
         if (attackStopTimer > 0f)
+        {
             attackSpeedMultiplier = 0f;
+        }
         else if (attackRecoverTimer > 0f)
         {
             float t = 1f - (attackRecoverTimer / attackRecoverDuration);
@@ -416,6 +448,7 @@ public class RunnerController : MonoBehaviour
         }
 
         float totalMultiplier = attackSpeedMultiplier * obstacleCurrentMultiplier;
+
         float moveX = (speed + horizontalInput * speed * 0.5f) * totalMultiplier;
 
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
@@ -449,6 +482,7 @@ public class RunnerController : MonoBehaviour
         else if (obstacleRecoverTimer > 0f)
         {
             obstacleRecoverTimer -= Time.deltaTime;
+
             float t = 1f - (obstacleRecoverTimer / obstacleRecoverDuration);
             obstacleCurrentMultiplier = Mathf.Lerp(obstacleStartRecoverMultiplier, 1f, t);
 
@@ -529,7 +563,8 @@ public class RunnerController : MonoBehaviour
 
     void PlayBackgroundMusic()
     {
-        if (musicSource == null || backgroundMusic == null) return;
+        if (musicSource == null || backgroundMusic == null)
+            return;
 
         musicSource.clip = backgroundMusic;
         musicSource.volume = musicVolume;
@@ -546,6 +581,7 @@ public class RunnerController : MonoBehaviour
             triggerRollFallOnLand = false;
             return true;
         }
+
         return false;
     }
 
@@ -561,21 +597,19 @@ public class RunnerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         isHurt = true;
         isPunching = false;
         isSliding = false;
 
-        // FIX: clear all airborne / landing flags so the animator
-        // never has Hurt + Jump + DoubleJump + RollFall true at once.
         isJumping = false;
         isDoubleJumping = false;
         jumpCount = 0;
         hasReachedApex = false;
         triggerRollFallOnLand = false;
 
-        // FIX: also clear attack timers so movement isn't locked while hurt.
         attackAnimTimer = 0f;
         attackStopTimer = 0f;
         attackRecoverTimer = 0f;
@@ -586,7 +620,7 @@ public class RunnerController : MonoBehaviour
         CancelInvoke(nameof(ResetHurt));
         Invoke(nameof(ResetHurt), 0.2f);
 
-        RunnerGameManager.instance?.PlayerHit();
+        Level3GameManager.instance?.PlayerHit();
     }
 
     public void ForceGrounded()
@@ -598,8 +632,6 @@ public class RunnerController : MonoBehaviour
         isGrounded = true;
         isHurt = false;
 
-        // FIX: clear the pending heavy-landing trigger so it
-        // doesn't fire after a forced snap onto an obstacle.
         triggerRollFallOnLand = false;
 
         CancelInvoke(nameof(ResetHurt));
@@ -613,9 +645,6 @@ public class RunnerController : MonoBehaviour
     {
         isHurt = false;
 
-        // FIX: guarantee a clean run state when hurt ends.
-        // Scrub any leftover landing trigger or jump residue that
-        // could re-freeze the animator on the next frame.
         if (isGrounded)
         {
             triggerRollFallOnLand = false;
@@ -691,13 +720,13 @@ public class RunnerController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (groundCheck)
+        if (groundCheck != null)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
-        if (attackPoint)
+        if (attackPoint != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);

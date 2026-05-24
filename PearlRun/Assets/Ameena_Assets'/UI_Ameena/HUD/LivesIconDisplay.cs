@@ -10,9 +10,9 @@ public class LivesIconDisplay : MonoBehaviour
 
     void Update()
     {
-        if (RunnerGameManager.instance == null) return;
+        if (Level3RunnerGameManager.instance == null) return;
 
-        int lives = RunnerGameManager.instance.currentLives;
+        int lives = Level3RunnerGameManager.instance.currentLives;
 
         if (lastLives != -1 && lives < lastLives)
         {
