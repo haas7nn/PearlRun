@@ -10,17 +10,16 @@ TagManager:
   - Checkpoint
   - PowerUp
   - KillZone
-  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - player
-  - ground
-  - Enemy
+  - 
+  - 
+  - 
   - 
   - 
   - 
