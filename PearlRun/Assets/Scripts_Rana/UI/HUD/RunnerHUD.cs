@@ -44,11 +44,10 @@ public class RunnerHUD : MonoBehaviour
             Invoke(nameof(ShowGameOverPanel), gameOverDelay);
         }
 
-        if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
-            RunnerGameManager.instance.RestartLevel();
-
-        if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
-            RunnerGameManager.instance.LoadMainMenu();
+        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
+        //     RunnerGameManager.instance.RestartLevel();
+        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
+        //     RunnerGameManager.instance.LoadMainMenu();
     }
 
     void ShowGameOverPanel()
