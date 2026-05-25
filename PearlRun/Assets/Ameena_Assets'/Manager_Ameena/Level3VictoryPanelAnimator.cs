@@ -109,20 +109,21 @@ public class Level3VictoryPanelAnimator : MonoBehaviour
     private void FillStatsFromGameManager()
     {
         Level3RunnerGameManager gm = Level3RunnerGameManager.instance;
+        Level3ScoreManager sm = Level3ScoreManager.Instance;
 
         if (pearlsText != null)
         {
-            int pearls = gm != null ? gm.pearlsCollected : 0;
-            pearlsText.text = "Score: " + pearls;
+            int pearls = sm != null ? sm.currentPearls : 0;
+            int maxPearls = sm != null ? sm.maxPearlsInLevel : 20;
+
+            pearlsText.text = "Pearls: " + pearls + " / " + maxPearls;
         }
 
         if (timeText != null)
         {
-            float t = gm != null ? gm.timeElapsed : 0f;
-            int minutes = Mathf.FloorToInt(t / 60f);
-            int seconds = Mathf.FloorToInt(t % 60f);
+            float t = sm != null ? sm.elapsedTime : 0f;
 
-            timeText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+            timeText.text = "Time: " + t.ToString("F1") + "s";
         }
 
         if (livesText != null)
@@ -133,7 +134,7 @@ public class Level3VictoryPanelAnimator : MonoBehaviour
 
         if (gradeText != null)
         {
-            string grade = gm != null ? gm.GetGrade() : "C";
+            string grade = sm != null ? sm.CalculateGrade() : "C";
             gradeText.text = "Grade: " + grade;
         }
     }
