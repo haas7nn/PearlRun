@@ -17,9 +17,12 @@ public class RunnerCollisionHandler : MonoBehaviour
     [Header("Landing Check")]
     public float topHitNormalY = 0.45f;
 
+    private EnemyChase_Rana enemy;
+
     void Start()
     {
         runnerController = GetComponent<RunnerController>();
+        enemy = FindAnyObjectByType<EnemyChase_Rana>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -75,18 +78,21 @@ public class RunnerCollisionHandler : MonoBehaviour
             }
         }
 
-        // Clean landing on top — reset jump states and continue running
         if (landedOnTop)
         {
             runnerController?.ForceGrounded();
             return;
         }
 
-        // Side hit — direct damage, bypass invincibility system entirely
         if (runnerController != null && !runnerController.isDead)
+        {
             runnerController.TakeDamage();
 
-        // Snap to top of obstacle
+            // ── Reset enemy behind Awal when Awal hits obstacle ──
+            if (enemy != null)
+                enemy.TriggerReset();
+        }
+
         Collider obstacleCol = collision.collider;
         float obstacleTop = obstacleCol.bounds.max.y;
         Collider myCol = GetComponent<Collider>();
@@ -96,7 +102,6 @@ public class RunnerCollisionHandler : MonoBehaviour
         pos.y = obstacleTop + halfHeight;
         transform.position = pos;
 
-        // Kill vertical velocity
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -105,10 +110,8 @@ public class RunnerCollisionHandler : MonoBehaviour
             rb.linearVelocity = v;
         }
 
-        // Reset all jump/hurt states instantly
         runnerController?.ForceGrounded();
 
-        // Kill any running invincibility coroutine
         StopAllCoroutines();
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
         if (playerRenderer != null) playerRenderer.enabled = true;

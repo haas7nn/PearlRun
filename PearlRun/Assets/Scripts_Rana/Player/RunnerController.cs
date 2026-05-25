@@ -24,7 +24,6 @@ public class RunnerController : MonoBehaviour
     [Header("Attack")]
     public Transform attackPoint;
     public float attackRange = 1f;
-    public LayerMask enemyLayer;
     public LayerMask breakableLayer;
     public float attackAnimationDuration = 0.3f;
     public float attackStopDuration = 0.15f;
@@ -367,10 +366,6 @@ public class RunnerController : MonoBehaviour
 
         if (attackPoint != null)
         {
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, enemyLayer);
-            foreach (Collider enemy in hitEnemies)
-                enemy.GetComponent<EnemyBase>()?.TakeDamage(1);
-
             Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
             foreach (Collider b in hitBreakables)
                 Destroy(b.gameObject);
