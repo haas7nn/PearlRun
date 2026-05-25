@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int health = 3;
-    public int damage = 1;
 
     public virtual void TakeDamage(int amount)
     {
@@ -17,7 +16,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        Animator anim = GetComponent<Animator>();
+        Animator anim = GetComponentInChildren<Animator>();
 
         if (anim != null)
         {
@@ -26,17 +25,6 @@ public class EnemyBase : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player hit by enemy");
-
-            // Send damage message to player (Health system will handle it later)
-            collision.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

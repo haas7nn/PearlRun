@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &3610444
 PrefabInstance:
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &5953078
 PrefabInstance:
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &8627870 stripped
 GameObject:
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &9556666 stripped
 Transform:
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &27912697
 GameObject:
@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &39451223
 PrefabInstance:
@@ -3015,7 +3015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 2.74
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3931,7 +3931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &75487307
 MonoBehaviour:
@@ -5469,7 +5469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &111232498
 MonoBehaviour:
@@ -5650,7 +5650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &113198563
 GameObject:
@@ -5876,7 +5876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &119340035 stripped
 GameObject:
@@ -5916,7 +5916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &119538722 stripped
 Transform:
@@ -6215,7 +6215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &123803637
 PrefabInstance:
@@ -8204,7 +8204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &164710982 stripped
 GameObject:
@@ -8244,7 +8244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &165841951
 GameObject:
@@ -9820,7 +9820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &206296800
 PrefabInstance:
@@ -9910,7 +9910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.4
+      value: 6.6399994
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10734,7 +10734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &235966888 stripped
 Transform:
@@ -11129,7 +11129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &256200095
 PrefabInstance:
@@ -11302,7 +11302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &260710157
 PrefabInstance:
@@ -12509,7 +12509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 4580576338452538486, guid: 7e38ce476c39ff0479b10d5ac0645e1b, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &301069580
 GameObject:
@@ -13075,7 +13075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &315342145
 GameObject:
@@ -13625,7 +13625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &324183653
 PrefabInstance:
@@ -13924,7 +13924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &327828885
 PrefabInstance:
@@ -14213,7 +14213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &330615203 stripped
 Transform:
@@ -15593,7 +15593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &382918167
 PrefabInstance:
@@ -16126,7 +16126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &393605072 stripped
 GameObject:
@@ -17044,7 +17044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &409251238
 MonoBehaviour:
@@ -17501,7 +17501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &421780550
 MonoBehaviour:
@@ -18178,7 +18178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &434032471
 PrefabInstance:
@@ -19698,7 +19698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &468976524
 GameObject:
@@ -20750,7 +20750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &496035110
 PrefabInstance:
@@ -21338,7 +21338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &508585452
 PrefabInstance:
@@ -21834,7 +21834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &517045631
 MonoBehaviour:
@@ -21889,7 +21889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &517747792 stripped
 GameObject:
@@ -23048,7 +23048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &536243443 stripped
 GameObject:
@@ -23088,7 +23088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &537239244
 PrefabInstance:
@@ -25216,7 +25216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &570878584 stripped
 Transform:
@@ -25922,7 +25922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &576962359
 PrefabInstance:
@@ -26727,7 +26727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &590818292
 GameObject:
@@ -27708,7 +27708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &610168710
 PrefabInstance:
@@ -28418,7 +28418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &626439810
 GameObject:
@@ -28828,7 +28828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &631525023 stripped
 Transform:
@@ -28873,7 +28873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &636246454
 PrefabInstance:
@@ -29408,7 +29408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &644456933
 PrefabInstance:
@@ -29515,7 +29515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &645157959 stripped
 GameObject:
@@ -29555,7 +29555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &645494341 stripped
 Transform:
@@ -29933,7 +29933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &655329683
 PrefabInstance:
@@ -30062,7 +30062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &658321868
 PrefabInstance:
@@ -31073,38 +31073,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f32fc89859f16ec49bc857008a5ed9c5, type: 3}
---- !u!1 &679205104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1853604299652105149, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
-  m_PrefabInstance: {fileID: 1465682365}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &679205105 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2889720164518446868, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
-  m_PrefabInstance: {fileID: 1465682365}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &679205106
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679205104}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: de13a7420582ded45a8d7d3f96889aca, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4c7fe8e1a3919c549a79a706afefd1ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &679685870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31683,7 +31651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &693977342
 PrefabInstance:
@@ -32880,6 +32848,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6916187824953690779, guid: b511289d0865fc247adf4b5d5ad50da4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8098193563608745701, guid: b511289d0865fc247adf4b5d5ad50da4, type: 3}
       propertyPath: m_text
       value: level 3
@@ -33085,7 +33057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &719565307 stripped
 Transform:
@@ -33990,7 +33962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &735487680 stripped
 GameObject:
@@ -35162,7 +35134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &753279851
 PrefabInstance:
@@ -35444,7 +35416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 63b3de124a762184891d39503f833c04, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.57
+      value: 172.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 63b3de124a762184891d39503f833c04, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36090,7 +36062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &765860062
 MonoBehaviour:
@@ -36219,7 +36191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &768793893
 PrefabInstance:
@@ -37347,7 +37319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &794000719 stripped
 Transform:
@@ -37466,7 +37438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &801598316
 PrefabInstance:
@@ -37756,7 +37728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!54 &806223521
 Rigidbody:
@@ -37928,7 +37900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3FinishZoneTrigger
   victoryPanel: {fileID: 2025649107}
-  hudObject: {fileID: 0}
+  hudObject: {fileID: 1012191508}
   victoryMusic: {fileID: 8300000, guid: 6b8401b905080524caaf64aba2a21fb3, type: 3}
 --- !u!1 &808292984
 GameObject:
@@ -38233,7 +38205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &812108583
 PrefabInstance:
@@ -39195,7 +39167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d2c0a6f6ddffd4a8d439838cf47525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PlayerController
-  moveSpeed: 10
+  moveSpeed: 5
   jumpForce: 9
   doubleJumpForce: 13
   slideTime: 0.2
@@ -40190,7 +40162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &866567664
 PrefabInstance:
@@ -41751,7 +41723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &899944205
 PrefabInstance:
@@ -42186,7 +42158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &902328275
 GameObject:
@@ -42873,7 +42845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &918977843
 PrefabInstance:
@@ -43087,7 +43059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &920489398 stripped
 Transform:
@@ -43525,7 +43497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &934917884
 MonoBehaviour:
@@ -43656,7 +43628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &940161678 stripped
 GameObject:
@@ -43681,7 +43653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &940161681
 MonoBehaviour:
@@ -45778,7 +45750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &964574088
 PrefabInstance:
@@ -46441,7 +46413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &979714480 stripped
 Transform:
@@ -47170,7 +47142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1000753691
 PrefabInstance:
@@ -47384,6 +47356,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2feccaa7a79dd4345a0db97be37a8006, type: 3}
+--- !u!1 &1012191508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8573331337702824385, guid: b511289d0865fc247adf4b5d5ad50da4, type: 3}
+  m_PrefabInstance: {fileID: 715143900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1012790833
 GameObject:
   m_ObjectHideFlags: 0
@@ -48468,73 +48445,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6517686061769116560, guid: f32fc89859f16ec49bc857008a5ed9c5, type: 3}
   m_PrefabInstance: {fileID: 1035329686}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1037239311
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1647949019}
-    m_Modifications:
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -618.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Name
-      value: WhitePearl (95)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1206462910}
-    - targetCorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1206462914}
-  m_SourcePrefab: {fileID: 100100000, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
 --- !u!4 &1037597166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 09062dc0008857b46aaacdb7206f1453, type: 3}
@@ -49483,7 +49393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1059697467
 PrefabInstance:
@@ -49651,7 +49561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1062184971
 MonoBehaviour:
@@ -49773,7 +49683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1065434818 stripped
 GameObject:
@@ -51690,7 +51600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1112484759
 PrefabInstance:
@@ -52059,7 +51969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1116605330
 PrefabInstance:
@@ -52245,7 +52155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1122806192 stripped
 Transform:
@@ -52672,7 +52582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1130927110
 GameObject:
@@ -53827,7 +53737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1152739590
 PrefabInstance:
@@ -54615,7 +54525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1172680020 stripped
 Transform:
@@ -55163,7 +55073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!54 &1184359623
 Rigidbody:
@@ -55996,46 +55906,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205154265}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1206462904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7269156393851879152, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 1037239311}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1206462905 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
-  m_PrefabInstance: {fileID: 1037239311}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1206462910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206462904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a762cb2f1f6a2248afae8a12c56dc54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PearlFloatRotate
-  rotationSpeed: 9
-  floatSpeed: 5
-  floatHeight: 0.25
---- !u!114 &1206462914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206462904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21bf6e4f01718d4a95d608ec811f24c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
-  pearlType: 0
-  collectEffect: {fileID: 0}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1206527327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4779453751123036, guid: 4fefa74b26589c64a8b63d125929de66, type: 3}
@@ -56383,7 +56253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1211981562 stripped
 Transform:
@@ -56639,7 +56509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1218557184 stripped
 Transform:
@@ -57102,7 +56972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1226392775
 PrefabInstance:
@@ -58871,7 +58741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1268095709 stripped
 GameObject:
@@ -59211,7 +59081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1272829934 stripped
 Transform:
@@ -59911,7 +59781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1286759456 stripped
 Transform:
@@ -60499,7 +60369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1297086725
 PrefabInstance:
@@ -61206,7 +61076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1303891136
 PrefabInstance:
@@ -62473,7 +62343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1336259450
 PrefabInstance:
@@ -63137,7 +63007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1346677656
 GameObject:
@@ -64274,7 +64144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1370289232
 PrefabInstance:
@@ -65275,7 +65145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1392136133
 GameObject:
@@ -65472,7 +65342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 2.7399998
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65625,7 +65495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1401932129
 PrefabInstance:
@@ -66721,7 +66591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1435976046
 PrefabInstance:
@@ -67661,8 +67531,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2870647664235163885, guid: 023799271c9a30a4ebd27039b4f93f92, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 679205105}
-    m_AddedComponents: []
+      addedObject: {fileID: 1466368315}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1235389363178218634, guid: 023799271c9a30a4ebd27039b4f93f92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1786247215}
   m_SourcePrefab: {fileID: 100100000, guid: 023799271c9a30a4ebd27039b4f93f92, type: 3}
 --- !u!1001 &1462970492
 PrefabInstance:
@@ -67852,18 +67725,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3770721001549254769, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770721001549254769, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486755080468523764, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486755080468523764, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486755080468523764, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1853604299652105149, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 679205106}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
 --- !u!4 &1466281661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4655301726307414325, guid: eebd4198cae929f4883e70594350f6af, type: 3}
   m_PrefabInstance: {fileID: 1219364367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1466368315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8486755080468523764, guid: 786ea08c1d5d9bf40ae0c9dd859d16b7, type: 3}
+  m_PrefabInstance: {fileID: 1465682365}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1466891483
 PrefabInstance:
@@ -68323,7 +68218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1474667086
 MonoBehaviour:
@@ -69284,7 +69179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1490695073 stripped
 Transform:
@@ -69710,7 +69605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1497376358
 PrefabInstance:
@@ -70621,7 +70516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1527743961
 PrefabInstance:
@@ -71879,7 +71774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1552446034
 PrefabInstance:
@@ -72167,7 +72062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1557057008
 PrefabInstance:
@@ -72643,7 +72538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1569600003
 PrefabInstance:
@@ -73314,7 +73209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 1
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 4580576338452538486, guid: 7e38ce476c39ff0479b10d5ac0645e1b, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1582896626
 GameObject:
@@ -73723,7 +73618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 2
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7252239801448164564, guid: 21ceb1f7d1e7fba4ea05463215b4877f, type: 3}
   collectSound: {fileID: 8300000, guid: 464366052fe87d745ad6207ff0b0601d, type: 3}
 --- !u!1001 &1588957947
 PrefabInstance:
@@ -73808,7 +73703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -741.11
+      value: -741.04
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
@@ -74254,7 +74149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1605743237
 PrefabInstance:
@@ -75015,7 +74910,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7832118882130814906, guid: b511289d0865fc247adf4b5d5ad50da4, type: 3}
   m_PrefabInstance: {fileID: 715143900}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1012191508}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a644fc99b2f96db4db69a31d9f1add31, type: 3}
@@ -75059,7 +74954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1630737573 stripped
 Transform:
@@ -75573,7 +75468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1641896101
 PrefabInstance:
@@ -75913,7 +75808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1647169599 stripped
 GameObject:
@@ -76043,7 +75938,6 @@ Transform:
   - {fileID: 964386262}
   - {fileID: 1303850431}
   - {fileID: 517045629}
-  - {fileID: 1206462905}
   - {fileID: 348305181}
   - {fileID: 1294185820}
   - {fileID: 1474667084}
@@ -76800,7 +76694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1663873797
 PrefabInstance:
@@ -78317,7 +78211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1693592978
 PrefabInstance:
@@ -79705,7 +79599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &1717275847
 MonoBehaviour:
@@ -80526,7 +80420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1737906939
 PrefabInstance:
@@ -80538,11 +80432,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -621.1
+      value: -611.66
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.39
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80722,7 +80616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1738964064
 PrefabInstance:
@@ -81046,7 +80940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1747830718
 PrefabInstance:
@@ -81158,7 +81052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!4 &1749574981 stripped
 Transform:
@@ -82513,6 +82407,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2870647664235163885, guid: 023799271c9a30a4ebd27039b4f93f92, type: 3}
   m_PrefabInstance: {fileID: 1460609142}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1786247215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786247202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d10638be9255014caa1e6af2ef212e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  health: 3
 --- !u!1 &1786931322
 GameObject:
   m_ObjectHideFlags: 0
@@ -83345,7 +83252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1807079530
 PrefabInstance:
@@ -83638,7 +83545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1812429006 stripped
 GameObject:
@@ -83844,7 +83751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1817256950
 PrefabInstance:
@@ -84395,7 +84302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1834085048
 PrefabInstance:
@@ -85680,7 +85587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1868056140
 PrefabInstance:
@@ -87292,7 +87199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1895184188
 PrefabInstance:
@@ -88165,7 +88072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.46
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 4342268423841830918, guid: 033b153ce384ab74fb4adc0e5c01ecff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90700,7 +90607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1964194400
 PrefabInstance:
@@ -91097,7 +91004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1970354423
 GameObject:
@@ -91328,7 +91235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.53
+      value: 11.57
       objectReference: {fileID: 0}
     - target: {fileID: 6450602046728808612, guid: 53d6645500b8ef5448d135148344f19f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -91501,7 +91408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1977492653
 PrefabInstance:
@@ -91675,7 +91582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1981054512 stripped
 GameObject:
@@ -91715,7 +91622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1 &1981603864
 GameObject:
@@ -92492,7 +92399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &1996624287
 PrefabInstance:
@@ -93625,7 +93532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &2029060448
 PrefabInstance:
@@ -94634,7 +94541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &2041305008
 PrefabInstance:
@@ -97750,7 +97657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &2103982232
 PrefabInstance:
@@ -98374,7 +98281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &2120962102
 PrefabInstance:
@@ -98493,7 +98400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1001 &2126547724
 PrefabInstance:
@@ -98962,7 +98869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 0
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!114 &2133239804
 MonoBehaviour:
@@ -99678,7 +99585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
   pearlType: 4
-  collectEffect: {fileID: 0}
+  collectEffect: {fileID: 7077857080336071901, guid: 96bb507ab63e6654da4ea627f18880db, type: 3}
   collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

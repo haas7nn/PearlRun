@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyChase : EnemyBase
 {
-
     [Header("Player")]
     public Transform player;
 
@@ -23,50 +22,48 @@ public class EnemyChase : EnemyBase
     private bool isChasing;
     private float losePlayerTimer;
     private EnemyPatrol patrol;
+    private Animator animator;
 
     private void Start()
     {
         patrol = GetComponent<EnemyPatrol>();
+        animator = GetComponentInChildren<Animator>();
 
         if (player == null)
         {
             GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
 
             if (foundPlayer != null)
-            {
                 player = foundPlayer.transform;
-            }
         }
 
         if (patrol != null)
-        {
             patrol.speed = patrolSpeed;
+
+        if (animator == null)
+        {
+            Debug.LogWarning("Enemy Animator not found!");
         }
     }
 
     private void Update()
     {
-        if (player == null) return;
+        if (player == null)
+            return;
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float xDistance = Mathf.Abs(player.position.x - transform.position.x);
 
-        // Start chasing when player enters detection range
-        if (!isChasing && distanceToPlayer <= detectionRange)
-        {
+        if (!isChasing && xDistance <= detectionRange)
             StartChasing();
-        }
 
-        // While chasing
         if (isChasing)
         {
-            if (distanceToPlayer > stopChaseRange)
+            if (xDistance > stopChaseRange)
             {
                 losePlayerTimer += Time.deltaTime;
 
                 if (losePlayerTimer >= losePlayerDelay)
-                {
                     StopChasing();
-                }
             }
             else
             {
@@ -81,16 +78,23 @@ public class EnemyChase : EnemyBase
         isChasing = true;
         losePlayerTimer = 0f;
 
+        if (animator != null)
+            animator.SetBool("isChasing", true);
+        Debug.Log("Enemy animation: isChasing TRUE");
+
         if (patrol != null)
-        {
             patrol.enabled = false;
-        }
     }
 
     private void StopChasing()
     {
         isChasing = false;
         losePlayerTimer = 0f;
+
+        if (animator != null)
+            animator.SetBool("isChasing", false);
+        Debug.Log("Enemy animation: isChasing FALSE");
+
 
         if (patrol != null)
         {
@@ -106,27 +110,20 @@ public class EnemyChase : EnemyBase
             GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
 
             if (foundPlayer != null)
-            {
                 player = foundPlayer.transform;
-            }
         }
 
-        if (player == null) return;
+        if (player == null)
+            return;
 
-        // Put enemy directly behind the player
-        Vector3 spawnPosition = player.position - player.forward * spawnBehindDistance;
+        Vector3 spawnPosition = player.position;
+        spawnPosition.x = player.position.x - spawnBehindDistance;
         spawnPosition.y = player.position.y + spawnHeightOffset;
+        spawnPosition.z = player.position.z;
 
         transform.position = spawnPosition;
 
-        // Start chasing immediately
-        isChasing = true;
-        losePlayerTimer = 0f;
-
-        if (patrol != null)
-        {
-            patrol.enabled = false;
-        }
+        StartChasing();
 
         gameObject.SetActive(true);
 
@@ -135,36 +132,22 @@ public class EnemyChase : EnemyBase
 
     private void ChasePlayer()
     {
-        Vector3 targetPosition = player.position;
-        targetPosition.y = transform.position.y;
+        float xDifference = player.position.x - transform.position.x;
 
-        float distance = Vector3.Distance(transform.position, targetPosition);
-
-        // Prevent enemy from entering inside the player
-        if (distance <= stoppingDistance)
-        {
+        if (Mathf.Abs(xDifference) <= stoppingDistance)
             return;
-        }
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPosition,
-            chaseSpeed * Time.deltaTime
+        float direction = Mathf.Sign(xDifference);
+
+        transform.position += new Vector3(
+            direction * chaseSpeed * Time.deltaTime,
+            0f,
+            0f
         );
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damage);
-                Debug.Log("Enemy damaged the player!");
-            }
-        }
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction;
+        transform.localScale = scale;
     }
 
     private void OnDrawGizmosSelected()
