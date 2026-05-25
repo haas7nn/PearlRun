@@ -54,6 +54,10 @@ public class Level3PearlPickup : MonoBehaviour
         {
             case PearlType.White: return 1;
             case PearlType.Blue: return 5;
+            case PearlType.Golden:
+                Level3RunnerGameManager.instance.AddLife();
+                Debug.Log("Level 3 Golden pearl collected: +1 life.");
+                return 0;
             case PearlType.Qarqaoun: return 3;
             default: return 0;
         }

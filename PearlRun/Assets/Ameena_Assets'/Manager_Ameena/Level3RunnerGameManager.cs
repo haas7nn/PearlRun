@@ -145,6 +145,7 @@ public class Level3RunnerGameManager : MonoBehaviour
     public void RestoreFullLives()
     {
         currentLives = maxLives;
+        currentHits = 0;
     }
 
     void RespawnPlayer()
@@ -200,15 +201,14 @@ public class Level3RunnerGameManager : MonoBehaviour
 
         isGameOver = true;
 
-        if (player == null)
-        {
-            player = FindAnyObjectByType<Level3PlayerController>();
-        }
+        Level3PlayerController player = FindAnyObjectByType<Level3PlayerController>();
 
         if (player != null)
         {
             player.Die();
         }
+
+        Debug.Log("Game Over. Player has no lives left.");
     }
 
     public void FreezeGameAfterDeath()

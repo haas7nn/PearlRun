@@ -1,52 +1,43 @@
-// LivesIconDisplay.cs
 using UnityEngine;
+using System.Collections;
 
 public class LivesIconDisplay : MonoBehaviour
 {
-    [Header("Heart Icons")]
     public GameObject[] lifeIcons;
 
     private int lastLives = -1;
 
+    void Start()
+    {
+        RefreshHearts();
+    }
+
     void Update()
     {
-        if (Level3RunnerGameManager.instance == null) return;
+        if (Level3RunnerGameManager.instance == null)
+            return;
 
         int lives = Level3RunnerGameManager.instance.currentLives;
 
-        if (lastLives != -1 && lives < lastLives)
+        if (lives != lastLives)
         {
-            int lostIndex = lastLives - 1;
-            if (lostIndex >= 0 && lostIndex < lifeIcons.Length)
-                StartCoroutine(AnimateHeartOut(lostIndex));
+            RefreshHearts();
+        }
+    }
+
+    void RefreshHearts()
+    {
+        if (Level3RunnerGameManager.instance == null)
+            return;
+
+        int lives = Level3RunnerGameManager.instance.currentLives;
+
+        for (int i = 0; i < lifeIcons.Length; i++)
+        {
+            if (lifeIcons[i] != null)
+                lifeIcons[i].SetActive(i < lives);
         }
 
         lastLives = lives;
-    }
-
-    System.Collections.IEnumerator AnimateHeartOut(int index)
-    {
-        GameObject heart = lifeIcons[index];
-        if (heart == null) yield break;
-
-        float duration = 0.4f;
-        float timer = 0f;
-        Vector3 originalScale = heart.transform.localScale;
-
-        while (timer < duration)
-        {
-            timer += Time.deltaTime;
-            float t = timer / duration;
-
-            float scale = t < 0.3f
-                ? Mathf.Lerp(1f, 1.4f, t / 0.3f)
-                : Mathf.Lerp(1.4f, 0f, (t - 0.3f) / 0.7f);
-
-            heart.transform.localScale = originalScale * scale;
-            yield return null;
-        }
-
-        heart.SetActive(false);
-        heart.transform.localScale = originalScale;
     }
 }

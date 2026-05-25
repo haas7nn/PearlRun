@@ -6,30 +6,29 @@ public class ObstacleHitTrigger : MonoBehaviour
 
     private bool hasHitPlayer = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (hasHitPlayer)
             return;
 
-        if (collision.gameObject.CompareTag("Player") || collision.transform.root.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.transform.root.CompareTag("Player"))
         {
             hasHitPlayer = true;
 
-            // Tell the game manager that the player got hit
             if (Level3RunnerGameManager.instance != null)
             {
                 Level3RunnerGameManager.instance.PlayerHit();
+                Debug.Log("Player hit obstacle. Life decreased.");
             }
             else
             {
-                Debug.LogWarning("RunnerGameManager instance was not found.");
+                Debug.LogWarning("Level3RunnerGameManager instance was not found.");
             }
 
-            // Make the enemy chase from behind
             if (enemyChase != null)
             {
                 enemyChase.ForceChaseFromBehind();
-                Debug.Log("Player hit obstacle. Enemy appeared behind player.");
+                Debug.Log("Enemy appeared behind player.");
             }
             else
             {
