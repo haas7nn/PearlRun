@@ -4,35 +4,35 @@ public class EnemyChase_Rana : MonoBehaviour
 {
     [Header("Chase Settings")]
     public Transform player;
-    public float chaseSpeed = 6f;
-
-    [Header("Reset After Player Hit")]
-    public float resetOffsetBehindPlayer = 5f;
+    public float chaseSpeed = 5f;
+    public float normalGap = 4f;
 
     [Header("Obstacle Detection")]
     public float obstacleCheckDistance = 1.0f;
-    public float obstacleCheckHeight = 1.0f;
+    public float obstacleCheckHeight = 1.2f;
     public LayerMask obstacleLayer;
     public string[] obstacleTags = { "Obstacle", "JumpObstacle" };
 
     [Header("Touch Detection")]
-    public float touchDistance = 1.0f;
-    private float damageCooldown = 1.5f;
-    private float damageTimer = 0f;
+    public float touchDistance = 0.8f;
+    public float damageCooldown = 1.5f;
 
     [Header("Audio (Optional)")]
     public AudioSource enemyAudioSource;
     public AudioClip chaseSound;
-    public float maxHearDistance = 10f;
-    public float minHearDistance = 20f;
+    public float maxHearDistance = 8f;
+    public float minHearDistance = 18f;
 
     private Animator animator;
-    private bool isStopped = false;
     private RunnerController runnerController;
+    private bool isStopped = false;
+    private float damageTimer = 0f;
+    private float groundY;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        groundY = transform.position.y;
 
         if (player == null)
         {
@@ -48,14 +48,7 @@ public class EnemyChase_Rana : MonoBehaviour
             runnerController = player.GetComponent<RunnerController>();
         }
 
-        if (enemyAudioSource != null && chaseSound != null)
-        {
-            enemyAudioSource.clip = chaseSound;
-            enemyAudioSource.loop = true;
-            enemyAudioSource.spatialBlend = 1f;
-            enemyAudioSource.Play();
-        }
-
+        SetupAudio();
         animator.SetBool("isRunning", true);
     }
 
@@ -65,42 +58,36 @@ public class EnemyChase_Rana : MonoBehaviour
 
         if (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver)
         {
-            animator.SetBool("isRunning", false);
-            StopAudio();
+            SetRunning(false);
             return;
         }
 
-        if (damageTimer > 0f)
-            damageTimer -= Time.deltaTime;
+        if (damageTimer > 0f) damageTimer -= Time.deltaTime;
 
+        // ── واقف على عائق ──
         if (isStopped)
         {
-            animator.SetBool("isRunning", false);
-            StopAudio();
+            SetRunning(false);
             return;
         }
 
-        // ── Check obstacle ahead ──
+        // ── كشف العوائق ──
         if (IsObstacleAhead())
         {
             isStopped = true;
-            animator.SetBool("isRunning", false);
-            StopAudio();
+            SetRunning(false);
             return;
         }
 
-        // ── Chase Awal ──
-        float newX = Mathf.MoveTowards(
-            transform.position.x,
-            player.position.x,
-            chaseSpeed * Time.deltaTime
-        );
-        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+        // ── يلاحق أوال مع مسافة طبيعية ──
+        float targetX = player.position.x - normalGap;
+        float newX = Mathf.MoveTowards(transform.position.x, targetX, chaseSpeed * Time.deltaTime);
+        transform.position = new Vector3(newX, groundY, transform.position.z);
 
-        animator.SetBool("isRunning", true);
+        SetRunning(true);
         UpdateAudio();
 
-        // ── Touch detection ──
+        // ── لمس أوال ──
         float dist = Mathf.Abs(transform.position.x - player.position.x);
         if (dist <= touchDistance && damageTimer <= 0f)
         {
@@ -111,65 +98,47 @@ public class EnemyChase_Rana : MonoBehaviour
 
     bool IsObstacleAhead()
     {
-        Vector3 boxCenter = transform.position
-                          + Vector3.right * obstacleCheckDistance
-                          + Vector3.up * (obstacleCheckHeight / 2f);
-        Vector3 boxSize = new Vector3(0.3f, obstacleCheckHeight, 0.5f);
+        Vector3 center = transform.position + Vector3.right * obstacleCheckDistance
+                                            + Vector3.up * (obstacleCheckHeight / 2f);
+        Vector3 size = new Vector3(0.3f, obstacleCheckHeight, 0.5f);
 
-        Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2f, Quaternion.identity, obstacleLayer);
-        if (hits.Length > 0) return true;
+        if (Physics.OverlapBox(center, size / 2f, Quaternion.identity, obstacleLayer).Length > 0)
+            return true;
 
-        Collider[] allHits = Physics.OverlapBox(boxCenter, boxSize / 2f);
-        foreach (Collider col in allHits)
-        {
+        foreach (Collider col in Physics.OverlapBox(center, size / 2f))
             foreach (string tag in obstacleTags)
-            {
                 if (col.CompareTag(tag)) return true;
-            }
-        }
 
         return false;
     }
 
-    // ── Called from RunnerCollisionHandler when Awal hits obstacle ──
-    public void TriggerReset()
+    void SetRunning(bool running)
     {
-        ResetBehindPlayer();
+        animator.SetBool("isRunning", running);
+        if (!running) StopAudio();
     }
 
-    void ResetBehindPlayer()
+    void SetupAudio()
     {
-        if (player == null) return;
-
-        transform.position = new Vector3(
-            player.position.x - resetOffsetBehindPlayer,
-            player.position.y,
-            player.position.z
-        );
-
-        isStopped = false;
-        animator.SetBool("isRunning", true);
-        UpdateAudio();
+        if (enemyAudioSource == null || chaseSound == null) return;
+        enemyAudioSource.clip = chaseSound;
+        enemyAudioSource.loop = true;
+        enemyAudioSource.spatialBlend = 1f;
+        enemyAudioSource.Play();
     }
 
     void UpdateAudio()
     {
         if (enemyAudioSource == null || chaseSound == null) return;
 
-        float dist = Vector3.Distance(transform.position, player.position);
-
         if (transform.position.x < player.position.x)
         {
-            if (!enemyAudioSource.isPlaying)
-                enemyAudioSource.Play();
-
-            float volume = Mathf.InverseLerp(minHearDistance, maxHearDistance, dist);
-            enemyAudioSource.volume = Mathf.Clamp01(volume);
+            if (!enemyAudioSource.isPlaying) enemyAudioSource.Play();
+            float dist = Vector3.Distance(transform.position, player.position);
+            enemyAudioSource.volume = Mathf.Clamp01(
+                Mathf.InverseLerp(minHearDistance, maxHearDistance, dist));
         }
-        else
-        {
-            StopAudio();
-        }
+        else StopAudio();
     }
 
     void StopAudio()
@@ -181,10 +150,8 @@ public class EnemyChase_Rana : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Vector3 boxCenter = transform.position
-                          + Vector3.right * obstacleCheckDistance
-                          + Vector3.up * (obstacleCheckHeight / 2f);
-        Vector3 boxSize = new Vector3(0.3f, obstacleCheckHeight, 0.5f);
-        Gizmos.DrawWireCube(boxCenter, boxSize);
+        Vector3 center = transform.position + Vector3.right * obstacleCheckDistance
+                                            + Vector3.up * (obstacleCheckHeight / 2f);
+        Gizmos.DrawWireCube(center, new Vector3(0.3f, obstacleCheckHeight, 0.5f));
     }
 }

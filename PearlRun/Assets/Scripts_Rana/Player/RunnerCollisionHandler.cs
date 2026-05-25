@@ -17,12 +17,9 @@ public class RunnerCollisionHandler : MonoBehaviour
     [Header("Landing Check")]
     public float topHitNormalY = 0.45f;
 
-    private EnemyChase_Rana enemy;
-
     void Start()
     {
         runnerController = GetComponent<RunnerController>();
-        enemy = FindAnyObjectByType<EnemyChase_Rana>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -85,13 +82,7 @@ public class RunnerCollisionHandler : MonoBehaviour
         }
 
         if (runnerController != null && !runnerController.isDead)
-        {
             runnerController.TakeDamage();
-
-            // ── Reset enemy behind Awal when Awal hits obstacle ──
-            if (enemy != null)
-                enemy.TriggerReset();
-        }
 
         Collider obstacleCol = collision.collider;
         float obstacleTop = obstacleCol.bounds.max.y;

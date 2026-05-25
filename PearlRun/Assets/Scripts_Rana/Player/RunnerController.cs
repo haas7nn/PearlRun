@@ -558,6 +558,7 @@ public class RunnerController : MonoBehaviour
     {
         if (isDead) return;
 
+        PlaySFX(hurtClip);
         isHurt = true;
         isPunching = false;
         isSliding = false;
