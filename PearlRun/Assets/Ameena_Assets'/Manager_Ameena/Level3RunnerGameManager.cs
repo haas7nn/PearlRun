@@ -99,6 +99,11 @@ public class Level3RunnerGameManager : MonoBehaviour
     {
         score += points;
         pearlsCollected++;
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddPearls(1);
+        }
     }
 
     public void AddLife()
@@ -135,6 +140,11 @@ public class Level3RunnerGameManager : MonoBehaviour
         {
             RespawnPlayer();
         }
+    }
+
+    public void RestoreFullLives()
+    {
+        currentLives = maxLives;
     }
 
     void RespawnPlayer()

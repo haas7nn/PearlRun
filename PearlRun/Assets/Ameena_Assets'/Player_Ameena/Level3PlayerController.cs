@@ -63,6 +63,7 @@ public class Level3PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
+    public Level3RunnerHUD hud;
 
     private bool isGrounded;
     private bool wasGrounded;

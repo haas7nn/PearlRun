@@ -5392,7 +5392,6 @@ GameObject:
   - component: {fileID: 5526887295669335108}
   - component: {fileID: 1002491418486209130}
   - component: {fileID: 7948458866583904224}
-  - component: {fileID: 4009449498610417063}
   - component: {fileID: 8004978458102563299}
   m_Layer: 5
   m_Name: VictoryPanel
@@ -5494,44 +5493,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4009449498610417063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602970767729475210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93621f45d3c4e294f8896a58f1f5625f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VictoryPanelAnimator
-  titleText: {fileID: 80274329543275054}
-  toBeContinuedText: {fileID: 8203715673829331283}
-  pearlsText: {fileID: 3564858206889859777}
-  timeText: {fileID: 6093414647988568901}
-  livesText: {fileID: 7989009715022325968}
-  gradeText: {fileID: 7201290330442927782}
-  pearlsColor: {r: 1, g: 0.9566073, b: 0.79559743, a: 1}
-  timeColor: {r: 1, g: 0.95686275, b: 0.79607844, a: 1}
-  livesColor: {r: 1, g: 0.95686275, b: 0.79607844, a: 1}
-  gradeColor: {r: 1, g: 0.95686275, b: 0.79607844, a: 1}
-  replayButton: {fileID: 8581954031014831293}
-  nextLevelButton: {fileID: 1485429639616517476}
-  mainMenuButton: {fileID: 3379693676815091552}
-  buttonNormalColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
-  buttonSelectedColor: {r: 0.8616352, g: 0.79778683, b: 0.56087565, a: 1}
-  buttonSelectedScale: 1.12
-  celebrationParticles: {fileID: 8404976551338000517}
-  sfxSource: {fileID: 8004978458102563299}
-  statAppearSound: {fileID: 8300000, guid: 2ae4d6bac97066b49b637b8e7fb1c491, type: 3}
-  navMoveSound: {fileID: 8300000, guid: 9da0fb2d30c7a8c43af2d4defb28902c, type: 3}
-  confirmSound: {fileID: 8300000, guid: 8bf5ddea91d0cf5459db9bb8d2604d11, type: 3}
-  sfxVolume: 0.75
-  delayBeforeStart: 0.3
-  delayBetweenStats: 0.4
-  popDuration: 0.35
-  popOvershoot: 1.35
 --- !u!82 &8004978458102563299
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,7 +5,9 @@ public class Level3RunnerHUD : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
-    public TextMeshProUGUI timerText;
+    //public TextMeshProUGUI timerText;
+
+    //private float hudTime = 0f;
 
     [Header("Game Over")]
     public GameObject gameOverPanel;
@@ -31,7 +33,11 @@ public class Level3RunnerHUD : MonoBehaviour
 
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + gm.pearlsCollected;
+            int pearls = Level3ScoreManager.Instance != null
+        ? Level3ScoreManager.Instance.currentPearls
+        : 0;
+
+            scoreText.text = "Score " + pearls;
         }
 
         if (livesText != null)
@@ -39,15 +45,18 @@ public class Level3RunnerHUD : MonoBehaviour
             livesText.text = "Lives: " + gm.currentLives;
         }
 
-        if (timerText != null)
+        /*if (!gm.isGameOver && !gm.isLevelComplete)
         {
-            float time = gm.timeElapsed;
+            hudTime += Time.deltaTime;
+        }*/
 
-            int minutes = Mathf.FloorToInt(time / 60f);
-            int seconds = Mathf.FloorToInt(time % 60f);
+        /*if (timerText != null)
+        {
+            int minutes = Mathf.FloorToInt(hudTime / 60f);
+            int seconds = Mathf.FloorToInt(hudTime % 60f);
 
             timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+        }*/
 
         if (gameOverPanel != null && gm.isGameOver && !gameOverStarted)
         {
@@ -64,6 +73,12 @@ public class Level3RunnerHUD : MonoBehaviour
         {
             gm.LoadMainMenu();
         }
+    }
+
+    public void UpdateScoreText(int score)
+    {
+        if (scoreText != null)
+            scoreText.text = "Score " + score;
     }
 
     void ShowGameOverPanel()

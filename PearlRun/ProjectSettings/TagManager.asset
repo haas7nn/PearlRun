@@ -10,6 +10,8 @@ TagManager:
   - Checkpoint
   - PowerUp
   - KillZone
+  - Ground
+  - JumpObstacle
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Ground
   - JumpObstacle
   - Player
-  - 
+  - Pearl
   - 
   - 
   - 

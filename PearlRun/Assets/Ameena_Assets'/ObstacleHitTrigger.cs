@@ -18,7 +18,7 @@ public class ObstacleHitTrigger : MonoBehaviour
             // Tell the game manager that the player got hit
             if (Level3RunnerGameManager.instance != null)
             {
-                Level3GameManager.instance.PlayerHit();
+                Level3RunnerGameManager.instance.PlayerHit();
             }
             else
             {
