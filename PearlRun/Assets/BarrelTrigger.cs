@@ -6,14 +6,14 @@ public class BarrelTrigger : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Something entered: " + other.name);
-
 		if (other.CompareTag("Player"))
 		{
-			Debug.Log("Player entered, barrel should move");
+			Debug.Log("Player triggered barrel");
 
 			if (barrel != null)
 				barrel.StartMoving();
+			else
+				Debug.LogWarning("Barrel is not assigned in BarrelTrigger.");
 		}
 	}
 }

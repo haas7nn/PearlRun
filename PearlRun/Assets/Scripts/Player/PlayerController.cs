@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
 	public TextMeshProUGUI countText;
 	private int pearlCount = 0;
 
+	[Header("Health")]
+	public int maxLives = 3;
+	public TextMeshProUGUI livesText;
+	private int currentLives;
+
 	private Rigidbody rb;
 	private bool isGrounded;
 	private bool canDoubleJump;
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
 		originalScale = transform.localScale;
 		sprintCooldownTimer = 0f;
+		currentLives = maxLives;
 
 		// Freeze Z position and all rotations for 2.5D
 		rb.constraints = RigidbodyConstraints.FreezePositionZ |
@@ -72,6 +78,7 @@ public class PlayerController : MonoBehaviour
 						 RigidbodyConstraints.FreezeRotationZ;
 
 		SetCountText();
+		SetLivesText();
 	}
 
 	// ─────────────────────────────────────────
@@ -360,9 +367,22 @@ public class PlayerController : MonoBehaviour
 		if (isDead) return;
 
 		isHurt = true;
+		currentLives--;
+
+		SetLivesText();
+
+		Debug.Log("Lives left: " + currentLives);
 
 		if (AudioManager.instance != null)
 			AudioManager.instance.PlayHurt();
+
+		if (currentLives <= 0)
+		{
+			if (GameManager.instance != null)
+				GameManager.instance.PlayerDied();
+
+			return;
+		}
 
 		Invoke("ResetHurt", 0.5f);
 
@@ -395,6 +415,12 @@ public class PlayerController : MonoBehaviour
 			countText.text = "Score: " + pearlCount.ToString();
 	}
 
+	void SetLivesText()
+	{
+		if (livesText != null)
+			livesText.text = "Lives: " + currentLives.ToString();
+	}
+
 	public void Die()
 	{
 		isDead = true;
@@ -409,6 +435,9 @@ public class PlayerController : MonoBehaviour
 	{
 		isDead = false;
 		isHurt = false;
+		currentLives = maxLives;
+		SetLivesText();
+
 		rb.useGravity = true;
 		transform.position = respawnPosition;
 		rb.linearVelocity = Vector3.zero;
