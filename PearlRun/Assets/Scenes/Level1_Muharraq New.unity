@@ -34036,17 +34036,35 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.13195115, y: 0.45754933, z: 0.09944232}
     m_Extent: {x: 0.35124198, y: 0.1607337, z: 0.19109423}
   m_DirtyAABB: 0
+--- !u!1 &738861175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5789785567798353580, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &738861177 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2653174975452523860, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
   m_PrefabInstance: {fileID: 973106865}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 738861175}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &738861179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738861175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cc794f9576b3a4581a7696d06ad134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelTimer
+  levelNumber: 1
 --- !u!1 &739222336
 GameObject:
   m_ObjectHideFlags: 0
@@ -43442,6 +43460,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9162388707516805515, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1565487617}
+    - targetCorrespondingSourceObject: {fileID: 2539625820006283367, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1005021211}
+    - targetCorrespondingSourceObject: {fileID: 5789785567798353580, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 738861179}
     - targetCorrespondingSourceObject: {fileID: 8736209668444328647, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
       insertIndex: -1
       addedObject: {fileID: 821174557}
@@ -44989,17 +45013,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003852150}
   m_Mesh: {fileID: 3031720407719259954, guid: 0e1e367dd9bc99f4db11bc95cc6abea2, type: 3}
+--- !u!1 &1005021207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539625820006283367, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1005021209 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4638619611931878561, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
   m_PrefabInstance: {fileID: 973106865}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1005021207}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1005021211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005021207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4544f2059f4ee40ad2b578efd2ee9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  currentLevel: 1
+  currentPearls: 0
+  elapsedTime: 0
+  levelCompleted: 0
+  maxPearlsInLevel: 20
+  sTime: 60
+  aTime: 90
+  bTime: 120
+  pearlsText: {fileID: 0}
+  timeText: {fileID: 0}
+  livesText: {fileID: 0}
+  gradeText: {fileID: 0}
 --- !u!1 &1006039725
 GameObject:
   m_ObjectHideFlags: 0
@@ -80529,7 +80582,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1718182874}
-  - component: {fileID: 1718182873}
+  - component: {fileID: 1718182876}
+  - component: {fileID: 1718182875}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -80537,27 +80591,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1718182873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718182872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad71d1f313e91804c88ff46098261a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  isGameOver: 0
-  isLevelComplete: 0
-  isPaused: 0
-  maxLives: 3
-  currentLives: 0
-  maxHitsPerLife: 1
-  score: 0
-  pearlsCollected: 0
-  timeElapsed: 0
 --- !u!4 &1718182874
 Transform:
   m_ObjectHideFlags: 0
@@ -80573,6 +80606,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1718182875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718182872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618fa9c148bf08844b7d0ae36c80ad26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunnerGameManager
+  isGameOver: 0
+  isLevelComplete: 0
+  isPaused: 0
+  maxLives: 3
+  currentLives: 0
+  maxHitsPerLife: 1
+  score: 0
+  pearlsCollected: 0
+  timeElapsed: 0
+--- !u!114 &1718182876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718182872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c500ed915ebe049a754d7aa7c81713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RanaPausePanelAnimator
+  pausePanelGame: {fileID: 0}
+  hudPanel: {fileID: 0}
+  titleText: {fileID: 0}
+  resumeButton: {fileID: 0}
+  retryButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  sfxSource: {fileID: 0}
+  navMoveSound: {fileID: 0}
+  confirmSound: {fileID: 0}
+  pauseOpenSound: {fileID: 0}
+  buttonNormalColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonSelectedColor: {r: 1, g: 0.85, b: 0.3, a: 1}
+  buttonSelectedScale: 1.12
+  mainMenuScene: MainMenu
 --- !u!1 &1718841967
 GameObject:
   m_ObjectHideFlags: 0
