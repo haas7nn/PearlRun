@@ -19,7 +19,7 @@ public class EnemyChase : EnemyBase
     [Header("Lose Player")]
     public float losePlayerDelay = 2f;
 
-    private bool isChasing;
+    private bool isRunning;
     private float losePlayerTimer;
     private EnemyPatrol patrol;
     private Animator animator;
@@ -53,10 +53,10 @@ public class EnemyChase : EnemyBase
 
         float xDistance = Mathf.Abs(player.position.x - transform.position.x);
 
-        if (!isChasing && xDistance <= detectionRange)
+        if (!isRunning && xDistance <= detectionRange)
             StartChasing();
 
-        if (isChasing)
+        if (isRunning)
         {
             if (xDistance > stopChaseRange)
             {
@@ -75,12 +75,12 @@ public class EnemyChase : EnemyBase
 
     private void StartChasing()
     {
-        isChasing = true;
+        isRunning = true;
         losePlayerTimer = 0f;
 
         if (animator != null)
-            animator.SetBool("isChasing", true);
-        Debug.Log("Enemy animation: isChasing TRUE");
+            animator.SetBool("isRunning", true);
+        Debug.Log("Enemy animation: isRunning TRUE");
 
         if (patrol != null)
             patrol.enabled = false;
@@ -88,7 +88,7 @@ public class EnemyChase : EnemyBase
 
     private void StopChasing()
     {
-        isChasing = false;
+        isRunning = false;
         losePlayerTimer = 0f;
 
         if (animator != null)

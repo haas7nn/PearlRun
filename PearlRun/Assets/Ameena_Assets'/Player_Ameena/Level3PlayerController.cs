@@ -658,7 +658,11 @@ public class Level3PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if (isDead)
+            return;
+
         isDead = true;
+
         isHurt = false;
         isPunching = false;
         isSliding = false;
@@ -676,8 +680,13 @@ public class Level3PlayerController : MonoBehaviour
             capsuleCollider.center = originalColliderCenter;
         }
 
-        rb.linearVelocity = Vector3.zero;
-        rb.useGravity = false;
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+            rb.isKinematic = true;
+        }
 
         StopRunningSound();
         PlaySFX(deathClip);

@@ -7,7 +7,7 @@ public class Level3ScoreManager : MonoBehaviour
 
     [Header("Level 3 Data")]
     public int currentPearls = 0;
-    public int maxPearlsInLevel = 20;
+    public int maxPearlsInLevel = 144;
     public float elapsedTime = 0f;
     public bool levelCompleted = false;
 

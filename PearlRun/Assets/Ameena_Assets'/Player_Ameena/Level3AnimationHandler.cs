@@ -5,7 +5,9 @@ public class Level3AnimationHandler : MonoBehaviour
 {
     private Animator animator;
     private Level3PlayerController playerController;
+
     private bool isPlayingRollFall;
+    private bool deathCoroutineStarted;
 
     void Start()
     {
@@ -28,55 +30,45 @@ public class Level3AnimationHandler : MonoBehaviour
         if (animator == null || playerController == null)
             return;
 
+        if (!animator.enabled)
+            return;
+
         bool dead = playerController.isDead;
         bool hurt = playerController.isHurt && !dead;
-
         bool rollFall = isPlayingRollFall && !dead && !hurt;
 
         bool slide =
             playerController.IsSliding &&
             playerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !rollFall;
+            !dead && !hurt && !rollFall;
 
         bool punch =
             playerController.isPunching &&
             playerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !rollFall;
+            !dead && !hurt && !slide && !rollFall;
 
         bool doubleJump =
             playerController.isDoubleJumping &&
             !playerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch && !rollFall;
 
         bool jump =
             playerController.isJumping &&
             !playerController.IsGrounded &&
             !doubleJump &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch && !rollFall;
 
         bool runBack =
             playerController.isRunningBackward &&
             playerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !jump &&
-            !doubleJump &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch &&
+            !jump && !doubleJump && !rollFall;
+
+        if (playerController.IsGrounded && !dead && !hurt && !rollFall)
+        {
+            jump = false;
+            doubleJump = false;
+        }
 
         animator.SetFloat("speed", playerController.currentSpeed, 0.08f, Time.deltaTime);
 
@@ -89,10 +81,36 @@ public class Level3AnimationHandler : MonoBehaviour
         animator.SetBool("isRunningBackward", runBack);
         animator.SetBool("isRollFall", rollFall);
 
+        if (dead && !deathCoroutineStarted)
+        {
+            deathCoroutineStarted = true;
+            StartCoroutine(StopAnimatorAfterDeath());
+        }
+
         if (playerController.ConsumeRollFallTrigger() && !isPlayingRollFall && !dead && !hurt)
         {
             StartCoroutine(PlayRollFall());
         }
+    }
+
+    IEnumerator StopAnimatorAfterDeath()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        if (playerController != null && playerController.isDead && animator != null)
+        {
+            animator.enabled = false;
+        }
+    }
+
+    public void EnableAnimator()
+    {
+        if (animator != null)
+        {
+            animator.enabled = true;
+        }
+
+        deathCoroutineStarted = false;
     }
 
     IEnumerator PlayRollFall()
