@@ -48331,6 +48331,242 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300456543}
   m_Mesh: {fileID: -2432090755550338912, guid: a9b683fe7b0959843a163e02e01d9a61, type: 3}
+--- !u!1001 &300934652
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190462326172704143, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      propertyPath: m_Name
+      value: Awal_Amwaj
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2645716892288296514, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+    - {fileID: 1510215085648110134, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+    - {fileID: 7898778897779529801, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300934655}
+    - targetCorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300934654}
+    - targetCorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300934658}
+    - targetCorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300934657}
+    - targetCorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300934656}
+  m_SourcePrefab: {fileID: 100100000, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+--- !u!1 &300934653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5928522259742658891, guid: 280243e1f70221f48841fef182f09aa2, type: 3}
+  m_PrefabInstance: {fileID: 300934652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &300934654
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300934653}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &300934655
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300934653}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 120
+  m_CollisionDetection: 1
+--- !u!114 &300934656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300934653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03545ccc5a1ff7d41b3fdcb918c3e54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level5AmwajPlayerController
+  moveSpeed: 8
+  jumpForce: 10
+  doubleJumpForce: 9
+  slideTime: 0.6
+  sprintMultiplier: 1.5
+  sprintDuration: 2
+  sprintCooldown: 8
+  fallMultiplier: 4
+  lowJumpMultiplier: 2
+  maxFallSpeed: 22
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
+  attackRange: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  breakableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackAnimationDuration: 0.3
+  attackStopDuration: 0.15
+  attackRecoverDuration: 0.35
+  obstacleSlowMultiplier: 0.35
+  obstacleSlowDuration: 0.45
+  obstacleRecoverDuration: 0.35
+  jumpBufferTime: 0.18
+  actionBufferTime: 0.1
+  coyoteTime: 0.14
+  sfxSource: {fileID: 0}
+  runSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  jumpClip: {fileID: 0}
+  rollClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip: {fileID: 0}
+  attackClip: {fileID: 0}
+  runningClip: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  sfxVolume: 1
+  runVolume: 0.8
+  musicVolume: 0.6
+  hud: {fileID: 0}
+  isJumping: 0
+  isPunching: 0
+  isHurt: 0
+  isDead: 0
+  currentSpeed: 0
+  isRunningBackward: 0
+  isDoubleJumping: 0
+--- !u!114 &300934657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300934653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1af587caf4ae24b8c10319cd683e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level5AmwajCollisionHandler
+  invincibilityTime: 1.5
+  jumpObstacleTag: JumpObstacle
+  obstacleSlowMultiplier: 0.35
+  obstacleSlowDuration: 0.45
+  topHitNormalY: 0.45
+--- !u!114 &300934658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300934653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175dbbe398168f041b159acc368d8959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level5AmwajAnimationHandler
 --- !u!1 &301574069
 GameObject:
   m_ObjectHideFlags: 0
@@ -230168,7 +230404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1366243389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532113,3 +532349,4 @@ SceneRoots:
   - {fileID: 2238425258369038235}
   - {fileID: 213869249}
   - {fileID: 387870851}
+  - {fileID: 300934652}
