@@ -63322,9 +63322,9 @@ GameObject:
   - component: {fileID: 1366243394}
   - component: {fileID: 1366243393}
   - component: {fileID: 1366243392}
-  - component: {fileID: 1366243391}
-  - component: {fileID: 1366243390}
-  - component: {fileID: 1366243389}
+  - component: {fileID: 1366243399}
+  - component: {fileID: 1366243398}
+  - component: {fileID: 1366243397}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -63332,70 +63332,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1366243389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366243388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7149d8b8082c8458a1bc8daeb05f11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationHandler
---- !u!114 &1366243390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366243388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336a4d887e1f10343b555a7cf7462d05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
---- !u!114 &1366243391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366243388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793e4666dcb43bf45930047396d6395b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 6
-  jumpForce: 7
-  doubleJumpForce: 11
-  slideTime: 0.6
-  sprintMultiplier: 1.5
-  sprintDuration: 2
-  sprintCooldown: 8
-  fallMultiplier: 4
-  lowJumpMultiplier: 2.5
-  maxFallSpeed: 22
-  groundCheck: {fileID: 468976525}
-  groundCheckRadius: 0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  attackPoint: {fileID: 909033779}
-  attackRange: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  breakableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  isJumping: 0
-  isPunching: 0
-  isHurt: 0
-  isDead: 0
-  currentSpeed: 0
 --- !u!54 &1366243392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63521,6 +63457,96 @@ Transform:
   - {fileID: 909033779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366243397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366243388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a20962235bef61419de1dbb294e2cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunnerAnimationHandler
+--- !u!114 &1366243398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366243388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acea91e3c792085469906651e7ca0299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunnerCollisionHandler
+  invincibilityTime: 1.5
+  jumpObstacleTag: JumpObstacle
+  obstacleSlowMultiplier: 0.35
+  obstacleSlowDuration: 0.45
+  topHitNormalY: 0.45
+--- !u!114 &1366243399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366243388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99abc05c39c4dae42bb530154859acd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RunnerController
+  moveSpeed: 8
+  jumpForce: 10
+  doubleJumpForce: 9
+  slideTime: 0.6
+  sprintMultiplier: 1.5
+  sprintDuration: 2
+  sprintCooldown: 8
+  fallMultiplier: 4
+  lowJumpMultiplier: 2
+  maxFallSpeed: 22
+  groundCheck: {fileID: 468976525}
+  groundCheckRadius: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackPoint: {fileID: 909033779}
+  attackRange: 1
+  breakableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackAnimationDuration: 0.3
+  attackStopDuration: 0.15
+  attackRecoverDuration: 0.35
+  obstacleSlowMultiplier: 0.35
+  obstacleSlowDuration: 0.45
+  obstacleRecoverDuration: 0.35
+  jumpBufferTime: 0.18
+  actionBufferTime: 0.1
+  coyoteTime: 0.14
+  sfxSource: {fileID: 0}
+  runSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  jumpClip: {fileID: 8300000, guid: 4a88ea49378027b4a83c3a41b13493ba, type: 3}
+  rollClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 246175ed0056b84409bc5b0e627f2a81, type: 3}
+  hurtClip: {fileID: 8300000, guid: 67ddf971472f6e74ea9cc8865d2057db, type: 3}
+  attackClip: {fileID: 0}
+  runningClip: {fileID: 8300000, guid: 621965c495c31b841ad49715d341951e, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 7479281879be92c4b849eee38b9f374c, type: 3}
+  sfxVolume: 1
+  runVolume: 0.8
+  musicVolume: 0.6
+  isJumping: 0
+  isPunching: 0
+  isHurt: 0
+  isDead: 0
+  currentSpeed: 0
+  isRunningBackward: 0
+  isDoubleJumping: 0
 --- !u!1 &1367730364
 GameObject:
   m_ObjectHideFlags: 0
@@ -80736,7 +80762,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1718182874}
-  - component: {fileID: 1718182876}
   - component: {fileID: 1718182875}
   m_Layer: 0
   m_Name: GameManager
@@ -80781,33 +80806,6 @@ MonoBehaviour:
   score: 0
   pearlsCollected: 0
   timeElapsed: 0
---- !u!114 &1718182876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718182872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9c500ed915ebe049a754d7aa7c81713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RanaPausePanelAnimator
-  pausePanelGame: {fileID: 0}
-  hudPanel: {fileID: 0}
-  titleText: {fileID: 0}
-  resumeButton: {fileID: 0}
-  retryButton: {fileID: 0}
-  mainMenuButton: {fileID: 0}
-  quitButton: {fileID: 0}
-  sfxSource: {fileID: 0}
-  navMoveSound: {fileID: 0}
-  confirmSound: {fileID: 8300000, guid: 567bf289afc2c61408eb7ae93ec5ea65, type: 3}
-  pauseOpenSound: {fileID: 0}
-  buttonNormalColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonSelectedColor: {r: 1, g: 0.85, b: 0.3, a: 1}
-  buttonSelectedScale: 1.12
-  mainMenuScene: MainMenu
 --- !u!1 &1718841967
 GameObject:
   m_ObjectHideFlags: 0
@@ -106082,7 +106080,7 @@ GameObject:
   - component: {fileID: 7431554364150146871}
   m_Layer: 0
   m_Name: Object_215
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
