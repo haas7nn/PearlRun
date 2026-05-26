@@ -5,7 +5,10 @@ public class EnemyChase_Rana : MonoBehaviour
     [Header("Chase Settings")]
     public Transform player;
     public float chaseSpeed = 5f;
-    public float normalGap = 4f;
+
+    [Header("Reset Settings")]
+    public float resetGap = 8f;
+    public float resetImmunityTime = 2f;
 
     [Header("Obstacle Detection")]
     public float obstacleCheckDistance = 1.0f;
@@ -25,14 +28,17 @@ public class EnemyChase_Rana : MonoBehaviour
 
     private Animator animator;
     private RunnerController runnerController;
+
     private bool isStopped = false;
     private float damageTimer = 0f;
-    private float groundY;
+    private float immunityTimer = 0f;
+
+    private bool wasHurt = false;
+    private int previousLives = -1;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        groundY = transform.position.y;
 
         if (player == null)
         {
@@ -48,6 +54,9 @@ public class EnemyChase_Rana : MonoBehaviour
             runnerController = player.GetComponent<RunnerController>();
         }
 
+        if (RunnerGameManager.instance != null)
+            previousLives = RunnerGameManager.instance.currentLives;
+
         SetupAudio();
         animator.SetBool("isRunning", true);
     }
@@ -58,38 +67,61 @@ public class EnemyChase_Rana : MonoBehaviour
 
         if (RunnerGameManager.instance != null && RunnerGameManager.instance.isGameOver)
         {
-            SetRunning(false);
+            animator.SetBool("isRunning", false);
+            StopAudio();
             return;
         }
 
         if (damageTimer > 0f) damageTimer -= Time.deltaTime;
+        if (immunityTimer > 0f) immunityTimer -= Time.deltaTime;
 
-        // ── واقف على عائق ──
+        if (runnerController != null)
+        {
+            bool hurtNow = runnerController.isHurt;
+            if (hurtNow && !wasHurt)
+            {
+                wasHurt = true;
+                ResetBehindPlayer();
+                return;
+            }
+            if (!hurtNow) wasHurt = false;
+        }
+
+        if (RunnerGameManager.instance != null)
+        {
+            int lives = RunnerGameManager.instance.currentLives;
+            if (previousLives != -1 && lives < previousLives)
+            {
+                previousLives = lives;
+                ResetBehindPlayer();
+                return;
+            }
+            previousLives = lives;
+        }
+
         if (isStopped)
         {
-            SetRunning(false);
+            animator.SetBool("isRunning", false);
+            StopAudio();
             return;
         }
 
-        // ── كشف العوائق ──
         if (IsObstacleAhead())
         {
             isStopped = true;
-            SetRunning(false);
+            animator.SetBool("isRunning", false);
+            StopAudio();
             return;
         }
 
-        // ── يلاحق أوال مع مسافة طبيعية ──
-        float targetX = player.position.x - normalGap;
-        float newX = Mathf.MoveTowards(transform.position.x, targetX, chaseSpeed * Time.deltaTime);
-        transform.position = new Vector3(newX, groundY, transform.position.z);
+        float newX = Mathf.MoveTowards(transform.position.x, player.position.x, chaseSpeed * Time.deltaTime);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 
-        SetRunning(true);
+        animator.SetBool("isRunning", true);
         UpdateAudio();
 
-        // ── لمس أوال ──
         float dist = Mathf.Abs(transform.position.x - player.position.x);
-        if (dist <= touchDistance && damageTimer <= 0f)
+        if (dist <= touchDistance && damageTimer <= 0f && immunityTimer <= 0f)
         {
             damageTimer = damageCooldown;
             RunnerGameManager.instance?.PlayerHit();
@@ -112,10 +144,23 @@ public class EnemyChase_Rana : MonoBehaviour
         return false;
     }
 
-    void SetRunning(bool running)
+    public void TriggerReset() => ResetBehindPlayer();
+
+    void ResetBehindPlayer()
     {
-        animator.SetBool("isRunning", running);
-        if (!running) StopAudio();
+        if (player == null) return;
+
+        transform.position = new Vector3(
+            player.position.x - resetGap,
+            transform.position.y,
+            transform.position.z
+        );
+
+        isStopped = false;
+        immunityTimer = resetImmunityTime;
+
+        animator.SetBool("isRunning", true);
+        UpdateAudio();
     }
 
     void SetupAudio()
@@ -130,7 +175,6 @@ public class EnemyChase_Rana : MonoBehaviour
     void UpdateAudio()
     {
         if (enemyAudioSource == null || chaseSound == null) return;
-
         if (transform.position.x < player.position.x)
         {
             if (!enemyAudioSource.isPlaying) enemyAudioSource.Play();

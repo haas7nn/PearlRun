@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class RunnerController : MonoBehaviour
 {
@@ -232,8 +233,6 @@ public class RunnerController : MonoBehaviour
 
         if (!wasGrounded && isGrounded && jumpCount > 0 && hasReachedApex)
         {
-            // Don't fire the heavy-landing animation if the player is hurt —
-            // it conflicts with the Hurt state and freezes the animator.
             if (jumpCount >= 2 && !isHurt)
                 triggerRollFallOnLand = true;
 
@@ -420,12 +419,8 @@ public class RunnerController : MonoBehaviour
     {
         isRunningBackward =
             Input.GetAxisRaw("Horizontal") < -0.1f &&
-            isGrounded &&
-            !isSliding &&
-            !isPunching &&
-            !isJumping &&
-            !isDoubleJumping &&
-            !isHurt;
+            isGrounded && !isSliding && !isPunching &&
+            !isJumping && !isDoubleJumping && !isHurt;
     }
 
     void UpdateObstacleSlowdown()
@@ -459,13 +454,8 @@ public class RunnerController : MonoBehaviour
     void HandleRunningSound()
     {
         bool shouldRunSound =
-            isGrounded &&
-            !isSliding &&
-            !isPunching &&
-            !isHurt &&
-            !isDead &&
-            !isJumping &&
-            !isDoubleJumping &&
+            isGrounded && !isSliding && !isPunching &&
+            !isHurt && !isDead && !isJumping && !isDoubleJumping &&
             attackStopTimer <= 0f &&
             Mathf.Abs(rb.linearVelocity.x) > 0.2f;
 
@@ -475,7 +465,6 @@ public class RunnerController : MonoBehaviour
             {
                 if (runSource.clip != runningClip)
                     runSource.clip = runningClip;
-
                 if (!runSource.isPlaying)
                     runSource.Play();
             }
@@ -525,11 +514,9 @@ public class RunnerController : MonoBehaviour
     void PlayBackgroundMusic()
     {
         if (musicSource == null || backgroundMusic == null) return;
-
         musicSource.clip = backgroundMusic;
         musicSource.volume = musicVolume;
         musicSource.loop = true;
-
         if (!musicSource.isPlaying)
             musicSource.Play();
     }
@@ -548,7 +535,6 @@ public class RunnerController : MonoBehaviour
     {
         obstacleSlowMultiplier = Mathf.Clamp01(slowMultiplier);
         obstacleSlowDuration = Mathf.Max(0.05f, slowDuration);
-
         obstacleSlowTimer = obstacleSlowDuration;
         obstacleRecoverTimer = 0f;
         obstacleCurrentMultiplier = obstacleSlowMultiplier;
@@ -563,21 +549,17 @@ public class RunnerController : MonoBehaviour
         isPunching = false;
         isSliding = false;
 
-        // FIX: clear all airborne / landing flags so the animator
-        // never has Hurt + Jump + DoubleJump + RollFall true at once.
         isJumping = false;
         isDoubleJumping = false;
         jumpCount = 0;
         hasReachedApex = false;
         triggerRollFallOnLand = false;
 
-        // FIX: also clear attack timers so movement isn't locked while hurt.
         attackAnimTimer = 0f;
         attackStopTimer = 0f;
         attackRecoverTimer = 0f;
 
         StopSlide();
-        PlaySFX(hurtClip);
 
         CancelInvoke(nameof(ResetHurt));
         Invoke(nameof(ResetHurt), 0.2f);
@@ -593,9 +575,6 @@ public class RunnerController : MonoBehaviour
         hasReachedApex = false;
         isGrounded = true;
         isHurt = false;
-
-        // FIX: clear the pending heavy-landing trigger so it
-        // doesn't fire after a forced snap onto an obstacle.
         triggerRollFallOnLand = false;
 
         CancelInvoke(nameof(ResetHurt));
@@ -609,9 +588,6 @@ public class RunnerController : MonoBehaviour
     {
         isHurt = false;
 
-        // FIX: guarantee a clean run state when hurt ends.
-        // Scrub any leftover landing trigger or jump residue that
-        // could re-freeze the animator on the next frame.
         if (isGrounded)
         {
             triggerRollFallOnLand = false;
@@ -683,6 +659,9 @@ public class RunnerController : MonoBehaviour
         rb.useGravity = true;
         transform.position = pos;
         rb.linearVelocity = Vector3.zero;
+
+        // Re-enable animator after respawn
+        GetComponent<RunnerAnimationHandler>()?.EnableAnimator();
     }
 
     void OnDrawGizmosSelected()

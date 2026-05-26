@@ -18,58 +18,46 @@ public class RunnerAnimationHandler : MonoBehaviour
         if (animator == null || runnerController == null)
             return;
 
+        if (!animator.enabled) return;
+
         bool dead = runnerController.isDead;
         bool hurt = runnerController.isHurt && !dead;
-
         bool rollFall = isPlayingRollFall && !dead && !hurt;
 
         bool slide =
             runnerController.IsSliding &&
             runnerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !rollFall;
+            !dead && !hurt && !rollFall;
 
         bool punch =
             runnerController.isPunching &&
             runnerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !rollFall;
+            !dead && !hurt && !slide && !rollFall;
 
         bool doubleJump =
             runnerController.isDoubleJumping &&
             !runnerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch && !rollFall;
 
         bool jump =
             runnerController.isJumping &&
             !runnerController.IsGrounded &&
             !doubleJump &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch && !rollFall;
 
         bool runBack =
             runnerController.isRunningBackward &&
             runnerController.IsGrounded &&
-            !dead &&
-            !hurt &&
-            !slide &&
-            !punch &&
-            !jump &&
-            !doubleJump &&
-            !rollFall;
+            !dead && !hurt && !slide && !punch &&
+            !jump && !doubleJump && !rollFall;
+
+        if (runnerController.IsGrounded && !dead && !hurt && !rollFall)
+        {
+            jump = false;
+            doubleJump = false;
+        }
 
         animator.SetFloat("speed", runnerController.currentSpeed, 0.08f, Time.deltaTime);
-
         animator.SetBool("isDead", dead);
         animator.SetBool("isHurt", hurt);
         animator.SetBool("isSliding", slide);
@@ -79,23 +67,36 @@ public class RunnerAnimationHandler : MonoBehaviour
         animator.SetBool("isRunningBackward", runBack);
         animator.SetBool("isRollFall", rollFall);
 
+        if (dead)
+            StartCoroutine(StopAnimatorAfterDeath());
+
         if (runnerController.ConsumeRollFallTrigger() && !isPlayingRollFall && !dead && !hurt)
             StartCoroutine(PlayRollFall());
+    }
+
+    IEnumerator StopAnimatorAfterDeath()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (runnerController != null && runnerController.isDead)
+            animator.enabled = false;
+    }
+
+    public void EnableAnimator()
+    {
+        if (animator != null)
+            animator.enabled = true;
     }
 
     IEnumerator PlayRollFall()
     {
         isPlayingRollFall = true;
-
         animator.SetBool("isJumping", false);
         animator.SetBool("isDoubleJumping", false);
         animator.SetBool("isSliding", false);
         animator.SetBool("isPunching", false);
         animator.SetBool("isRunningBackward", false);
         animator.SetBool("isRollFall", true);
-
         yield return new WaitForSeconds(0.45f);
-
         animator.SetBool("isRollFall", false);
         isPlayingRollFall = false;
     }
