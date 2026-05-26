@@ -43,6 +43,7 @@ public class Level3CollisionHandler : MonoBehaviour
 
         if (collision.gameObject.CompareTag(jumpObstacleTag))
         {
+            HandleJumpObstacleCollision(collision);
             return;
         }
     }
