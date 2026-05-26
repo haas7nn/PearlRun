@@ -121,7 +121,6 @@ public class RunnerGameManager : MonoBehaviour
                 _player.Respawn(_player.transform.position);
         }
 
-        // ── العدو يجي وراء أوال بمسافة آمنة بعد الـ respawn ──
         if (_enemy != null)
             _enemy.TriggerReset();
 
