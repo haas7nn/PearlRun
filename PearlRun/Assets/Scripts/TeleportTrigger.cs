@@ -4,7 +4,7 @@ using UnityEngine;
 public class TeleportTrigger : MonoBehaviour
 {
     [Header("Teleport")]
-    public Transform destination;                 // Drag LoopStart here
+    public Transform destination;
     public float cooldownSeconds = 0.5f;
 
     [Header("Keep Offset (recommended: keep only Z for lane offset)")]
@@ -19,8 +19,14 @@ public class TeleportTrigger : MonoBehaviour
 
     [Header("Camera Snap (optional)")]
     public bool snapCamera = true;
-    public Transform cameraToSnap;                // Leave null to use Camera.main
-    public Vector3 cameraOffset = new Vector3(5f, 3f, -10f); // match your CameraController offset
+    public Transform cameraToSnap;
+    public Vector3 cameraOffset = new Vector3(5f, 3f, -10f);
+
+    [Header("Optional UI Warning (enable ONLY on Circuit1 -> Circuit2 trigger)")]
+    public bool showWarning = false;
+    public LapWarningUI warningUI;
+    [TextArea] public string warningText = "FINAL LAP STARTING — GET READY";
+    public float warningDelay = 0f;
 
     private bool onCooldown;
 
@@ -30,7 +36,6 @@ public class TeleportTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (destination == null) return;
 
-        // Compute offset relative to this trigger (optional)
         Vector3 offset = Vector3.zero;
         if (keepOffset)
         {
@@ -44,17 +49,15 @@ public class TeleportTrigger : MonoBehaviour
 
         Vector3 newPos = destination.position + offset;
 
-        // --- Teleport player (Rigidbody or CharacterController or Transform) ---
         Rigidbody rb = other.attachedRigidbody;
         CharacterController cc = other.GetComponent<CharacterController>();
 
         Vector3 savedVel = Vector3.zero;
         if (rb != null)
-            savedVel = rb.linearVelocity; // if your Unity complains, change to rb.linearVelocity
+            savedVel = rb.linearVelocity; // if your Unity version uses rb.velocity, swap to that
 
         if (cc != null)
         {
-            // CharacterController needs disable -> move -> enable
             cc.enabled = false;
             other.transform.position = newPos;
             cc.enabled = true;
@@ -68,21 +71,19 @@ public class TeleportTrigger : MonoBehaviour
             other.transform.position = newPos;
         }
 
-        // --- Restore/adjust velocity ---
         if (rb != null)
         {
             if (preserveVelocity)
             {
                 if (zeroVerticalVelocity) savedVel.y = 0f;
-                rb.linearVelocity = savedVel; // if your Unity complains, change to rb.linearVelocity
+                rb.linearVelocity = savedVel;
             }
             else
             {
-                rb.linearVelocity = Vector3.zero; // if your Unity complains, change to rb.linearVelocity
+                rb.linearVelocity = Vector3.zero;
             }
         }
 
-        // --- Snap camera to avoid smooth-lag after teleport ---
         if (snapCamera)
         {
             Transform camT = cameraToSnap != null ? cameraToSnap : (Camera.main != null ? Camera.main.transform : null);
@@ -90,7 +91,19 @@ public class TeleportTrigger : MonoBehaviour
                 camT.position = newPos + cameraOffset;
         }
 
+        // Show warning ONLY if enabled on this trigger
+        if (showWarning && warningUI != null)
+            StartCoroutine(ShowWarningAfterDelay());
+
         StartCoroutine(Cooldown());
+    }
+
+    private IEnumerator ShowWarningAfterDelay()
+    {
+        if (warningDelay > 0f)
+            yield return new WaitForSeconds(warningDelay);
+
+        warningUI.Show(warningText);
     }
 
     private IEnumerator Cooldown()
