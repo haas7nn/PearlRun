@@ -36,6 +36,8 @@ public class TeleportTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (destination == null) return;
 
+        Debug.Log($"Teleport fired on: {gameObject.name} | showWarning={showWarning} | warningUI={(warningUI == null ? "NULL" : warningUI.name)}", this);
+
         Vector3 offset = Vector3.zero;
         if (keepOffset)
         {
@@ -92,16 +94,30 @@ public class TeleportTrigger : MonoBehaviour
         }
 
         // Show warning ONLY if enabled on this trigger
-        if (showWarning && warningUI != null)
-            StartCoroutine(ShowWarningAfterDelay());
+        if (showWarning)
+        {
+            if (warningUI != null)
+                StartCoroutine(ShowWarningAfterDelay());
+            else
+                Debug.LogWarning("TeleportTrigger: showWarning is ON but warningUI is NOT assigned on " + gameObject.name, this);
+        }
 
         StartCoroutine(Cooldown());
+    }
+
+    [ContextMenu("TEST Show Warning")]
+    private void TestShowWarning()
+    {
+        if (warningUI != null)
+            warningUI.Show(warningText);
+        else
+            Debug.LogWarning("TeleportTrigger: warningUI is NOT assigned on " + gameObject.name, this);
     }
 
     private IEnumerator ShowWarningAfterDelay()
     {
         if (warningDelay > 0f)
-            yield return new WaitForSeconds(warningDelay);
+            yield return new WaitForSecondsRealtime(warningDelay);
 
         warningUI.Show(warningText);
     }
@@ -109,7 +125,7 @@ public class TeleportTrigger : MonoBehaviour
     private IEnumerator Cooldown()
     {
         onCooldown = true;
-        yield return new WaitForSeconds(cooldownSeconds);
+        yield return new WaitForSecondsRealtime(cooldownSeconds);
         onCooldown = false;
     }
 }
