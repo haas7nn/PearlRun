@@ -43353,6 +43353,110 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: sfxSource
+      value: 
+      objectReference: {fileID: 2141556124}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: sfxVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: titleText
+      value: 
+      objectReference: {fileID: 1903373461}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: quitButton
+      value: 
+      objectReference: {fileID: 1077251656}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: confirmSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bf5ddea91d0cf5459db9bb8d2604d11, type: 3}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: navMoveSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9da0fb2d30c7a8c43af2d4defb28902c, type: 3}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: replayButton
+      value: 
+      objectReference: {fileID: 1153083350}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: titleColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: titleColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: titleColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: gameOverMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 065bf342260dfc1449b3a7ed8ab6e148, type: 3}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: mainMenuButton
+      value: 
+      objectReference: {fileID: 1038514130}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: titleAppearSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ed38027140f671e4ba7c65c257137224, type: 3}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonNormalColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonNormalColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonNormalColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: hudToHide.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonSelectedColor.b
+      value: 0.04202749
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonSelectedColor.g
+      value: 0.40084225
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: buttonSelectedColor.r
+      value: 0.5345911
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1005021207}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[1]'
+      value: 
+      objectReference: {fileID: 738861175}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[2]'
+      value: 
+      objectReference: {fileID: 821174553}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1401587341}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2025001691}
+    - target: {fileID: 1515472581739407972, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+      propertyPath: 'hudToHide.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1055082882}
     - target: {fileID: 1685865077019083481, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
       propertyPath: m_Name
       value: UI
@@ -46421,6 +46525,17 @@ PrefabInstance:
       addedObject: {fileID: 119340489}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4be00c745745e64fbb14a1c511af5c0, type: 3}
+--- !u!114 &1038514130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5173150681886128795, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1039242364
 GameObject:
   m_ObjectHideFlags: 0
@@ -47279,6 +47394,11 @@ Transform:
   - {fileID: 1949027784}
   m_Father: {fileID: 1888545685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1055082882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8156983101347538712, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056132490
 GameObject:
   m_ObjectHideFlags: 0
@@ -48713,6 +48833,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074881232}
   m_Mesh: {fileID: -7432249638169692610, guid: 0e1e367dd9bc99f4db11bc95cc6abea2, type: 3}
+--- !u!114 &1077251656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4817915601680115482, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1079031618
 GameObject:
   m_ObjectHideFlags: 0
@@ -53637,6 +53768,17 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.020611474, y: 0.29848695, z: 0.17260449}
     m_Extent: {x: 0.06034123, y: 0.013586491, z: 0.01796022}
   m_DirtyAABB: 0
+--- !u!114 &1153083350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7849874916478350427, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1154536208
 GameObject:
   m_ObjectHideFlags: 0
@@ -65181,6 +65323,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1566468291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1401587341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8859280068298944544, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1401932129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80648,7 +80795,7 @@ MonoBehaviour:
   quitButton: {fileID: 0}
   sfxSource: {fileID: 0}
   navMoveSound: {fileID: 0}
-  confirmSound: {fileID: 0}
+  confirmSound: {fileID: 8300000, guid: 567bf289afc2c61408eb7ae93ec5ea65, type: 3}
   pauseOpenSound: {fileID: 0}
   buttonNormalColor: {r: 1, g: 1, b: 1, a: 1}
   buttonSelectedColor: {r: 1, g: 0.85, b: 0.3, a: 1}
@@ -90187,6 +90334,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902411816}
   m_Mesh: {fileID: -6116908626897950742, guid: 0e1e367dd9bc99f4db11bc95cc6abea2, type: 3}
+--- !u!114 &1903373461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5243199271415912484, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1904596184
 GameObject:
   m_ObjectHideFlags: 0
@@ -93684,7 +93842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinishZoneTrigger
   victoryPanel: {fileID: 1546913476}
   hudObject: {fileID: 1565487611}
-  victoryMusic: {fileID: 0}
+  victoryMusic: {fileID: 8300000, guid: b1bf318211f394b4db19459f47c1f625, type: 3}
 --- !u!65 &1995713996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94526,6 +94684,11 @@ Transform:
   - {fileID: 2023887009}
   m_Father: {fileID: 3133074449023468517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2025001691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1386765490763240906, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2026586886
 GameObject:
   m_ObjectHideFlags: 0
@@ -99171,6 +99334,11 @@ MeshFilter:
 --- !u!1 &2141556122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8635897768963881239, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
+  m_PrefabInstance: {fileID: 973106865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2141556124 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8923862209152000294, guid: c055e2f2494a0d5418175b68592ca113, type: 3}
   m_PrefabInstance: {fileID: 973106865}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141979786
