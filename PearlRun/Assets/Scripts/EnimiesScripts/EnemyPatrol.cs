@@ -7,14 +7,28 @@ public class EnemyPatrol : EnemyBase
     public Transform pointB;
 
     [Header("Movement")]
-    public float speed = 2f;
+    public float speed = 5f;
     public float reachDistance = 0.1f;
+
+    [Header("Fixed Position")]
+    public bool lockY = true;
+    public bool lockZ = true;
+    public float fixedY = 0f;
+    public float fixedZ = 0f;
+
+    [Header("Direction")]
+    public bool faceRightWhenMovingToB = true;
 
     [Header("Animation")]
     public Animator animator;
     public string runningParameterName = "isRunning";
 
+    [Header("Visual Model")]
+    public Transform visualModel;
+    public Vector3 visualLocalRotation = new Vector3(0f, 0f, 0f);
+
     private Transform target;
+    private Vector3 startScale;
 
     private void Start()
     {
@@ -23,7 +37,16 @@ public class EnemyPatrol : EnemyBase
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
+        if (visualModel == null && animator != null)
+            visualModel = animator.transform;
+
+        startScale = transform.localScale;
+
+        fixedY = transform.position.y;
+        fixedZ = transform.position.z;
+
         SetRunning(true);
+        ApplyFixedVisualRotation();
     }
 
     private void Update()
@@ -34,43 +57,75 @@ public class EnemyPatrol : EnemyBase
             return;
         }
 
-        PatrolMove();
+        MovePatrol();
     }
 
-    private void PatrolMove()
+    private void MovePatrol()
     {
         SetRunning(true);
 
+        Vector3 targetPosition = target.position;
+
+        if (lockY)
+            targetPosition.y = fixedY;
+
+        if (lockZ)
+            targetPosition.z = fixedZ;
+
         transform.position = Vector3.MoveTowards(
             transform.position,
-            target.position,
+            targetPosition,
             speed * Time.deltaTime
         );
 
-        FaceTarget();
+        FixCurrentPosition();
+        FaceMoveDirection();
 
-        if (Vector3.Distance(transform.position, target.position) < reachDistance)
+        if (Vector3.Distance(transform.position, targetPosition) <= reachDistance)
         {
-            if (target == pointA)
-                target = pointB;
-            else
-                target = pointA;
-
-            FaceTarget();
+            target = target == pointA ? pointB : pointA;
         }
     }
 
-    private void FaceTarget()
+    private void FixCurrentPosition()
+    {
+        Vector3 pos = transform.position;
+
+        if (lockY)
+            pos.y = fixedY;
+
+        if (lockZ)
+            pos.z = fixedZ;
+
+        transform.position = pos;
+    }
+
+    private void FaceMoveDirection()
     {
         if (target == null)
             return;
 
-        Vector3 direction = target.position - transform.position;
-        direction.y = 0f;
+        bool movingToB = target == pointB;
 
-        if (direction != Vector3.zero)
+        Vector3 scale = startScale;
+
+        if (faceRightWhenMovingToB)
         {
-            transform.rotation = Quaternion.LookRotation(direction);
+            scale.x = movingToB ? Mathf.Abs(startScale.x) : -Mathf.Abs(startScale.x);
+        }
+        else
+        {
+            scale.x = movingToB ? -Mathf.Abs(startScale.x) : Mathf.Abs(startScale.x);
+        }
+
+        transform.localScale = scale;
+    }
+
+    private void ApplyFixedVisualRotation()
+    {
+        if (visualModel != null)
+        {
+            visualModel.localRotation = Quaternion.Euler(visualLocalRotation);
         }
     }
 

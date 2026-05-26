@@ -92,8 +92,8 @@ public class EnemyChase : EnemyBase
         losePlayerTimer = 0f;
 
         if (animator != null)
-            animator.SetBool("isChasing", false);
-        Debug.Log("Enemy animation: isChasing FALSE");
+            animator.SetBool("isRunning", false);
+        Debug.Log("Enemy animation: isRunning FALSE");
 
 
         if (patrol != null)
