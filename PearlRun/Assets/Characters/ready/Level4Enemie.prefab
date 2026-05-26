@@ -941,7 +941,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7061894540738496588}
   - component: {fileID: 8032644533507177220}
-  - component: {fileID: 2257713269115967119}
   - component: {fileID: 31887959314904959}
   - component: {fileID: 2333982564359643627}
   - component: {fileID: 3938593240320229450}
@@ -991,36 +990,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2257713269115967119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4584862076035788935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4acd8858b3ef34840827ec435ab03239, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyChase_Rana
-  player: {fileID: 0}
-  chaseSpeed: 8
-  resetGap: 8
-  resetImmunityTime: 2
-  obstacleCheckDistance: 1.2
-  obstacleCheckHeight: 1
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  obstacleTags:
-  - Obstacle
-  - JumpObstacle
-  touchDistance: 1
-  damageCooldown: 1.5
-  enemyAudioSource: {fileID: 2333982564359643627}
-  chaseSound: {fileID: 0}
-  maxHearDistance: 10
-  minHearDistance: 20
 --- !u!136 &31887959314904959
 CapsuleCollider:
   m_ObjectHideFlags: 0

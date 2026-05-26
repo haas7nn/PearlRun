@@ -11,9 +11,14 @@ public class PlayerController : MonoBehaviour
     public float sprintDuration = 2f;
     public float sprintCooldown = 8f;
 
+    [Header("Better Jump (from friend's script)")]
+    public float fallMultiplier = 4f;
+    public float lowJumpMultiplier = 2.5f;
+    public float maxFallSpeed = 22f;
+
     [Header("Ground Check")]
     public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
+    public float groundCheckRadius = 0.15f;
     public LayerMask groundLayer;
 
     [Header("Attack")]
@@ -23,19 +28,21 @@ public class PlayerController : MonoBehaviour
     public LayerMask breakableLayer;
 
     private Rigidbody rb;
+    private CapsuleCollider capsuleCollider;
+
     private bool isGrounded;
-    private bool canDoubleJump;
+    private int jumpCount = 0;
+    private float groundLockoutTimer; // FIX: Prevents instant ground re-detection
+
     private bool isSliding;
     private float slideTimer;
     private bool isSprinting;
     private float sprintTimer;
     private float sprintCooldownTimer;
-    private Vector3 originalScale;
-    private CapsuleCollider capsuleCollider;
+
     private float originalColliderHeight;
     private Vector3 originalColliderCenter;
 
-    // Animation parameters
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isPunching;
     [HideInInspector] public bool isHurt;
@@ -53,22 +60,12 @@ public class PlayerController : MonoBehaviour
             originalColliderCenter = capsuleCollider.center;
         }
 
-        originalScale = transform.localScale;
-        sprintCooldownTimer = 0f;
-
-        // Freeze Z position and all rotations for 2.5D
-        rb.constraints = RigidbodyConstraints.FreezePositionZ |
-                         RigidbodyConstraints.FreezeRotationX |
-                         RigidbodyConstraints.FreezeRotationY |
-                         RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 
     void Update()
     {
-        if (GameManager.instance != null && GameManager.instance.isGameOver)
-            return;
-
-        if (isDead)
+        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
             return;
 
         CheckGround();
@@ -77,56 +74,42 @@ public class PlayerController : MonoBehaviour
         HandleSprint();
         HandleAttack();
 
-        // Update animation speed parameter
         currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
     void FixedUpdate()
     {
-        if (GameManager.instance != null && GameManager.instance.isGameOver)
+        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
             return;
 
-        if (isDead)
-            return;
-
+        ApplyJumpPhysics();
         HandleMovement();
     }
 
     void CheckGround()
     {
-        if (groundCheck != null)
+        // 1. If we just jumped, ignore ground for 0.15s so we can't infinite jump
+        if (groundLockoutTimer > 0)
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+            groundLockoutTimer -= Time.deltaTime;
+            isGrounded = false;
+            return;
+        }
+
+        // 2. Check if the sphere is touching the ground layer
+        bool hittingGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // 3. Only reset jumps if touching ground AND moving downwards (prevents resetting while going up)
+        if (hittingGround && rb.linearVelocity.y <= 0.01f)
+        {
+            isGrounded = true;
+            jumpCount = 0;
+            isJumping = false;
         }
         else
         {
-            // Fallback raycast ground check
-            isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, groundLayer);
+            isGrounded = false;
         }
-
-        if (isGrounded)
-        {
-            isJumping = false;
-            canDoubleJump = true;
-        }
-    }
-
-    void HandleMovement()
-    {
-        if (isSliding)
-            return;
-
-        // Automatic forward movement + player left/right control
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float speed = moveSpeed;
-
-        if (isSprinting)
-            speed *= sprintMultiplier;
-
-        // Move right automatically + player can adjust left/right
-        float moveX = speed + (horizontalInput * speed * 0.5f);
-
-        rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
     }
 
     void HandleJump()
@@ -135,132 +118,65 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, 0f);
-                isJumping = true;
-                canDoubleJump = true;
+                ExecuteJump(jumpForce);
+                jumpCount = 1;
             }
-            else if (canDoubleJump)
+            else if (jumpCount < 2) // If airborne and only jumped once
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, doubleJumpForce, 0f);
-                canDoubleJump = false;
+                ExecuteJump(doubleJumpForce);
+                jumpCount = 2; // Lock jumps until grounded again
             }
         }
     }
 
-    void HandleSlide()
+    void ExecuteJump(float force)
     {
-        // Start slide
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
-        {
-            StartSlide();
-        }
+        isJumping = true;
+        groundLockoutTimer = 0.15f; // Forces ground check to be false for a moment
 
-        // Slide timer
-        if (isSliding)
-        {
-            slideTimer -= Time.deltaTime;
-            if (slideTimer <= 0)
-            {
-                StopSlide();
-            }
-        }
+        // Clear Y velocity so the jump height is consistent
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, 0f);
+        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
     }
 
-    void StartSlide()
+    void ApplyJumpPhysics()
     {
-        isSliding = true;
-        slideTimer = slideTime;
-
-        // Shrink collider for sliding under obstacles
-        if (capsuleCollider != null)
+        if (rb.linearVelocity.y < 0) // Falling
         {
-            capsuleCollider.height = originalColliderHeight * 0.4f;
-            capsuleCollider.center = new Vector3(originalColliderCenter.x, originalColliderCenter.y * 0.4f, originalColliderCenter.z);
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
+        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.Space)) // Tapping jump
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+        }
+
+        if (rb.linearVelocity.y < -maxFallSpeed)
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, -maxFallSpeed, 0f);
     }
 
-    void StopSlide()
+    void HandleMovement()
     {
-        isSliding = false;
+        if (isSliding) return;
 
-        // Restore collider
-        if (capsuleCollider != null)
-        {
-            capsuleCollider.height = originalColliderHeight;
-            capsuleCollider.center = originalColliderCenter;
-        }
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float speed = moveSpeed;
+
+        if (isSprinting) speed *= sprintMultiplier;
+
+        float moveX = speed + (horizontalInput * speed * 0.5f);
+        rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
     }
 
-    void HandleSprint()
-    {
-        // Cooldown timer
-        if (sprintCooldownTimer > 0)
-        {
-            sprintCooldownTimer -= Time.deltaTime;
-        }
-
-        // Start sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting && sprintCooldownTimer <= 0)
-        {
-            isSprinting = true;
-            sprintTimer = sprintDuration;
-        }
-
-        // Sprint timer
-        if (isSprinting)
-        {
-            sprintTimer -= Time.deltaTime;
-            if (sprintTimer <= 0)
-            {
-                isSprinting = false;
-                sprintCooldownTimer = sprintCooldown;
-            }
-        }
-    }
-
-    void HandleAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
-        {
-            isPunching = true;
-
-            // Detect enemies in range
-            if (attackPoint != null)
-            {
-                Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-                foreach (Collider enemy in hitEnemies)
-                {
-                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                    if (enemyScript != null)
-                    {
-                        enemyScript.TakeDamage(1);
-                    }
-                }
-
-                // Detect breakable obstacles
-                Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
-                foreach (Collider breakable in hitBreakables)
-                {
-                    Destroy(breakable.gameObject);
-                }
-            }
-
-            // Reset punch animation after short delay
-            Invoke("ResetPunch", 0.3f);
-        }
-    }
-
-    void ResetPunch()
-    {
-        isPunching = false;
-    }
+    // --- RE-ADDED MISSING FUNCTIONS FOR COLLISION SCRIPT ---
 
     public void TakeDamage()
     {
-        if (isDead)
-            return;
+        if (isDead || isHurt) return;
 
         isHurt = true;
+        // Make the player fall faster/stop jump when hit
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.5f, rb.linearVelocity.y, 0f);
+
         Invoke("ResetHurt", 0.5f);
 
         if (GameManager.instance != null)
@@ -274,6 +190,79 @@ public class PlayerController : MonoBehaviour
         isHurt = false;
     }
 
+    // --- SLIDE, SPRINT, ATTACK ---
+
+    void HandleSlide()
+    {
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
+            StartSlide();
+
+        if (isSliding)
+        {
+            slideTimer -= Time.deltaTime;
+            if (slideTimer <= 0) StopSlide();
+        }
+    }
+
+    void StartSlide()
+    {
+        isSliding = true;
+        slideTimer = slideTime;
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.height = originalColliderHeight * 0.4f;
+            capsuleCollider.center = new Vector3(originalColliderCenter.x, originalColliderCenter.y * 0.4f, originalColliderCenter.z);
+        }
+    }
+
+    void StopSlide()
+    {
+        isSliding = false;
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.height = originalColliderHeight;
+            capsuleCollider.center = originalColliderCenter;
+        }
+    }
+
+    void HandleSprint()
+    {
+        if (sprintCooldownTimer > 0) sprintCooldownTimer -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded && !isSprinting && sprintCooldownTimer <= 0)
+        {
+            isSprinting = true;
+            sprintTimer = sprintDuration;
+        }
+        if (isSprinting)
+        {
+            sprintTimer -= Time.deltaTime;
+            if (sprintTimer <= 0 || !isGrounded)
+            {
+                isSprinting = false;
+                sprintCooldownTimer = sprintCooldown;
+            }
+        }
+    }
+
+    void HandleAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+        {
+            isPunching = true;
+            Collider[] hits = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer | breakableLayer);
+            foreach (Collider hit in hits)
+            {
+                if (((1 << hit.gameObject.layer) & enemyLayer) != 0)
+                    hit.GetComponent<EnemyBase>()?.TakeDamage(1);
+                else
+                    Destroy(hit.gameObject);
+            }
+            Invoke("ResetPunch", 0.3f);
+        }
+    }
+
+    void ResetPunch() => isPunching = false;
+
     public void Die()
     {
         isDead = true;
@@ -281,29 +270,21 @@ public class PlayerController : MonoBehaviour
         rb.useGravity = false;
     }
 
-    public void Respawn(Vector3 respawnPosition)
+    public void Respawn(Vector3 pos)
     {
         isDead = false;
-        isHurt = false;
         rb.useGravity = true;
-        transform.position = respawnPosition;
-        rb.linearVelocity = Vector3.zero;
+        transform.position = pos;
+        jumpCount = 0;
+        isHurt = false;
     }
 
     void OnDrawGizmosSelected()
     {
-        // Show ground check radius
         if (groundCheck != null)
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-
-        // Show attack range
-        if (attackPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
     }
 }
