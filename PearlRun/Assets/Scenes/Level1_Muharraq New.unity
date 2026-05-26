@@ -11117,7 +11117,7 @@ GameObject:
   - component: {fileID: 257305825}
   m_Layer: 0
   m_Name: Car1_48 (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25988,6 +25988,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb2f2c875320ff240844c90815318485, type: 3}
       propertyPath: m_Name
       value: TownSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fb2f2c875320ff240844c90815318485, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71379,6 +71383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Market Stall 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d7e46b28e85e1941bc1dd600ad33723, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72153,7 +72161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunnerHUD
   scoreText: {fileID: 1005021209}
-  livesText: {fileID: 0}
   timerText: {fileID: 738861177}
   gameOverPanel: {fileID: 0}
   gameOverDelay: 1.8
@@ -108044,7 +108051,7 @@ GameObject:
   - component: {fileID: 2171833544343988422}
   m_Layer: 0
   m_Name: Car1_48
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115268,7 +115275,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.002, y: 0.01, z: 0.026408922}
+  m_Size: {x: 0.0045, y: 0.012, z: 0.026408922}
   m_Center: {x: 0.00062674773, y: 0.00032722094, z: -0.0002811612}
 --- !u!4 &7433708348765050758
 Transform:

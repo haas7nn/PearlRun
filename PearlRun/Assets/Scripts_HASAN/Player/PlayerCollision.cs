@@ -3,69 +3,99 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     private PlayerController playerController;
-    private bool isInvincible = false;
-    private float invincibilityTime = 1.5f;
+    private bool isInvincible;
+    [SerializeField] private float invincibilityTime = 1.5f;
 
     void Start()
     {
         playerController = GetComponent<PlayerController>();
+
+        if (playerController == null)
+            Debug.LogError("PlayerCollision: PlayerController NOT FOUND on this GameObject!");
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"COLLISION with: {collision.gameObject.name} | Tag: {collision.gameObject.tag}");
+
         if (isInvincible)
+        {
+            Debug.Log("Invincible - ignoring hit");
             return;
+        }
 
         if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Hit OBSTACLE/ENEMY!");
+
             if (playerController != null)
             {
                 playerController.TakeDamage();
                 StartCoroutine(InvincibilityFrames());
             }
+            else
+            {
+                Debug.LogError("PlayerController is NULL! Cannot take damage.");
+            }
         }
 
         if (collision.gameObject.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.PlayerDied();
-            }
+            HandleKill();
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"TRIGGER with: {other.name} | Tag: {other.tag}");
+
         if (other.CompareTag("KillZone"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.PlayerDied();
-            }
+            HandleKill();
         }
-
-        if (other.CompareTag("Finish"))
+        else if (other.CompareTag("Finish"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.LevelComplete();
-            }
+            HandleFinish();
         }
-
-        if (other.CompareTag("Checkpoint"))
+        else if (other.CompareTag("Checkpoint"))
         {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.SetCheckpoint(transform.position);
-            }
+            HandleCheckpoint();
         }
+    }
+
+    void HandleKill()
+    {
+        if (RunnerGameManager.instance != null)
+            RunnerGameManager.instance.PlayerDied();
+        else if (GameManager.instance != null)
+            GameManager.instance.PlayerDied();
+        else
+            Debug.LogError("No GameManager found!");
+    }
+
+    void HandleFinish()
+    {
+        if (RunnerGameManager.instance != null)
+            RunnerGameManager.instance.LevelComplete();
+        else if (GameManager.instance != null)
+            GameManager.instance.LevelComplete();
+    }
+
+    void HandleCheckpoint()
+    {
+        Vector3 pos = transform.position;
+
+        if (RunnerGameManager.instance != null)
+            RunnerGameManager.instance.SetCheckpoint(pos);
+        else if (GameManager.instance != null)
+            GameManager.instance.SetCheckpoint(pos);
     }
 
     System.Collections.IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
+        Debug.Log("Invincibility START");
 
-        // Flash the player to show invincibility
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
         if (playerRenderer != null)
         {
@@ -84,10 +114,8 @@ public class PlayerCollision : MonoBehaviour
         }
 
         isInvincible = false;
+        Debug.Log("Invincibility END");
     }
 
-    public void SetInvincible(bool value)
-    {
-        isInvincible = value;
-    }
+    public void SetInvincible(bool value) => isInvincible = value;
 }

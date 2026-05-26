@@ -174,15 +174,14 @@ public class PlayerController : MonoBehaviour
         if (isDead || isHurt) return;
 
         isHurt = true;
-        // Make the player fall faster/stop jump when hit
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x * 0.5f, rb.linearVelocity.y, 0f);
+
+        // Knockback
+        rb.linearVelocity = new Vector3(-5f, 8f, 0f); // bounce back and up
 
         Invoke("ResetHurt", 0.5f);
 
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.PlayerHit();
-        }
+        if (RunnerGameManager.instance != null)
+            RunnerGameManager.instance.PlayerHit();
     }
 
     void ResetHurt()

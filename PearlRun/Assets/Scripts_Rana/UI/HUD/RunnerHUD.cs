@@ -3,14 +3,16 @@ using TMPro;
 
 public class RunnerHUD : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI livesText;
-    public TextMeshProUGUI timerText;      // ← اسحب هنا الـ Text الجديد
-    public GameObject gameOverPanel;
-    public float gameOverDelay = 1.8f;
-    public bool freezeAfterPanel = true;
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private GameObject gameOverPanel;
 
-    private bool gameOverStarted = false;
+    [Header("Settings")]
+    [SerializeField] private float gameOverDelay = 1.8f;
+    [SerializeField] private bool freezeAfterPanel = true;
+
+    private bool gameOverStarted;
 
     void Start()
     {
@@ -20,34 +22,36 @@ public class RunnerHUD : MonoBehaviour
 
     void Update()
     {
-        if (RunnerGameManager.instance == null)
-            return;
+        if (RunnerGameManager.instance == null) return;
 
-        if (scoreText != null)
-            scoreText.text = "Score: " + ScoreManager.Instance.currentPearls;
+        UpdateScore();
+        UpdateTimer();
+        CheckGameOver();
+    }
 
-        if (livesText != null)
-            livesText.text = "Lives: " + RunnerGameManager.instance.currentLives;
+    void UpdateScore()
+    {
+        if (scoreText == null || ScoreManager.Instance == null) return;
+        scoreText.text = $"Score: {ScoreManager.Instance.currentPearls}";
+    }
 
-        // التايمر
-        if (timerText != null)
-        {
-            float t = RunnerGameManager.instance.timeElapsed;
-            int minutes = Mathf.FloorToInt(t / 60f);
-            int seconds = Mathf.FloorToInt(t % 60f);
-            timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+    void UpdateTimer()
+    {
+        if (timerText == null) return;
 
-        if (gameOverPanel != null && RunnerGameManager.instance.isGameOver && !gameOverStarted)
-        {
-            gameOverStarted = true;
-            Invoke(nameof(ShowGameOverPanel), gameOverDelay);
-        }
+        float t = RunnerGameManager.instance.timeElapsed;
+        int minutes = Mathf.FloorToInt(t / 60f);
+        int seconds = Mathf.FloorToInt(t % 60f);
+        timerText.text = $"Time: {minutes:00}:{seconds:00}";
+    }
 
-        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
-        //     RunnerGameManager.instance.RestartLevel();
-        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
-        //     RunnerGameManager.instance.LoadMainMenu();
+    void CheckGameOver()
+    {
+        if (gameOverPanel == null || gameOverStarted) return;
+        if (!RunnerGameManager.instance.isGameOver) return;
+
+        gameOverStarted = true;
+        Invoke(nameof(ShowGameOverPanel), gameOverDelay);
     }
 
     void ShowGameOverPanel()
@@ -57,5 +61,12 @@ public class RunnerHUD : MonoBehaviour
 
         if (freezeAfterPanel && RunnerGameManager.instance != null)
             RunnerGameManager.instance.FreezeGameAfterDeath();
+    }
+
+    public void ResetHUD()
+    {
+        gameOverStarted = false;
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
     }
 }
