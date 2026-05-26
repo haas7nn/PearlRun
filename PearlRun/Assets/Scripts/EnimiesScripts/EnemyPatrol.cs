@@ -7,46 +7,46 @@ public class EnemyPatrol : EnemyBase
     public Transform pointB;
 
     [Header("Movement")]
-    public float speed = 5f;
+    public float speed = 2f;
     public float reachDistance = 0.1f;
+
+    [Header("Start Direction")]
+    public bool startMovingToB = true;
 
     [Header("Fixed Position")]
     public bool lockY = true;
     public bool lockZ = true;
-    public float fixedY = 0f;
-    public float fixedZ = 0f;
+    public float fixedY;
+    public float fixedZ;
 
-    [Header("Direction")]
-    public bool faceRightWhenMovingToB = true;
+    [Header("Enemy Rotation")]
+    public float rotationYWhenMovingRight = 90f;
+    public float rotationYWhenMovingLeft = -90f;
 
     [Header("Animation")]
     public Animator animator;
     public string runningParameterName = "isRunning";
 
-    [Header("Visual Model")]
-    public Transform visualModel;
-    public Vector3 visualLocalRotation = new Vector3(0f, 0f, 0f);
-
     private Transform target;
-    private Vector3 startScale;
 
     private void Start()
     {
-        target = pointB;
+        if (pointA == null || pointB == null)
+        {
+            Debug.LogWarning("EnemyPatrol: PointA or PointB is missing.");
+            return;
+        }
 
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
 
-        if (visualModel == null && animator != null)
-            visualModel = animator.transform;
-
-        startScale = transform.localScale;
-
         fixedY = transform.position.y;
         fixedZ = transform.position.z;
 
+        target = startMovingToB ? pointB : pointA;
+
         SetRunning(true);
-        ApplyFixedVisualRotation();
+        FaceMoveDirection();
     }
 
     private void Update()
@@ -78,16 +78,17 @@ public class EnemyPatrol : EnemyBase
             speed * Time.deltaTime
         );
 
-        FixCurrentPosition();
+        FixPosition();
         FaceMoveDirection();
 
         if (Vector3.Distance(transform.position, targetPosition) <= reachDistance)
         {
             target = target == pointA ? pointB : pointA;
+            FaceMoveDirection();
         }
     }
 
-    private void FixCurrentPosition()
+    private void FixPosition()
     {
         Vector3 pos = transform.position;
 
@@ -105,27 +106,15 @@ public class EnemyPatrol : EnemyBase
         if (target == null)
             return;
 
-        bool movingToB = target == pointB;
+        float directionX = target.position.x - transform.position.x;
 
-        Vector3 scale = startScale;
-
-        if (faceRightWhenMovingToB)
+        if (directionX > 0)
         {
-            scale.x = movingToB ? Mathf.Abs(startScale.x) : -Mathf.Abs(startScale.x);
+            transform.rotation = Quaternion.Euler(0f, rotationYWhenMovingRight, 0f);
         }
-        else
+        else if (directionX < 0)
         {
-            scale.x = movingToB ? -Mathf.Abs(startScale.x) : Mathf.Abs(startScale.x);
-        }
-
-        transform.localScale = scale;
-    }
-
-    private void ApplyFixedVisualRotation()
-    {
-        if (visualModel != null)
-        {
-            visualModel.localRotation = Quaternion.Euler(visualLocalRotation);
+            transform.rotation = Quaternion.Euler(0f, rotationYWhenMovingLeft, 0f);
         }
     }
 
