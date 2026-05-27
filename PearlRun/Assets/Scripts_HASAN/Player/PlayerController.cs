@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
+        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
         {
             StopRunningSound();
             return;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
+        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
             return;
 
         ApplyJumpPhysics();

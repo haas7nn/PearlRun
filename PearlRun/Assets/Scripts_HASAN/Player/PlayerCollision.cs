@@ -67,18 +67,18 @@ public class PlayerCollision : MonoBehaviour
     {
         if (RunnerGameManager.instance != null)
             RunnerGameManager.instance.PlayerDied();
-        else if (GameManager.instance != null)
-            GameManager.instance.PlayerDied();
+        else if (Level3GameManager.instance != null)
+            Level3GameManager.instance.PlayerDied();
         else
-            Debug.LogError("No GameManager found!");
+            Debug.LogError("No Level3GameManager found!");
     }
 
     void HandleFinish()
     {
         if (RunnerGameManager.instance != null)
             RunnerGameManager.instance.LevelComplete();
-        else if (GameManager.instance != null)
-            GameManager.instance.LevelComplete();
+        else if (Level3GameManager.instance != null)
+            Level3GameManager.instance.LevelComplete();
     }
 
     void HandleCheckpoint()
@@ -87,8 +87,8 @@ public class PlayerCollision : MonoBehaviour
 
         if (RunnerGameManager.instance != null)
             RunnerGameManager.instance.SetCheckpoint(pos);
-        else if (GameManager.instance != null)
-            GameManager.instance.SetCheckpoint(pos);
+        else if (Level3GameManager.instance != null)
+            Level3GameManager.instance.SetCheckpoint(pos);
     }
 
     System.Collections.IEnumerator InvincibilityFrames()
