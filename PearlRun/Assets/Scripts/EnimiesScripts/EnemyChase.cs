@@ -1,161 +1,162 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyChase : EnemyBase
+public class EnemyChase : MonoBehaviour
 {
-    [Header("Player")]
-    public Transform player;
+    [Header("Stats")]
+    public int health = 3;
+    public int damage = 1;
 
     [Header("Chase Settings")]
-    public float detectionRange = 4f;
-    public float stopChaseRange = 7f;
+    public Transform player;
+    public float detectionRange = 15f;
     public float chaseSpeed = 4f;
-    public float patrolSpeed = 2f;
-    public float stoppingDistance = 1.2f;
+    public float stopDistance = 1.5f;
 
-    [Header("Forced Chase")]
-    public float spawnBehindDistance = 4f;
-    public float spawnHeightOffset = 0f;
+    [Header("Fixed Movement")]
+    public bool lockY = true;
+    public bool lockZ = true;
+    private float fixedY;
+    private float fixedZ;
 
-    [Header("Lose Player")]
-    public float losePlayerDelay = 2f;
+    [Header("Animation")]
+    public Animator animator;
+    public string runningParameterName = "isRunning";
 
-    private bool isRunning;
-    private float losePlayerTimer;
-    private EnemyPatrol patrol;
-    private Animator animator;
+    [Header("3D Facing")]
+    public float rotationYWhenMovingRight = 90f;
+    public float rotationYWhenMovingLeft = -90f;
 
-    private void Start()
+    [Header("Behind Player Offset")]
+    public float behindDistance = 3f;
+    public bool playerRunsToRight = true;
+
+    private bool isChasing = false;
+
+    void Start()
     {
-        patrol = GetComponent<EnemyPatrol>();
-        animator = GetComponentInChildren<Animator>();
+        fixedY = transform.position.y;
+        fixedZ = transform.position.z;
 
         if (player == null)
         {
-            GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
 
-            if (foundPlayer != null)
-                player = foundPlayer.transform;
+            if (playerObj != null)
+                player = playerObj.transform;
+            else
+                Debug.LogError("EnemyChase: No player found. Make sure the player Tag is Player.");
         }
-
-        if (patrol != null)
-            patrol.speed = patrolSpeed;
 
         if (animator == null)
-        {
-            Debug.LogWarning("Enemy Animator not found!");
-        }
+            animator = GetComponentInChildren<Animator>();
+
+        SetRunning(false);
     }
 
-    private void Update()
+    void Update()
     {
         if (player == null)
+        {
+            SetRunning(false);
             return;
+        }
 
         float xDistance = Mathf.Abs(player.position.x - transform.position.x);
 
-        if (!isRunning && xDistance <= detectionRange)
-            StartChasing();
+        isChasing = xDistance <= detectionRange;
 
-        if (isRunning)
+        if (isChasing && xDistance > stopDistance)
         {
-            if (xDistance > stopChaseRange)
-            {
-                losePlayerTimer += Time.deltaTime;
-
-                if (losePlayerTimer >= losePlayerDelay)
-                    StopChasing();
-            }
-            else
-            {
-                losePlayerTimer = 0f;
-                ChasePlayer();
-            }
+            ChasePlayer();
+        }
+        else
+        {
+            SetRunning(false);
         }
     }
 
-    private void StartChasing()
+    void ChasePlayer()
     {
-        isRunning = true;
-        losePlayerTimer = 0f;
+        Vector3 targetPosition = player.position;
 
-        if (animator != null)
-            animator.SetBool("isRunning", true);
-        Debug.Log("Enemy animation: isRunning TRUE");
+        // نخلي العدو يطارد نقطة ورا أوال، مو أوال نفسها
+        if (playerRunsToRight)
+            targetPosition.x = player.position.x - behindDistance;
+        else
+            targetPosition.x = player.position.x + behindDistance;
 
-        if (patrol != null)
-            patrol.enabled = false;
+        if (lockY)
+            targetPosition.y = fixedY;
+
+        if (lockZ)
+            targetPosition.z = player.position.z; // مهم: نفس مسار أوال، مو مكان العدو الأصلي
+
+        float direction = Mathf.Sign(targetPosition.x - transform.position.x);
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPosition,
+            chaseSpeed * Time.deltaTime
+        );
+
+        FaceDirection(direction);
+        SetRunning(true);
+
+        Debug.DrawLine(transform.position, targetPosition, Color.red, 0.1f);
     }
 
-    private void StopChasing()
+    void FaceDirection(float direction)
     {
-        isRunning = false;
-        losePlayerTimer = 0f;
-
-        if (animator != null)
-            animator.SetBool("isRunning", false);
-        Debug.Log("Enemy animation: isRunning FALSE");
-
-
-        if (patrol != null)
+        if (direction > 0)
         {
-            patrol.enabled = true;
-            patrol.speed = patrolSpeed;
+            transform.rotation = Quaternion.Euler(0f, rotationYWhenMovingRight, 0f);
+        }
+        else if (direction < 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, rotationYWhenMovingLeft, 0f);
+        }
+    }
+
+    void SetRunning(bool value)
+    {
+        if (animator != null)
+        {
+            animator.SetBool(runningParameterName, value);
         }
     }
 
     public void ForceChaseFromBehind()
     {
         if (player == null)
-        {
-            GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
-
-            if (foundPlayer != null)
-                player = foundPlayer.transform;
-        }
-
-        if (player == null)
             return;
 
-        Vector3 spawnPosition = player.position;
-        spawnPosition.x = player.position.x - spawnBehindDistance;
-        spawnPosition.y = player.position.y + spawnHeightOffset;
-        spawnPosition.z = player.position.z;
+        Vector3 newPosition = player.position;
 
-        transform.position = spawnPosition;
+        if (playerRunsToRight)
+            newPosition.x = player.position.x - behindDistance;
+        else
+            newPosition.x = player.position.x + behindDistance;
 
-        StartChasing();
+        if (lockY)
+            newPosition.y = fixedY;
 
-        gameObject.SetActive(true);
+        if (lockZ)
+            newPosition.z = player.position.z;
 
-        Debug.Log("Enemy appeared behind player and started chasing.");
+        transform.position = newPosition;
+
+        isChasing = true;
+        SetRunning(true);
+
+        FaceDirection(playerRunsToRight ? 1f : -1f);
     }
 
-    private void ChasePlayer()
-    {
-        float xDifference = player.position.x - transform.position.x;
-
-        if (Mathf.Abs(xDifference) <= stoppingDistance)
-            return;
-
-        float direction = Mathf.Sign(xDifference);
-
-        transform.position += new Vector3(
-            direction * chaseSpeed * Time.deltaTime,
-            0f,
-            0f
-        );
-
-        Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * direction;
-        transform.localScale = scale;
-    }
-
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, stopChaseRange);
+        Gizmos.DrawWireSphere(transform.position, stopDistance);
     }
 }

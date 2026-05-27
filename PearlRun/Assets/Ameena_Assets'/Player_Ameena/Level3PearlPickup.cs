@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Level3PearlPickup : MonoBehaviour
 {
@@ -52,14 +52,35 @@ public class Level3PearlPickup : MonoBehaviour
     {
         switch (pearlType)
         {
-            case PearlType.White: return 1;
-            case PearlType.Blue: return 5;
+            case PearlType.White:
+                return 1;
+
+            case PearlType.Blue:
+                return 5;
+
             case PearlType.Golden:
-                Level3RunnerGameManager.instance.AddLife();
-                Debug.Log("Level 3 Golden pearl collected: +1 life.");
+                // Full refill — all hearts back
+                if (Level3RunnerGameManager.instance != null)
+                {
+                    Level3RunnerGameManager.instance.RestoreFullLives();
+                    Debug.Log("Golden pearl collected → full lives restored.");
+                }
                 return 0;
-            case PearlType.Qarqaoun: return 3;
-            default: return 0;
+
+            case PearlType.Red:
+                // +1 life (one heart back on the HUD)
+                if (Level3RunnerGameManager.instance != null)
+                {
+                    Level3RunnerGameManager.instance.AddLife();
+                    Debug.Log("Red pearl collected → +1 life.");
+                }
+                return 0;
+
+            case PearlType.Qarqaoun:
+                return 3;
+
+            default:
+                return 0;
         }
     }
 }
