@@ -5,9 +5,7 @@ public class Level5AmwajRunnerHUD : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
-    //public TextMeshProUGUI timerText;
-
-    //private float hudTime = 0f;
+    public TextMeshProUGUI timerText;
 
     [Header("Game Over")]
     public GameObject gameOverPanel;
@@ -40,23 +38,22 @@ public class Level5AmwajRunnerHUD : MonoBehaviour
             scoreText.text = "Score " + pearls;
         }
 
+        if (timerText != null)
+        {
+            float time = Level5AmwajScoreManager.Instance != null
+                ? Level5AmwajScoreManager.Instance.elapsedTime
+                : 0f;
+
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+
+            timerText.text = "Time " + string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+
         if (livesText != null)
         {
             livesText.text = "Lives: " + gm.currentLives;
         }
-
-        /*if (!gm.isGameOver && !gm.isLevelComplete)
-        {
-            hudTime += Time.deltaTime;
-        }*/
-
-        /*if (timerText != null)
-        {
-            int minutes = Mathf.FloorToInt(hudTime / 60f);
-            int seconds = Mathf.FloorToInt(hudTime % 60f);
-
-            timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
-        }*/
 
         if (gameOverPanel != null && gm.isGameOver && !gameOverStarted)
         {

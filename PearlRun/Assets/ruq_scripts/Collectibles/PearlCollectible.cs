@@ -26,13 +26,13 @@ public class PearlCollectible : MonoBehaviour
 
         collected = true;
 
-        //Particle
+        // Particle
         if (collectEffect != null)
         {
             Instantiate(collectEffect, transform.position, Quaternion.identity);
         }
 
-        //Sound
+        // Sound
         if (collectSound != null)
         {
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
@@ -40,9 +40,9 @@ public class PearlCollectible : MonoBehaviour
 
         ApplyEffect();
 
-        if (ScoreManager.Instance != null)
+        if (Level5AmwajScoreManager.Instance != null)
         {
-            ScoreManager.Instance.AddPearls(GetPearlScore());
+            Level5AmwajScoreManager.Instance.AddPearls(GetPearlScore());
         }
 
         Destroy(gameObject);
@@ -65,12 +65,12 @@ public class PearlCollectible : MonoBehaviour
         {
             case PearlType.Golden:
                 Debug.Log("Restore health");
-                // TODO:Health system
+                // TODO: Health system
                 break;
 
             case PearlType.Red:
                 Debug.Log("Extra life");
-                // TODO:Life system
+                // TODO: Life system
                 break;
         }
     }

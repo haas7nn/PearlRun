@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Level5AmwajCheckpoint : MonoBehaviour
 {
+    [Header("Respawn")]
+    public Transform respawnPoint;
+
     [Header("Visual")]
     public Renderer flagRenderer;
     public Color activatedColor = Color.yellow;
@@ -22,18 +25,9 @@ public class Level5AmwajCheckpoint : MonoBehaviour
         triggerCollider = GetComponent<Collider>();
 
         if (triggerCollider != null)
-        {
             triggerCollider.isTrigger = true;
-        }
 
-        if (visualRoot != null)
-        {
-            originalScale = visualRoot.localScale;
-        }
-        else
-        {
-            originalScale = Vector3.one;
-        }
+        originalScale = visualRoot != null ? visualRoot.localScale : Vector3.one;
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,20 +35,21 @@ public class Level5AmwajCheckpoint : MonoBehaviour
         if (activated)
             return;
 
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.transform.root.CompareTag("Player"))
             return;
+
+        if (respawnPoint == null)
+        {
+            Debug.LogWarning("Level5AmwajCheckpoint: RespawnPoint is not assigned.");
+            return;
+        }
 
         activated = true;
 
-        Vector3 checkpointPos = new Vector3(
-            transform.position.x,
-            transform.position.y,
-            other.transform.position.z
-        );
-
         if (Level5AmwajRunnerGameManager.instance != null)
         {
-            Level5AmwajRunnerGameManager.instance.SetCheckpoint(checkpointPos);
+            Level5AmwajRunnerGameManager.instance.SetCheckpoint(respawnPoint.position);
+            Debug.Log("Level5AmwajCheckpoint saved RespawnPoint at " + respawnPoint.position);
         }
         else
         {
@@ -62,23 +57,12 @@ public class Level5AmwajCheckpoint : MonoBehaviour
         }
 
         if (flagRenderer != null)
-        {
             flagRenderer.material.color = activatedColor;
-        }
 
         if (visualRoot != null)
-        {
             visualRoot.localScale = originalScale * activatedScale;
-        }
 
         PlayActivationSound();
-
-        if (triggerCollider != null)
-        {
-            triggerCollider.enabled = false;
-        }
-
-        Debug.Log("Level5AmwajCheckpoint activated at " + checkpointPos);
     }
 
     void PlayActivationSound()
@@ -87,12 +71,8 @@ public class Level5AmwajCheckpoint : MonoBehaviour
             return;
 
         if (audioSource != null)
-        {
             audioSource.PlayOneShot(activationSound, soundVolume);
-        }
         else
-        {
             AudioSource.PlayClipAtPoint(activationSound, transform.position, soundVolume);
-        }
     }
 }

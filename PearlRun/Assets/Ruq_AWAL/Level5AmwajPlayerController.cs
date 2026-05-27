@@ -63,6 +63,8 @@ public class Level5AmwajPlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
+    private Animator animator;
+
     public Level5AmwajRunnerHUD hud;
 
     private bool isGrounded;
@@ -111,6 +113,7 @@ public class Level5AmwajPlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        animator = GetComponentInChildren<Animator>();
 
         if (rb == null)
         {
@@ -315,9 +318,7 @@ public class Level5AmwajPlayerController : MonoBehaviour
         }
 
         if (rb.linearVelocity.y < -maxFallSpeed)
-        {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, -maxFallSpeed, rb.linearVelocity.z);
-        }
     }
 
     void HandleSlide()
@@ -381,23 +382,6 @@ public class Level5AmwajPlayerController : MonoBehaviour
 
         StopRunningSound();
         PlaySFX(attackClip);
-
-        if (attackPoint != null)
-        {
-            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-
-            foreach (Collider enemy in hitEnemies)
-            {
-                enemy.GetComponent<EnemyBase>()?.TakeDamage(1);
-            }
-
-            Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);
-
-            foreach (Collider breakableObject in hitBreakables)
-            {
-                Destroy(breakableObject.gameObject);
-            }
-        }
     }
 
     void HandleSprint()
@@ -439,9 +423,7 @@ public class Level5AmwajPlayerController : MonoBehaviour
         float attackSpeedMultiplier = 1f;
 
         if (attackStopTimer > 0f)
-        {
             attackSpeedMultiplier = 0f;
-        }
         else if (attackRecoverTimer > 0f)
         {
             float t = 1f - (attackRecoverTimer / attackRecoverDuration);
@@ -449,7 +431,6 @@ public class Level5AmwajPlayerController : MonoBehaviour
         }
 
         float totalMultiplier = attackSpeedMultiplier * obstacleCurrentMultiplier;
-
         float moveX = (speed + horizontalInput * speed * 0.5f) * totalMultiplier;
 
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
@@ -596,66 +577,6 @@ public class Level5AmwajPlayerController : MonoBehaviour
         obstacleCurrentMultiplier = obstacleSlowMultiplier;
     }
 
-    public void TakeDamage()
-    {
-        if (isDead)
-            return;
-
-        isHurt = true;
-        isPunching = false;
-        isSliding = false;
-
-        isJumping = false;
-        isDoubleJumping = false;
-        jumpCount = 0;
-        hasReachedApex = false;
-        triggerRollFallOnLand = false;
-
-        attackAnimTimer = 0f;
-        attackStopTimer = 0f;
-        attackRecoverTimer = 0f;
-
-        StopSlide();
-        PlaySFX(hurtClip);
-
-        CancelInvoke(nameof(ResetHurt));
-        Invoke(nameof(ResetHurt), 0.2f);
-
-        Level5AmwajRunnerGameManager.instance?.PlayerHit();
-    }
-
-    public void ForceGrounded()
-    {
-        isJumping = false;
-        isDoubleJumping = false;
-        jumpCount = 0;
-        hasReachedApex = false;
-        isGrounded = true;
-        isHurt = false;
-
-        triggerRollFallOnLand = false;
-
-        CancelInvoke(nameof(ResetHurt));
-
-        obstacleSlowTimer = 0f;
-        obstacleRecoverTimer = 0f;
-        obstacleCurrentMultiplier = 1f;
-    }
-
-    void ResetHurt()
-    {
-        isHurt = false;
-
-        if (isGrounded)
-        {
-            triggerRollFallOnLand = false;
-            isJumping = false;
-            isDoubleJumping = false;
-            jumpCount = 0;
-            hasReachedApex = false;
-        }
-    }
-
     public void Die()
     {
         if (isDead)
@@ -723,9 +644,33 @@ public class Level5AmwajPlayerController : MonoBehaviour
             capsuleCollider.center = originalColliderCenter;
         }
 
-        rb.useGravity = true;
-        transform.position = pos;
-        rb.linearVelocity = Vector3.zero;
+        if (animator != null)
+        {
+            animator.enabled = true;
+            animator.Rebind();
+            animator.Update(0f);
+        }
+
+        GetComponent<Level5AmwajAnimationHandler>()?.EnableAnimatorAmwaj();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
+            rb.position = pos;
+            transform.position = pos;
+
+            Physics.SyncTransforms();
+
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+        else
+        {
+            transform.position = pos;
+            Physics.SyncTransforms();
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -735,11 +680,32 @@ public class Level5AmwajPlayerController : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
+    }
 
-        if (attackPoint != null)
+    public void TakeDamage()
+    {
+        if (isDead)
+            return;
+
+        if (Level5AmwajRunnerGameManager.instance != null)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+            Level5AmwajRunnerGameManager.instance.PlayerHit();
+        }
+    }
+
+    public void ForceGrounded()
+    {
+        isGrounded = true;
+        wasGrounded = true;
+        jumpCount = 0;
+        hasReachedApex = false;
+
+        isJumping = false;
+        isDoubleJumping = false;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         }
     }
 }

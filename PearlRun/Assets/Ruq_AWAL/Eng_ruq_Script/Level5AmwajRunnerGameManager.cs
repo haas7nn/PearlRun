@@ -17,6 +17,10 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
     public int maxHitsPerLife = 1;
     private int currentHits;
 
+    [Header("Respawn")]
+    public float respawnDelay = 1.2f;
+    public float respawnYOffset = 0.5f;
+
     [Header("Score")]
     public int score = 0;
     public int pearlsCollected = 0;
@@ -25,16 +29,16 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
     [Header("Checkpoint")]
     private Vector3 lastCheckpointPosition;
     private bool hasCheckpoint = false;
+    private Vector3 levelStartPosition;
 
     private Level5AmwajPlayerController player;
     private Level5AmwajObstacleHitTrigger[] obstacles;
+    private bool isRespawning = false;
 
     void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
         else
         {
             Destroy(gameObject);
@@ -50,6 +54,7 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
         isGameOver = false;
         isLevelComplete = false;
         isPaused = false;
+        isRespawning = false;
 
         score = 0;
         pearlsCollected = 0;
@@ -57,34 +62,30 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        if (Level5AmwajProgressSystem.HasCheckpoint())
-        {
-            lastCheckpointPosition = Level5AmwajProgressSystem.LoadCheckpoint();
-            hasCheckpoint = true;
-        }
-        else
-        {
-            hasCheckpoint = false;
-        }
-
         player = FindAnyObjectByType<Level5AmwajPlayerController>();
-        obstacles = FindObjectsByType<Level5AmwajObstacleHitTrigger>(FindObjectsSortMode.None);
 
-        Debug.Log("Level5AmwajRunnerGameManager: found player = " + (player != null));
-        Debug.Log("Level5AmwajRunnerGameManager: cached obstacles = " + obstacles.Length);
+        if (player != null)
+        {
+            levelStartPosition = player.transform.position;
+
+            lastCheckpointPosition = levelStartPosition;
+            hasCheckpoint = true;
+
+            Debug.Log("LEVEL START CHECKPOINT = " + lastCheckpointPosition);
+        }
+
+        obstacles = FindObjectsByType<Level5AmwajObstacleHitTrigger>(FindObjectsSortMode.None);
     }
 
     void Update()
     {
-        if (isGameOver || isLevelComplete)
+        if (isGameOver || isLevelComplete || isRespawning)
             return;
 
         timeElapsed += Time.deltaTime;
 
         if (player != null && player.transform.position.y < -20f)
-        {
             PlayerDied();
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -101,45 +102,57 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
         pearlsCollected++;
 
         if (Level5AmwajScoreManager.Instance != null)
-        {
             Level5AmwajScoreManager.Instance.AddPearls(1);
-        }
     }
 
     public void AddLife()
     {
         currentLives++;
+
+        if (currentLives > maxLives)
+            currentLives = maxLives;
     }
 
     public void PlayerHit()
     {
-        if (isGameOver)
+        if (isGameOver || isRespawning)
             return;
 
         currentHits++;
 
         if (currentHits >= maxHitsPerLife)
-        {
             PlayerDied();
-        }
     }
 
     public void PlayerDied()
     {
-        if (isGameOver)
+        if (isGameOver || isRespawning)
             return;
 
         currentLives--;
         currentHits = 0;
 
+        if (player == null)
+            player = FindAnyObjectByType<Level5AmwajPlayerController>();
+
+        if (player != null)
+            player.Die();
+
         if (currentLives <= 0)
-        {
             GameOver();
-        }
         else
-        {
-            RespawnPlayer();
-        }
+            StartCoroutine(RespawnAfterDelay());
+    }
+
+    private IEnumerator RespawnAfterDelay()
+    {
+        isRespawning = true;
+
+        yield return new WaitForSeconds(respawnDelay);
+
+        RespawnPlayer();
+
+        isRespawning = false;
     }
 
     public void RestoreFullLives()
@@ -151,21 +164,23 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
     void RespawnPlayer()
     {
         if (player == null)
-        {
             player = FindAnyObjectByType<Level5AmwajPlayerController>();
-        }
 
-        if (player != null)
-        {
-            if (hasCheckpoint)
-            {
-                player.Respawn(lastCheckpointPosition);
-            }
-            else
-            {
-                player.Respawn(player.transform.position);
-            }
-        }
+        if (player == null)
+            return;
+
+        Vector3 respawnPosition;
+
+        if (hasCheckpoint)
+            respawnPosition = lastCheckpointPosition;
+        else
+            respawnPosition = levelStartPosition;
+
+        respawnPosition.y += respawnYOffset;
+
+        Debug.Log("RESPAWNING AT = " + respawnPosition);
+
+        player.Respawn(respawnPosition);
 
         StartCoroutine(ResetObstaclesDelayed());
     }
@@ -175,16 +190,12 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         if (obstacles == null || obstacles.Length == 0)
-        {
             obstacles = FindObjectsByType<Level5AmwajObstacleHitTrigger>(FindObjectsSortMode.None);
-        }
 
         for (int i = 0; i < obstacles.Length; i++)
         {
             if (obstacles[i] != null)
-            {
                 obstacles[i].ResetHit();
-            }
         }
     }
 
@@ -192,6 +203,8 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
     {
         lastCheckpointPosition = position;
         hasCheckpoint = true;
+
+        Debug.Log("CHECKPOINT SAVED = " + position);
     }
 
     public void GameOver()
@@ -201,14 +214,7 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
 
         isGameOver = true;
 
-        Level5AmwajPlayerController player = FindAnyObjectByType<Level5AmwajPlayerController>();
-
-        if (player != null)
-        {
-            player.Die();
-        }
-
-        Debug.Log("Game Over. Player has no lives left.");
+        Debug.Log("Game Over");
     }
 
     public void FreezeGameAfterDeath()
@@ -226,18 +232,17 @@ public class Level5AmwajRunnerGameManager : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
 
         int bestScore = PlayerPrefs.GetInt(currentScene + "_BestScore", 0);
+
         if (score > bestScore)
-        {
             PlayerPrefs.SetInt(currentScene + "_BestScore", score);
-        }
 
         float bestTime = PlayerPrefs.GetFloat(currentScene + "_BestTime", 999f);
+
         if (timeElapsed < bestTime)
-        {
             PlayerPrefs.SetFloat(currentScene + "_BestTime", timeElapsed);
-        }
 
         PlayerPrefs.SetInt(currentScene + "_Completed", 1);
+
         PlayerPrefs.Save();
     }
 

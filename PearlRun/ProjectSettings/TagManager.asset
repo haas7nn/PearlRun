@@ -11,11 +11,12 @@ TagManager:
   - PowerUp
   - KillZone
   - Ground
+  - JumpObstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

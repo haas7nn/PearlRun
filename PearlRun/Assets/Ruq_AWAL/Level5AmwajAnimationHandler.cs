@@ -104,9 +104,22 @@ public class Level5AmwajAnimationHandler : MonoBehaviour
         if (animator != null)
         {
             animator.enabled = true;
+
+            animator.Rebind();
+            animator.Update(0f);
+
+            animator.SetBool("isDead", false);
+            animator.SetBool("isHurt", false);
+            animator.SetBool("isSliding", false);
+            animator.SetBool("isPunching", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isDoubleJumping", false);
+            animator.SetBool("isRunningBackward", false);
+            animator.SetBool("isRollFall", false);
         }
 
         deathCoroutineStartedAmwaj = false;
+        isPlayingRollFallAmwaj = false;
     }
 
     IEnumerator PlayRollFallAmwaj()
@@ -126,8 +139,3 @@ public class Level5AmwajAnimationHandler : MonoBehaviour
         isPlayingRollFallAmwaj = false;
     }
 }
-
-
-
-
-

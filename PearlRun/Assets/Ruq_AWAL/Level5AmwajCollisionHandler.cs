@@ -62,11 +62,7 @@ public class Level5AmwajCollisionHandler : MonoBehaviour
             return;
         }
 
-        if (other.CompareTag("Checkpoint"))
-        {
-            Level5AmwajRunnerGameManager.instance?.SetCheckpoint(transform.position);
-            return;
-        }
+        // Checkpoint saving is handled only by Level5AmwajCheckpoint.
     }
 
     void HandleJumpObstacleCollisionAmwaj(Collision collision)
