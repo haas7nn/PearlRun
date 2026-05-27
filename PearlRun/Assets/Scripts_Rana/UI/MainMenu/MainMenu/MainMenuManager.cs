@@ -14,12 +14,14 @@ public class MainMenuManager : MonoBehaviour
     public AudioClip hoverSound;
     public AudioClip clickSound;
 
-    [Header("Buttons (for keyboard navigation)")]
+    [Header("Buttons")]
     public Button[] buttons;
 
     [Header("Canvases")]
     public GameObject mainMenuCanvas;
     public GameObject instructionsCanvas;
+    public GameObject settingsCanvas;
+    public GameObject levelSelectCanvas;
 
     private CanvasGroup mainMenuCG;
     private int selectedIndex = 0;
@@ -28,18 +30,26 @@ public class MainMenuManager : MonoBehaviour
     {
         mainMenuCanvas.SetActive(true);
         instructionsCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
+        levelSelectCanvas.SetActive(false);
 
-        mainMenuCG = mainMenuCanvas.GetComponent<CanvasGroup>();
-        if (mainMenuCG == null)
-            mainMenuCG = mainMenuCanvas.AddComponent<CanvasGroup>();
+        mainMenuCG = GetOrAddCanvasGroup(mainMenuCanvas);
         mainMenuCG.blocksRaycasts = true;
 
-        if (musicSource != null && backgroundMusic != null)
+        if (musicSource != null)
         {
-            musicSource.clip = backgroundMusic;
-            musicSource.loop = true;
-            musicSource.Play();
+            musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+
+            if (backgroundMusic != null)
+            {
+                musicSource.clip = backgroundMusic;
+                musicSource.loop = true;
+                musicSource.Play();
+            }
         }
+
+        if (sfxSource != null)
+            sfxSource.volume = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
         if (buttons.Length > 0)
             EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
@@ -47,23 +57,27 @@ public class MainMenuManager : MonoBehaviour
 
     void Update()
     {
+        if (!mainMenuCanvas.activeSelf || !mainMenuCG.blocksRaycasts) return;
+        if (buttons == null || buttons.Length == 0) return;
+
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex = (selectedIndex + 1) % buttons.Length;
-            EventSystem.current.SetSelectedGameObject(buttons[selectedIndex].gameObject);
-            PlayHover();
-        }
+            MoveSelection(1);
+
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
-            selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
-            EventSystem.current.SetSelectedGameObject(buttons[selectedIndex].gameObject);
-            PlayHover();
-        }
+            MoveSelection(-1);
+
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             PlayClick();
             buttons[selectedIndex].onClick.Invoke();
         }
+    }
+
+    void MoveSelection(int direction)
+    {
+        selectedIndex = (selectedIndex + direction + buttons.Length) % buttons.Length;
+        EventSystem.current.SetSelectedGameObject(buttons[selectedIndex].gameObject);
+        PlayHover();
     }
 
     public void PlayHover()
@@ -87,7 +101,8 @@ public class MainMenuManager : MonoBehaviour
     public void LevelSelect()
     {
         PlayClick();
-        SceneManager.LoadScene("LevelSelect");
+        mainMenuCG.blocksRaycasts = false;
+        levelSelectCanvas.SetActive(true);
     }
 
     public void Instructions()
@@ -100,16 +115,27 @@ public class MainMenuManager : MonoBehaviour
     public void Settings()
     {
         PlayClick();
-        Debug.Log("Settings clicked");
+        mainMenuCG.blocksRaycasts = false;
+        settingsCanvas.SetActive(true);
     }
 
     public void QuitGame()
     {
         PlayClick();
+
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
+    }
+
+    CanvasGroup GetOrAddCanvasGroup(GameObject obj)
+    {
+        CanvasGroup cg = obj.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = obj.AddComponent<CanvasGroup>();
+
+        return cg;
     }
 }
