@@ -388,7 +388,7 @@ public class Level3PlayerController : MonoBehaviour
 
             foreach (Collider enemy in hitEnemies)
             {
-                enemy.GetComponent<EnemyBase>()?.TakeDamage(1);
+                enemy.GetComponent<Level3EnemyBase>()?.TakeDamage(1);
             }
 
             Collider[] hitBreakables = Physics.OverlapSphere(attackPoint.position, attackRange, breakableLayer);

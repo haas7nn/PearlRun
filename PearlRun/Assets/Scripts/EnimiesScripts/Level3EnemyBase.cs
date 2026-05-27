@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public class Level3EnemyBase : MonoBehaviour
 {
     public int health = 3;
 

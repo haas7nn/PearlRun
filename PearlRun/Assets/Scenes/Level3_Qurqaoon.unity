@@ -76821,7 +76821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3FinishZoneTrigger
   victoryPanel: {fileID: 4602970768430309813}
-  hudObject: {fileID: 0}
+  hudObject: {fileID: 8573331338132742941}
   victoryMusic: {fileID: 8300000, guid: 6b8401b905080524caaf64aba2a21fb3, type: 3}
 --- !u!1 &808292984
 GameObject:
@@ -201588,7 +201588,7 @@ GameObject:
   - component: {fileID: 4497998073473735181}
   - component: {fileID: 1786247215}
   m_Layer: 3
-  m_Name: Enemy
+  m_Name: Level3_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201997,14 +201997,14 @@ MonoBehaviour:
   detectionRange: 12.46
   chaseSpeed: 9
   stopDistance: 1.5
+  behindDistance: 3
+  playerRunsForwardZ: 1
+  matchPlayerX: 1
   lockY: 1
-  lockZ: 1
   animator: {fileID: 0}
   runningParameterName: isRunning
-  rotationYWhenMovingRight: 90
-  rotationYWhenMovingLeft: -90
-  behindDistance: 3
-  playerRunsToRight: 1
+  rotationYWhenMovingForward: 0
+  rotationYWhenMovingBackward: 180
 --- !u!1 &4602970768430309813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4602970767729475210, guid: 3219e00dc8be5bf4c83959378a59223e, type: 3}

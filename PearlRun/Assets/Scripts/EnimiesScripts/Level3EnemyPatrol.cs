@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPatrol : EnemyBase
+public class Level3EnemyPatrol : Level3EnemyBase
 {
     [Header("Patrol Points")]
     public Transform pointA;

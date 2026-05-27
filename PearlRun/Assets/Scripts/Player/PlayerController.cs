@@ -282,7 +282,7 @@ public class PlayerController : MonoBehaviour
 
                 foreach (Collider enemy in hitEnemies)
                 {
-                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                    Level3EnemyBase enemyScript = enemy.GetComponent<Level3EnemyBase>();
 
                     if (enemyScript != null)
                     {

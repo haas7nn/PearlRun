@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAppearManager : MonoBehaviour
+public class Level3AppearManager : MonoBehaviour
 {
     public GameObject enemy;
     public Transform player;

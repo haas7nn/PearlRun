@@ -27,7 +27,7 @@ public class Level3GameManager : MonoBehaviour
     private bool hasCheckpoint = false;
 
     private PlayerController player;
-    private ObstacleHitTrigger[] obstacles;
+    private Level3ObstacleHitTrigger[] obstacles;
 
     void Awake()
     {
@@ -58,7 +58,7 @@ public class Level3GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         player = FindAnyObjectByType<PlayerController>();
-        obstacles = FindObjectsByType<ObstacleHitTrigger>(FindObjectsSortMode.None);
+        obstacles = FindObjectsByType<Level3ObstacleHitTrigger>(FindObjectsSortMode.None);
 
         Debug.Log("GameManager: found player = " + (player != null));
         Debug.Log("GameManager: cached obstacles = " + obstacles.Length);
@@ -153,7 +153,7 @@ public class Level3GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
 
         if (obstacles == null || obstacles.Length == 0)
-            obstacles = FindObjectsByType<ObstacleHitTrigger>(FindObjectsSortMode.None);
+            obstacles = FindObjectsByType<Level3ObstacleHitTrigger>(FindObjectsSortMode.None);
 
         for (int i = 0; i < obstacles.Length; i++)
         {

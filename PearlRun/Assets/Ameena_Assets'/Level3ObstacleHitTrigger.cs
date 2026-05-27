@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ObstacleHitTrigger : MonoBehaviour
+public class Level3ObstacleHitTrigger : MonoBehaviour
 {
-    public EnemyChase enemyChase;
+    public Level3EnemyChase enemyChase;
 
     private bool hasHitPlayer = false;
 
