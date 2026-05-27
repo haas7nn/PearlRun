@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float sprintDuration = 2f;
     public float sprintCooldown = 8f;
 
-    [Header("Better Jump (from friend's script)")]
+    [Header("Better Jump")]
     public float fallMultiplier = 4f;
     public float lowJumpMultiplier = 2.5f;
     public float maxFallSpeed = 22f;
@@ -27,19 +27,28 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask breakableLayer;
 
+    [Header("Player Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource runningAudioSource;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landingSound;
+    [SerializeField] private AudioClip runningSound;
+    [SerializeField] private AudioClip deathSound;
+
     private Rigidbody rb;
     private CapsuleCollider capsuleCollider;
 
     private bool isGrounded;
+    private bool wasGrounded;
     private int jumpCount = 0;
-    private float groundLockoutTimer; // FIX: Prevents instant ground re-detection
-
+    private float groundLockoutTimer; // Prevents instant ground re-detection
+    
     private bool isSliding;
     private float slideTimer;
     private bool isSprinting;
     private float sprintTimer;
     private float sprintCooldownTimer;
-
+    
     private float originalColliderHeight;
     private Vector3 originalColliderCenter;
 
@@ -49,10 +58,23 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isDead;
     [HideInInspector] public float currentSpeed;
 
+    public bool IsSliding => isSliding;
+    public bool IsGrounded => isGrounded;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (runningAudioSource != null && runningSound != null)
+        {
+            runningAudioSource.clip = runningSound;
+            runningAudioSource.loop = true;
+            runningAudioSource.playOnAwake = false;
+        }
 
         if (capsuleCollider != null)
         {
@@ -60,21 +82,35 @@ public class PlayerController : MonoBehaviour
             originalColliderCenter = capsuleCollider.center;
         }
 
-        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        sprintCooldownTimer = 0f;
+
+        if (rb != null)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | 
+                             RigidbodyConstraints.FreezeRotation;
+        }
     }
 
     void Update()
     {
         if (isDead || (GameManager.instance != null && GameManager.instance.isGameOver))
+        {
+            StopRunningSound();
             return;
+        }
+
+        wasGrounded = isGrounded;
 
         CheckGround();
+        CheckLandingSound();
         HandleJump();
         HandleSlide();
         HandleSprint();
         HandleAttack();
+        HandleRunningSound();
 
-        currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+        if (rb != null)
+            currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
     void FixedUpdate()
@@ -88,7 +124,6 @@ public class PlayerController : MonoBehaviour
 
     void CheckGround()
     {
-        // 1. If we just jumped, ignore ground for 0.15s so we can't infinite jump
         if (groundLockoutTimer > 0)
         {
             groundLockoutTimer -= Time.deltaTime;
@@ -96,10 +131,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // 2. Check if the sphere is touching the ground layer
         bool hittingGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // 3. Only reset jumps if touching ground AND moving downwards (prevents resetting while going up)
         if (hittingGround && rb.linearVelocity.y <= 0.01f)
         {
             isGrounded = true;
@@ -112,8 +145,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void CheckLandingSound()
+    {
+        if (!wasGrounded && isGrounded)
+        {
+            PlaySound(landingSound);
+        }
+    }
+
     void HandleJump()
     {
+        if (rb == null) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
@@ -121,10 +164,10 @@ public class PlayerController : MonoBehaviour
                 ExecuteJump(jumpForce);
                 jumpCount = 1;
             }
-            else if (jumpCount < 2) // If airborne and only jumped once
+            else if (jumpCount < 2)
             {
                 ExecuteJump(doubleJumpForce);
-                jumpCount = 2; // Lock jumps until grounded again
+                jumpCount = 2;
             }
         }
     }
@@ -132,20 +175,21 @@ public class PlayerController : MonoBehaviour
     void ExecuteJump(float force)
     {
         isJumping = true;
-        groundLockoutTimer = 0.15f; // Forces ground check to be false for a moment
-
-        // Clear Y velocity so the jump height is consistent
+        groundLockoutTimer = 0.15f;
+        
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, 0f);
         rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        
+        PlaySound(jumpSound);
     }
 
     void ApplyJumpPhysics()
     {
-        if (rb.linearVelocity.y < 0) // Falling
+        if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.Space)) // Tapping jump
+        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.Space))
         {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
@@ -156,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if (isSliding) return;
+        if (rb == null || isSliding) return;
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float speed = moveSpeed;
@@ -166,30 +210,6 @@ public class PlayerController : MonoBehaviour
         float moveX = speed + (horizontalInput * speed * 0.5f);
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
     }
-
-    // --- RE-ADDED MISSING FUNCTIONS FOR COLLISION SCRIPT ---
-
-    public void TakeDamage()
-    {
-        if (isDead || isHurt) return;
-
-        isHurt = true;
-
-        // Knockback
-        rb.linearVelocity = new Vector3(-5f, 8f, 0f); // bounce back and up
-
-        Invoke("ResetHurt", 0.5f);
-
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.PlayerHit();
-    }
-
-    void ResetHurt()
-    {
-        isHurt = false;
-    }
-
-    // --- SLIDE, SPRINT, ATTACK ---
 
     void HandleSlide()
     {
@@ -207,16 +227,22 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         slideTimer = slideTime;
+        
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight * 0.4f;
-            capsuleCollider.center = new Vector3(originalColliderCenter.x, originalColliderCenter.y * 0.4f, originalColliderCenter.z);
+            capsuleCollider.center = new Vector3(
+                originalColliderCenter.x,
+                originalColliderCenter.y * 0.4f,
+                originalColliderCenter.z
+            );
         }
     }
 
     void StopSlide()
     {
         isSliding = false;
+        
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight;
@@ -226,12 +252,15 @@ public class PlayerController : MonoBehaviour
 
     void HandleSprint()
     {
-        if (sprintCooldownTimer > 0) sprintCooldownTimer -= Time.deltaTime;
+        if (sprintCooldownTimer > 0) 
+            sprintCooldownTimer -= Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded && !isSprinting && sprintCooldownTimer <= 0)
         {
             isSprinting = true;
             sprintTimer = sprintDuration;
         }
+
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
@@ -248,34 +277,112 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
         {
             isPunching = true;
-            Collider[] hits = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer | breakableLayer);
-            foreach (Collider hit in hits)
+            
+            if (attackPoint != null)
             {
-                if (((1 << hit.gameObject.layer) & enemyLayer) != 0)
-                    hit.GetComponent<EnemyBase>()?.TakeDamage(1);
-                else
-                    Destroy(hit.gameObject);
+                Collider[] hits = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer | breakableLayer);
+                
+                foreach (Collider hit in hits)
+                {
+                    if (((1 << hit.gameObject.layer) & enemyLayer) != 0)
+                    {
+                        hit.GetComponent<EnemyBase>()?.TakeDamage(1);
+                    }
+                    else if (((1 << hit.gameObject.layer) & breakableLayer) != 0)
+                    {
+                        Destroy(hit.gameObject);
+                    }
+                }
             }
-            Invoke("ResetPunch", 0.3f);
+            
+            Invoke(nameof(ResetPunch), 0.3f);
         }
     }
 
     void ResetPunch() => isPunching = false;
 
+    public void TakeDamage()
+    {
+        if (isDead || isHurt) return;
+
+        isHurt = true;
+        rb.linearVelocity = new Vector3(-5f, 8f, 0f);
+
+        Invoke(nameof(ResetHurt), 0.5f);
+
+        if (RunnerGameManager.instance != null)
+            RunnerGameManager.instance.PlayerHit();
+    }
+
+    void ResetHurt() => isHurt = false;
+
     public void Die()
     {
+        if (isDead) return;
+
         isDead = true;
-        rb.linearVelocity = Vector3.zero;
-        rb.useGravity = false;
+        StopRunningSound();
+        PlaySound(deathSound);
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.useGravity = false;
+        }
     }
 
     public void Respawn(Vector3 pos)
     {
         isDead = false;
-        rb.useGravity = true;
-        transform.position = pos;
-        jumpCount = 0;
         isHurt = false;
+        isJumping = false;
+        isPunching = false;
+        isSliding = false;
+        jumpCount = 0;
+
+        if (rb != null)
+        {
+            rb.useGravity = true;
+            rb.linearVelocity = Vector3.zero;
+        }
+
+        transform.position = pos;
+
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.height = originalColliderHeight;
+            capsuleCollider.center = originalColliderCenter;
+        }
+    }
+
+    void HandleRunningSound()
+    {
+        if (rb == null || runningAudioSource == null || runningSound == null)
+            return;
+
+        bool shouldPlayRunSound = isGrounded && !isSliding && !isDead && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+
+        if (shouldPlayRunSound)
+        {
+            if (!runningAudioSource.isPlaying)
+                runningAudioSource.Play();
+        }
+        else
+        {
+            StopRunningSound();
+        }
+    }
+
+    void StopRunningSound()
+    {
+        if (runningAudioSource != null && runningAudioSource.isPlaying)
+            runningAudioSource.Stop();
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 
     void OnDrawGizmosSelected()
@@ -284,6 +391,12 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+
+        if (attackPoint != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
     }
 }

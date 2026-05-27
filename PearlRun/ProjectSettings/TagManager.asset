@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - PowerUp
   - KillZone
+  - Ground
   - JumpObstacle
   layers:
   - Default
@@ -18,11 +19,11 @@ TagManager:
   - Enemy
   - Water
   - UI
+  - Player
+  - Obstacle
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Pearl
+  - JumpObstacle
   - 
   - 
   - 
