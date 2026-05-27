@@ -36,8 +36,13 @@ public class PearlPickup : MonoBehaviour
 
         // Score (only White / Blue / Qarqaoun give points)
         int pearlScore = GetPearlScore();
-        if (pearlScore > 0 && ScoreManager.Instance != null)
-            ScoreManager.Instance.AddPearls(pearlScore);
+        if (pearlScore > 0)
+        {
+            if (RunnerGameManager.instance != null)
+                RunnerGameManager.instance.score += pearlScore;
+            else
+                Debug.LogWarning("RunnerGameManager.instance is null - cannot add score.");
+        }
 
         // Special effects (Golden / Red)
         ApplyEffect();
