@@ -5,9 +5,30 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4cbe12c967227824c90aa7a876981013
+  - enabled: 1
+    path: Assets/Scenes/Level1_Muharraq New.unity
+    guid: 496119104cdac2f4881e0592db46e458
+  - enabled: 1
+    path: Assets/Scenes/Level2_Manama.unity
+    guid: 207dc96ac1af8de4eb442aca45e624d9
+  - enabled: 1
+    path: Assets/Scenes/Level3_Qurqaoon.unity
+    guid: 07235d9df4315ef42928fdb73be5d53d
+  - enabled: 1
+    path: Assets/Scenes/Level4_Desert.unity
+    guid: 3e45348e722da8a41805a28d300e85a4
+  - enabled: 1
+    path: Assets/Scenes/Level5_Amwaj.unity
+    guid: c67187abaf4b40a419f06b5ab7a7f3bb
+  - enabled: 1
+    path: Assets/Scenes/Level6_Circuit_Adil.unity
+    guid: d2d5b9b3882e47e4dbf4db00fdebc0b0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
