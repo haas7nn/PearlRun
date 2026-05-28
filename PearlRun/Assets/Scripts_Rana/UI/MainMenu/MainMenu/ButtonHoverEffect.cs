@@ -3,59 +3,56 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class ButtonHoverEffect : MonoBehaviour,
-    IPointerEnterHandler, IPointerExitHandler,
-    ISelectHandler, IDeselectHandler
+public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
-    [Header("Scale Hover (UI controls base size)")]
-    public float hoverScaleMultiplier = 1.08f;
-    public float scaleSpeed = 12f;
+    [Header("Font Size")]
+    public float normalSize = 24f;
+    public float hoverSize = 30f;
+    public float sizeSpeed = 10f;
 
     [Header("Colors")]
-    public Color normalColor = Color.black;
-    public Color hoverColor = new Color(1f, 0.85f, 0f);
+    public Color normalColor = Color.white;
+    public Color hoverColor = new Color(1f, 0.85f, 0f);  // gold
 
     private TextMeshProUGUI buttonText;
-    private RectTransform rt;
-    private Vector3 baseScale;
-    private Vector3 targetScale;
-    private Color targetColor;
+    private float targetSize;
 
     void Start()
     {
-        rt = GetComponent<RectTransform>();
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
-
-        baseScale = rt.localScale;
-        targetScale = baseScale;
-        targetColor = normalColor;
+        targetSize = normalSize;
 
         if (buttonText != null)
+        {
+            buttonText.fontSize = normalSize;
             buttonText.color = normalColor;
+        }
     }
 
     void Update()
     {
-        rt.localScale = Vector3.Lerp(rt.localScale, targetScale, Time.deltaTime * scaleSpeed);
+        if (buttonText == null) return;
 
-        if (buttonText != null)
-            buttonText.color = Color.Lerp(buttonText.color, targetColor, Time.deltaTime * scaleSpeed);
+        // Smoothly animate font size
+        buttonText.fontSize = Mathf.Lerp(buttonText.fontSize, targetSize, Time.deltaTime * sizeSpeed);
     }
 
-    public void OnPointerEnter(PointerEventData e) => Highlight();
-    public void OnPointerExit(PointerEventData e) => Unhighlight();
-    public void OnSelect(BaseEventData e) => Highlight();
-    public void OnDeselect(BaseEventData e) => Unhighlight();
+    public void OnPointerEnter(PointerEventData eventData) { Highlight(); }
+    public void OnPointerExit(PointerEventData eventData) { Unhighlight(); }
+    public void OnSelect(BaseEventData eventData) { Highlight(); }
+    public void OnDeselect(BaseEventData eventData) { Unhighlight(); }
 
     void Highlight()
     {
-        targetScale = baseScale * hoverScaleMultiplier;
-        targetColor = hoverColor;
+        targetSize = hoverSize;
+        if (buttonText != null)
+            buttonText.color = hoverColor;
     }
 
     void Unhighlight()
     {
-        targetScale = baseScale;
-        targetColor = normalColor;
+        targetSize = normalSize;
+        if (buttonText != null)
+            buttonText.color = normalColor;
     }
 }
