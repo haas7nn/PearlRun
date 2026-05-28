@@ -1,102 +1,131 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCollision : MonoBehaviour
 {
+    // ─────────────────────────────────────
+    //  References
+    // ─────────────────────────────────────
     private PlayerController playerController;
-    private bool isInvincible;
-    [SerializeField] private float invincibilityTime = 1.5f;
+    private PowerUpSystem powerUpSystem;
 
+    // ─────────────────────────────────────
+    //  Invincibility
+    // ─────────────────────────────────────
+    private bool isInvincible = false;
+    private float invincibilityTime = 1.5f;
+
+    // ─────────────────────────────────────
+    //  Unity Lifecycle
+    // ─────────────────────────────────────
     void Start()
     {
         playerController = GetComponent<PlayerController>();
-
-        if (playerController == null)
-            Debug.LogError("PlayerCollision: PlayerController NOT FOUND on this GameObject!");
+        powerUpSystem = GetComponent<PowerUpSystem>();
     }
 
+    // ─────────────────────────────────────
+    //  Called By EnemyBase
+    //  This is the ONE place enemy damage
+    //  enters the player
+    // ─────────────────────────────────────
+    public void HandleEnemyCollision()
+    {
+        if (isInvincible) return;
+        if (playerController == null) return;
+
+        // Check if shield power up is active
+        if (powerUpSystem != null && powerUpSystem.IsShieldActive())
+            return;
+
+        playerController.TakeDamage();
+        StartCoroutine(InvincibilityFrames());
+    }
+
+    // ─────────────────────────────────────
+    //  Physics Collisions
+    // ─────────────────────────────────────
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"COLLISION with: {collision.gameObject.name} | Tag: {collision.gameObject.tag}");
+        if (isInvincible) return;
 
-        if (isInvincible)
+        // Obstacle tag damage
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Invincible - ignoring hit");
+            if (powerUpSystem != null && powerUpSystem.IsShieldActive())
+                return;
+
+            playerController.TakeDamage();
+            StartCoroutine(InvincibilityFrames());
+        }
+
+        // Kill zone (solid collider type)
+        if (collision.gameObject.CompareTag("KillZone"))
+        {
+            HandleKillZone();
+        }
+    }
+
+    // ─────────────────────────────────────
+    //  Trigger Collisions
+    // ─────────────────────────────────────
+    void OnTriggerEnter(Collider other)
+    {
+        // Kill zone (trigger type)
+        if (other.CompareTag("KillZone"))
+        {
+            HandleKillZone();
             return;
         }
 
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+        // Finish line
+        if (other.CompareTag("Finish"))
         {
-            Debug.Log("Hit OBSTACLE/ENEMY!");
-
-            if (playerController != null)
-            {
-                playerController.TakeDamage();
-                StartCoroutine(InvincibilityFrames());
-            }
-            else
-            {
-                Debug.LogError("PlayerController is NULL! Cannot take damage.");
-            }
+            if (GameManager.instance != null)
+                GameManager.instance.LevelComplete();
+            return;
         }
 
-        if (collision.gameObject.CompareTag("KillZone"))
+        // Checkpoint
+        if (other.CompareTag("Checkpoint"))
         {
-            HandleKill();
+            if (GameManager.instance != null)
+                GameManager.instance.SetCheckpoint(transform.position);
+
+            // Play checkpoint sound
+            if (AudioManager.instance != null)
+                AudioManager.instance.PlayCheckpoint();
+            return;
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    // ─────────────────────────────────────
+    //  Kill Zone Handler
+    //  One method handles both collision
+    //  and trigger kill zones
+    // ─────────────────────────────────────
+    private void HandleKillZone()
     {
-        Debug.Log($"TRIGGER with: {other.name} | Tag: {other.tag}");
-
-        if (other.CompareTag("KillZone"))
-        {
-            HandleKill();
-        }
-        else if (other.CompareTag("Finish"))
-        {
-            HandleFinish();
-        }
-        else if (other.CompareTag("Checkpoint"))
-        {
-            HandleCheckpoint();
-        }
+        // Shield does NOT protect against kill zones
+        // Falling off the map = instant death
+        if (GameManager.instance != null)
+            GameManager.instance.PlayerDied();
     }
 
-    void HandleKill()
-    {
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.PlayerDied();
-        else if (Level3GameManager.instance != null)
-            Level3GameManager.instance.PlayerDied();
-        else
-            Debug.LogError("No Level3GameManager found!");
-    }
-
-    void HandleFinish()
-    {
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.LevelComplete();
-        else if (Level3GameManager.instance != null)
-            Level3GameManager.instance.LevelComplete();
-    }
-
-    void HandleCheckpoint()
-    {
-        Vector3 pos = transform.position;
-
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.SetCheckpoint(pos);
-        else if (Level3GameManager.instance != null)
-            Level3GameManager.instance.SetCheckpoint(pos);
-    }
-
-    System.Collections.IEnumerator InvincibilityFrames()
+    // ─────────────────────────────────────
+    //  Invincibility Frames (flashing)
+    // ─────────────────────────────────────
+    IEnumerator InvincibilityFrames()
     {
         isInvincible = true;
-        Debug.Log("Invincibility START");
 
+        // Play hurt sound
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayHurt();
+
+        // Flash player renderer
         Renderer playerRenderer = GetComponentInChildren<Renderer>();
+
         if (playerRenderer != null)
         {
             float flashTimer = 0f;
@@ -106,6 +135,7 @@ public class PlayerCollision : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
                 flashTimer += 0.1f;
             }
+            // Make sure renderer is ON when done
             playerRenderer.enabled = true;
         }
         else
@@ -114,8 +144,18 @@ public class PlayerCollision : MonoBehaviour
         }
 
         isInvincible = false;
-        Debug.Log("Invincibility END");
     }
 
-    public void SetInvincible(bool value) => isInvincible = value;
+    // ─────────────────────────────────────
+    //  Public Getters
+    // ─────────────────────────────────────
+    public void SetInvincible(bool value)
+    {
+        isInvincible = value;
+    }
+
+    public bool IsInvincible()
+    {
+        return isInvincible;
+    }
 }

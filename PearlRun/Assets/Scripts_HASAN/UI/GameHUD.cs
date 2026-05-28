@@ -10,36 +10,36 @@ public class GameHUD : MonoBehaviour
 
     void Update()
     {
-        if (Level3GameManager.instance == null)
+        if (GameManager.instance == null)
             return;
 
         // Update score
         if (scoreText != null)
-            scoreText.text = "Score: " + Level3GameManager.instance.score;
+            scoreText.text = "Score: " + GameManager.instance.score;
 
         // Update lives
         if (livesText != null)
-            livesText.text = "Lives: " + Level3GameManager.instance.currentLives;
+            livesText.text = "Lives: " + GameManager.instance.currentLives;
 
         // Show game over panel
         if (gameOverPanel != null)
         {
-            if (Level3GameManager.instance.isGameOver && !gameOverPanel.activeSelf)
+            if (GameManager.instance.isGameOver && !gameOverPanel.activeSelf)
             {
                 gameOverPanel.SetActive(true);
             }
         }
 
         // Retry
-        if (Level3GameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
+        if (GameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
         {
-            Level3GameManager.instance.RestartLevel();
+            GameManager.instance.RestartLevel();
         }
 
         // Back to menu
-        if (Level3GameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
+        if (GameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
         {
-            Level3GameManager.instance.LoadMainMenu();
+            GameManager.instance.LoadMainMenu();
         }
     }
 }

@@ -1,4 +1,3 @@
-﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,10 +25,6 @@ public class RunnerGameManager : MonoBehaviour
     private Vector3 lastCheckpointPosition;
     private bool hasCheckpoint = false;
 
-    private RunnerController _player;
-    private ObstacleDamage[] _obstacles;
-    private EnemyChase_Rana _enemy;
-
     void Awake()
     {
         if (instance == null)
@@ -52,30 +47,25 @@ public class RunnerGameManager : MonoBehaviour
         pearlsCollected = 0;
         timeElapsed = 0f;
         Time.timeScale = 1f;
-
-        RunnerProgressSystem.ClearCheckpoint();
-        hasCheckpoint = false;
-
-        _player = FindAnyObjectByType<RunnerController>();
-        _obstacles = FindObjectsByType<ObstacleDamage>(FindObjectsSortMode.None);
-        _enemy = FindAnyObjectByType<EnemyChase_Rana>();
-
-        Debug.Log("RunnerGameManager: cached " + _obstacles.Length + " obstacles.");
     }
 
     void Update()
     {
-        if (isGameOver || isLevelComplete) return;
+        if (isGameOver || isLevelComplete)
+            return;
 
         timeElapsed += Time.deltaTime;
 
-        if (_player != null && _player.transform.position.y < -20f)
+        RunnerController player = FindAnyObjectByType<RunnerController>();
+        if (player != null && player.transform.position.y < -20f)
             PlayerDied();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused) ResumeGame();
-            else PauseGame();
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseGame();
         }
     }
 
@@ -83,24 +73,28 @@ public class RunnerGameManager : MonoBehaviour
     {
         score += points;
         pearlsCollected++;
-        if (ScoreManager.Instance != null)
-            ScoreManager.Instance.AddPearls(1);
     }
 
-    public void AddLife() { currentLives++; }
-    public void RestoreFullLives() { currentLives = maxLives; currentHits = 0; }
+    public void AddLife()
+    {
+        currentLives++;
+    }
 
     public void PlayerHit()
     {
-        if (isGameOver) return;
+        if (isGameOver)
+            return;
+
         currentHits++;
+
         if (currentHits >= maxHitsPerLife)
             PlayerDied();
     }
 
     public void PlayerDied()
     {
-        if (isGameOver) return;
+        if (isGameOver)
+            return;
 
         currentLives--;
         currentHits = 0;
@@ -113,26 +107,15 @@ public class RunnerGameManager : MonoBehaviour
 
     void RespawnPlayer()
     {
-        if (_player != null)
+        RunnerController player = FindAnyObjectByType<RunnerController>();
+
+        if (player != null)
         {
             if (hasCheckpoint)
-                _player.Respawn(lastCheckpointPosition);
+                player.Respawn(lastCheckpointPosition);
             else
-                _player.Respawn(_player.transform.position);
+                player.Respawn(player.transform.position);
         }
-
-        if (_enemy != null)
-            _enemy.TriggerReset();
-
-        StartCoroutine(ResetObstaclesDelayed());
-    }
-
-    private IEnumerator ResetObstaclesDelayed()
-    {
-        yield return new WaitForSeconds(0.15f);
-        for (int i = 0; i < _obstacles.Length; i++)
-            if (_obstacles[i] != null)
-                _obstacles[i].ResetDamageFlag();
     }
 
     public void SetCheckpoint(Vector3 position)
@@ -143,16 +126,26 @@ public class RunnerGameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (isGameOver) return;
+        if (isGameOver)
+            return;
+
         isGameOver = true;
-        if (_player != null) _player.Die();
+
+        RunnerController player = FindAnyObjectByType<RunnerController>();
+        if (player != null)
+            player.Die();
     }
 
-    public void FreezeGameAfterDeath() { Time.timeScale = 0f; }
+    public void FreezeGameAfterDeath()
+    {
+        Time.timeScale = 0f;
+    }
 
     public void LevelComplete()
     {
-        if (isLevelComplete) return;
+        if (isLevelComplete)
+            return;
+
         isLevelComplete = true;
 
         string currentScene = SceneManager.GetActiveScene().name;
@@ -166,12 +159,20 @@ public class RunnerGameManager : MonoBehaviour
             PlayerPrefs.SetFloat(currentScene + "_BestTime", timeElapsed);
 
         PlayerPrefs.SetInt(currentScene + "_Completed", 1);
-        RunnerProgressSystem.ClearCheckpoint();
         PlayerPrefs.Save();
     }
 
-    public void PauseGame() { isPaused = true; Time.timeScale = 0f; }
-    public void ResumeGame() { isPaused = false; Time.timeScale = 1f; }
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+    }
 
     public void RestartLevel()
     {
@@ -183,12 +184,19 @@ public class RunnerGameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         Time.timeScale = 1f;
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        instance = null;
+
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            instance = null;
             SceneManager.LoadScene(nextSceneIndex);
+        }
         else
+        {
+            instance = null;
             SceneManager.LoadScene("Victory");
+        }
     }
 
     public void LoadMainMenu()
@@ -207,9 +215,13 @@ public class RunnerGameManager : MonoBehaviour
 
     public string GetGrade()
     {
-        if (currentLives == maxLives && pearlsCollected > 50) return "S";
-        if (currentLives >= 2 && pearlsCollected > 30) return "A";
-        if (currentLives >= 1 && pearlsCollected > 15) return "B";
-        return "C";
+        if (currentLives == maxLives && pearlsCollected > 50)
+            return "S";
+        else if (currentLives >= 2 && pearlsCollected > 30)
+            return "A";
+        else if (currentLives >= 1 && pearlsCollected > 15)
+            return "B";
+        else
+            return "C";
     }
 }
