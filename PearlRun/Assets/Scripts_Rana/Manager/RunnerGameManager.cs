@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RunnerGameManager : MonoBehaviour
@@ -62,10 +62,8 @@ public class RunnerGameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
-                ResumeGame();
-            else
-                PauseGame();
+            if (isPaused) ResumeGame();
+            else PauseGame();
         }
     }
 
@@ -82,19 +80,16 @@ public class RunnerGameManager : MonoBehaviour
 
     public void PlayerHit()
     {
-        if (isGameOver)
-            return;
+        if (isGameOver) return;
 
         currentHits++;
-
         if (currentHits >= maxHitsPerLife)
             PlayerDied();
     }
 
     public void PlayerDied()
     {
-        if (isGameOver)
-            return;
+        if (isGameOver) return;
 
         currentLives--;
         currentHits = 0;
@@ -108,7 +103,6 @@ public class RunnerGameManager : MonoBehaviour
     void RespawnPlayer()
     {
         RunnerController player = FindAnyObjectByType<RunnerController>();
-
         if (player != null)
         {
             if (hasCheckpoint)
@@ -126,8 +120,7 @@ public class RunnerGameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (isGameOver)
-            return;
+        if (isGameOver) return;
 
         isGameOver = true;
 
@@ -143,10 +136,13 @@ public class RunnerGameManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        if (isLevelComplete)
-            return;
+        if (isLevelComplete) return;
 
         isLevelComplete = true;
+
+        // ✅ أرسل البيانات للـ ScoreManager عشان الفيكتوري تعبأ صح
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.CompleteLevel(currentLives);
 
         string currentScene = SceneManager.GetActiveScene().name;
 
@@ -184,7 +180,6 @@ public class RunnerGameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         Time.timeScale = 1f;
-
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -215,13 +210,9 @@ public class RunnerGameManager : MonoBehaviour
 
     public string GetGrade()
     {
-        if (currentLives == maxLives && pearlsCollected > 50)
-            return "S";
-        else if (currentLives >= 2 && pearlsCollected > 30)
-            return "A";
-        else if (currentLives >= 1 && pearlsCollected > 15)
-            return "B";
-        else
-            return "C";
+        if (currentLives == maxLives && pearlsCollected > 50) return "S";
+        else if (currentLives >= 2 && pearlsCollected > 30) return "A";
+        else if (currentLives >= 1 && pearlsCollected > 15) return "B";
+        else return "C";
     }
 }

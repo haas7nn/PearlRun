@@ -18450,7 +18450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fba852d196d41a09757026b2c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleHitTrigger
-  enemyChase: {fileID: 4497998073473735181}
+  enemyChase: {fileID: 0}
 --- !u!1001 &202575776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65071,6 +65071,29 @@ MonoBehaviour:
   masterVolume: 1
   musicVolume: 0.7
   sfxVolume: 1
+  menuMusic: {fileID: 0}
+  level1Music: {fileID: 0}
+  level2Music: {fileID: 0}
+  level3Music: {fileID: 0}
+  level4Music: {fileID: 0}
+  level5Music: {fileID: 0}
+  level6Music: {fileID: 0}
+  victoryMusic: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  slideSound: {fileID: 0}
+  punchSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  footstepSound: {fileID: 0}
+  pearlCollectSound: {fileID: 0}
+  lifePickupSound: {fileID: 0}
+  powerUpSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  buttonHoverSound: {fileID: 0}
+  gameOverSound: {fileID: 0}
+  levelCompleteSound: {fileID: 0}
+  checkpointSound: {fileID: 0}
 --- !u!4 &680130024
 Transform:
   m_ObjectHideFlags: 0
@@ -77587,7 +77610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fba852d196d41a09757026b2c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleHitTrigger
-  enemyChase: {fileID: 4497998073473735181}
+  enemyChase: {fileID: 0}
 --- !u!1001 &812917736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151005,11 +151028,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 853f9c5272dc47e41acfa2cbca33309a, type: 3}
   m_PrefabInstance: {fileID: 534471116}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1632971796 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 853f9c5272dc47e41acfa2cbca33309a, type: 3}
-  m_PrefabInstance: {fileID: 534471116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1634666024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9063638587199601780, guid: 63e0a48ed294278458fa101f87f50a76, type: 3}
@@ -167889,6 +167907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
   health: 3
+  damage: 1
 --- !u!1 &1786931322
 GameObject:
   m_ObjectHideFlags: 0
@@ -201790,7 +201809,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6583752537500314336}
   - component: {fileID: 8539865230044229074}
-  - component: {fileID: 4191262774711369564}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -201838,27 +201856,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3442640463407166636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5623829427223914234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c2394b15b1edc74c8a1adb54b961a45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUpHUD
-  powerUpDisplay: {fileID: 5623829427223914234}
-  powerUpIcon: {fileID: 8406829887903253750}
-  powerUpTimerText: {fileID: 6230507026051865413}
-  shieldSprite: {fileID: 0}
-  magnetSprite: {fileID: 0}
-  slowMotionSprite: {fileID: 0}
-  doublePointsSprite: {fileID: 0}
-  currentTimer: 0
-  currentSprite: {fileID: 0}
 --- !u!114 &3564858207312561662 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3564858206889859777, guid: 3219e00dc8be5bf4c83959378a59223e, type: 3}
@@ -201921,21 +201918,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4191262774711369564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3332804632435911292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebb1276b14d92f4585581eac083f940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelProgressBar
-  progressSlider: {fileID: 8539865230044229074}
-  levelStartX: 0
-  levelEndX: 1013
 --- !u!114 &4232901558847904740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201979,6 +201961,8 @@ MonoBehaviour:
   - {fileID: 6261108904477060253}
   - {fileID: 3399996974108843238}
   - {fileID: 7048284462458355843}
+  loseDuration: 0.4
+  gainDuration: 0.4
 --- !u!114 &4497998073473735181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201995,16 +201979,11 @@ MonoBehaviour:
   damage: 1
   player: {fileID: 844537695}
   detectionRange: 12.46
+  stopChaseRange: 7
   chaseSpeed: 9
-  stopDistance: 1.5
-  behindDistance: 3
-  playerRunsForwardZ: 1
-  matchPlayerX: 1
-  lockY: 1
-  animator: {fileID: 0}
-  runningParameterName: isRunning
-  rotationYWhenMovingForward: 0
-  rotationYWhenMovingBackward: 180
+  patrolSpeed: 2
+  stoppingDistance: 1.2
+  losePlayerDelay: 2
 --- !u!1 &4602970768430309813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4602970767729475210, guid: 3219e00dc8be5bf4c83959378a59223e, type: 3}
@@ -202194,7 +202173,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1802831210261842492}
-  - component: {fileID: 3442640463407166636}
   m_Layer: 5
   m_Name: PowerUpDisplay
   m_TagString: Untagged
@@ -203086,19 +203064,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
   health: 3
+  damage: 1
   pointA: {fileID: 1392136134}
   pointB: {fileID: 849974792}
   speed: 9
-  reachDistance: 0.1
-  startMovingToB: 1
-  lockY: 1
-  lockZ: 1
-  fixedY: 0
-  fixedZ: 0
-  rotationYWhenMovingRight: 90
-  rotationYWhenMovingLeft: -90
-  animator: {fileID: 1632971796}
-  runningParameterName: isRunning
 --- !u!224 &8995911679050002496
 RectTransform:
   m_ObjectHideFlags: 0

@@ -5,23 +5,30 @@ public class RunnerHUD : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
-    public TextMeshProUGUI timerText;      // ← اسحب هنا الـ Text الجديد
+    public TextMeshProUGUI timerText;
+
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;          // ✅ اسحب الـ Victory Panel هنا
+
     public float gameOverDelay = 1.8f;
+    public float victoryDelay = 0.5f;        // ✅ تأخير قبل ما تظهر الفيكتوري
     public bool freezeAfterPanel = true;
 
     private bool gameOverStarted = false;
+    private bool victoryStarted = false;     // ✅
 
     void Start()
     {
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
+
+        if (victoryPanel != null)
+            victoryPanel.SetActive(false);   // ✅
     }
 
     void Update()
     {
-        if (RunnerGameManager.instance == null)
-            return;
+        if (RunnerGameManager.instance == null) return;
 
         if (scoreText != null)
             scoreText.text = "Score: " + ScoreManager.Instance.currentPearls;
@@ -29,7 +36,6 @@ public class RunnerHUD : MonoBehaviour
         if (livesText != null)
             livesText.text = "Lives: " + RunnerGameManager.instance.currentLives;
 
-        // التايمر
         if (timerText != null)
         {
             float t = RunnerGameManager.instance.timeElapsed;
@@ -38,16 +44,19 @@ public class RunnerHUD : MonoBehaviour
             timerText.text = "Time: " + string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
+        // Game Over
         if (gameOverPanel != null && RunnerGameManager.instance.isGameOver && !gameOverStarted)
         {
             gameOverStarted = true;
             Invoke(nameof(ShowGameOverPanel), gameOverDelay);
         }
 
-        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.R))
-        //     RunnerGameManager.instance.RestartLevel();
-        // if (RunnerGameManager.instance.isGameOver && Input.GetKeyDown(KeyCode.Escape))
-        //     RunnerGameManager.instance.LoadMainMenu();
+        // ✅ Victory
+        if (victoryPanel != null && RunnerGameManager.instance.isLevelComplete && !victoryStarted)
+        {
+            victoryStarted = true;
+            Invoke(nameof(ShowVictoryPanel), victoryDelay);
+        }
     }
 
     void ShowGameOverPanel()
@@ -56,6 +65,16 @@ public class RunnerHUD : MonoBehaviour
             gameOverPanel.SetActive(true);
 
         if (freezeAfterPanel && RunnerGameManager.instance != null)
+            RunnerGameManager.instance.FreezeGameAfterDeath();
+    }
+
+    // ✅
+    void ShowVictoryPanel()
+    {
+        if (victoryPanel != null)
+            victoryPanel.SetActive(true);
+
+        if (RunnerGameManager.instance != null)
             RunnerGameManager.instance.FreezeGameAfterDeath();
     }
 }

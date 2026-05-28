@@ -34,14 +34,21 @@ public class PearlPickup : MonoBehaviour
         if (collectSound != null)
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-        // Score (only White / Blue / Qarqaoun give points)
+        // Score
         int pearlScore = GetPearlScore();
         if (pearlScore > 0)
         {
-            if (RunnerGameManager.instance != null)
-                RunnerGameManager.instance.score += pearlScore;
+            // ✅ ScoreManager 
+            if (ScoreManager.Instance != null)
+                ScoreManager.Instance.AddPearls(pearlScore);
             else
-                Debug.LogWarning("RunnerGameManager.instance is null - cannot add score.");
+                Debug.LogWarning("ScoreManager.Instance is null!");
+
+            // ✅ RunnerGameManager
+            if (RunnerGameManager.instance != null)
+                RunnerGameManager.instance.AddScore(pearlScore);
+            else
+                Debug.LogWarning("RunnerGameManager.instance is null!");
         }
 
         // Special effects (Golden / Red)
@@ -68,14 +75,12 @@ public class PearlPickup : MonoBehaviour
         switch (pearlType)
         {
             case PearlType.Red:
-                // +1 life (one heart back on the HUD)
                 RunnerGameManager.instance.AddLife();
                 Debug.Log("Red pearl collected → +1 life.");
                 break;
 
             case PearlType.Golden:
-                // Full refill — all hearts back
-                //RunnerGameManager.instance.RestoreFullLives();
+                // RunnerGameManager.instance.RestoreFullLives();
                 Debug.Log("Golden pearl collected → full lives restored.");
                 break;
         }
