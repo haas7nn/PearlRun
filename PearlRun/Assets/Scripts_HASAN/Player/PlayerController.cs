@@ -11,14 +11,9 @@ public class PlayerController : MonoBehaviour
     public float sprintDuration = 2f;
     public float sprintCooldown = 8f;
 
-    [Header("Better Jump")]
-    public float fallMultiplier = 4f;
-    public float lowJumpMultiplier = 2.5f;
-    public float maxFallSpeed = 22f;
-
     [Header("Ground Check")]
     public Transform groundCheck;
-    public float groundCheckRadius = 0.15f;
+    public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
 
     [Header("Attack")]
@@ -27,54 +22,43 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask breakableLayer;
 
-    [Header("Player Audio")]
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource runningAudioSource;
-    [SerializeField] private AudioClip jumpSound;
-    [SerializeField] private AudioClip landingSound;
-    [SerializeField] private AudioClip runningSound;
-    [SerializeField] private AudioClip deathSound;
-
+    // ─────────────────────────────────────
+    //  Private State
+    // ─────────────────────────────────────
     private Rigidbody rb;
-    private CapsuleCollider capsuleCollider;
-
     private bool isGrounded;
-    private bool wasGrounded;
-    private int jumpCount = 0;
-    private float groundLockoutTimer; // Prevents instant ground re-detection
-    
+    private bool canDoubleJump;
     private bool isSliding;
     private float slideTimer;
     private bool isSprinting;
     private float sprintTimer;
     private float sprintCooldownTimer;
-    
+    private Vector3 originalScale;
+    private CapsuleCollider capsuleCollider;
     private float originalColliderHeight;
     private Vector3 originalColliderCenter;
 
+    // ─────────────────────────────────────
+    //  Public State (read by other scripts)
+    // ─────────────────────────────────────
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isPunching;
     [HideInInspector] public bool isHurt;
     [HideInInspector] public bool isDead;
     [HideInInspector] public float currentSpeed;
 
+    // ─────────────────────────────────────
+    //  Public Properties
+    // ─────────────────────────────────────
     public bool IsSliding => isSliding;
-    public bool IsGrounded => isGrounded;
 
+    // ─────────────────────────────────────
+    //  Unity Lifecycle
+    // ─────────────────────────────────────
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
-
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
-
-        if (runningAudioSource != null && runningSound != null)
-        {
-            runningAudioSource.clip = runningSound;
-            runningAudioSource.loop = true;
-            runningAudioSource.playOnAwake = false;
-        }
 
         if (capsuleCollider != null)
         {
@@ -82,144 +66,142 @@ public class PlayerController : MonoBehaviour
             originalColliderCenter = capsuleCollider.center;
         }
 
+        originalScale = transform.localScale;
         sprintCooldownTimer = 0f;
 
-        if (rb != null)
-        {
-            rb.constraints = RigidbodyConstraints.FreezePositionZ | 
-                             RigidbodyConstraints.FreezeRotation;
-        }
+        // Freeze Z position and all rotations for 2.5D
+        rb.constraints = RigidbodyConstraints.FreezePositionZ |
+                         RigidbodyConstraints.FreezeRotationX |
+                         RigidbodyConstraints.FreezeRotationY |
+                         RigidbodyConstraints.FreezeRotationZ;
     }
 
     void Update()
     {
-        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
-        {
-            StopRunningSound();
+        if (GameManager.instance != null && GameManager.instance.isGameOver)
             return;
-        }
 
-        wasGrounded = isGrounded;
+        if (isDead)
+            return;
 
         CheckGround();
-        CheckLandingSound();
         HandleJump();
         HandleSlide();
         HandleSprint();
         HandleAttack();
-        HandleRunningSound();
 
-        if (rb != null)
-            currentSpeed = Mathf.Abs(rb.linearVelocity.x);
+        // Update animation speed parameter
+        currentSpeed = Mathf.Abs(rb.linearVelocity.x);
     }
 
     void FixedUpdate()
     {
-        if (isDead || (Level3GameManager.instance != null && Level3GameManager.instance.isGameOver))
+        if (GameManager.instance != null && GameManager.instance.isGameOver)
             return;
 
-        ApplyJumpPhysics();
+        if (isDead)
+            return;
+
         HandleMovement();
     }
 
+    // ─────────────────────────────────────
+    //  Ground Check
+    // ─────────────────────────────────────
     void CheckGround()
     {
-        if (groundLockoutTimer > 0)
+        if (groundCheck != null)
         {
-            groundLockoutTimer -= Time.deltaTime;
-            isGrounded = false;
-            return;
-        }
-
-        bool hittingGround = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
-
-        if (hittingGround && rb.linearVelocity.y <= 0.01f)
-        {
-            isGrounded = true;
-            jumpCount = 0;
-            isJumping = false;
+            isGrounded = Physics.CheckSphere(
+                groundCheck.position,
+                groundCheckRadius,
+                groundLayer
+            );
         }
         else
         {
-            isGrounded = false;
+            isGrounded = Physics.Raycast(
+                transform.position,
+                Vector3.down,
+                1.1f,
+                groundLayer
+            );
         }
-    }
 
-    void CheckLandingSound()
-    {
-        if (!wasGrounded && isGrounded)
+        if (isGrounded)
         {
-            PlaySound(landingSound);
+            isJumping = false;
+            canDoubleJump = true;
         }
     }
 
-    void HandleJump()
-    {
-        if (rb == null) return;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isGrounded)
-            {
-                ExecuteJump(jumpForce);
-                jumpCount = 1;
-            }
-            else if (jumpCount < 2)
-            {
-                ExecuteJump(doubleJumpForce);
-                jumpCount = 2;
-            }
-        }
-    }
-
-    void ExecuteJump(float force)
-    {
-        isJumping = true;
-        groundLockoutTimer = 0.15f;
-        
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, 0f);
-        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
-        
-        PlaySound(jumpSound);
-    }
-
-    void ApplyJumpPhysics()
-    {
-        if (rb.linearVelocity.y < 0)
-        {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-        }
-        else if (rb.linearVelocity.y > 0 && !Input.GetKey(KeyCode.Space))
-        {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
-        }
-
-        if (rb.linearVelocity.y < -maxFallSpeed)
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, -maxFallSpeed, 0f);
-    }
-
+    // ─────────────────────────────────────
+    //  Movement
+    // ─────────────────────────────────────
     void HandleMovement()
     {
-        if (rb == null || isSliding) return;
+        if (isSliding)
+            return;
 
+        // Automatic forward movement + player left/right control
         float horizontalInput = Input.GetAxis("Horizontal");
         float speed = moveSpeed;
 
-        if (isSprinting) speed *= sprintMultiplier;
+        if (isSprinting)
+            speed *= sprintMultiplier;
 
+        // Move right automatically + player can adjust left/right
         float moveX = speed + (horizontalInput * speed * 0.5f);
         rb.linearVelocity = new Vector3(moveX, rb.linearVelocity.y, 0f);
     }
 
+    // ─────────────────────────────────────
+    //  Jump
+    // ─────────────────────────────────────
+    void HandleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector3(
+                    rb.linearVelocity.x,
+                    jumpForce,
+                    0f
+                );
+                isJumping = true;
+                canDoubleJump = true;
+            }
+            else if (canDoubleJump)
+            {
+                rb.linearVelocity = new Vector3(
+                    rb.linearVelocity.x,
+                    doubleJumpForce,
+                    0f
+                );
+                canDoubleJump = false;
+            }
+        }
+    }
+
+    // ─────────────────────────────────────
+    //  Slide
+    // ─────────────────────────────────────
     void HandleSlide()
     {
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && isGrounded && !isSliding)
+        if ((Input.GetKeyDown(KeyCode.S) ||
+             Input.GetKeyDown(KeyCode.DownArrow))
+             && isGrounded && !isSliding)
+        {
             StartSlide();
+        }
 
+        // Slide timer
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
-            if (slideTimer <= 0) StopSlide();
+            if (slideTimer <= 0)
+                StopSlide();
         }
     }
 
@@ -227,7 +209,8 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         slideTimer = slideTime;
-        
+
+        // Shrink collider for sliding under obstacles
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight * 0.4f;
@@ -237,12 +220,17 @@ public class PlayerController : MonoBehaviour
                 originalColliderCenter.z
             );
         }
+
+        // Play slide sound
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlaySlide();
     }
 
     void StopSlide()
     {
         isSliding = false;
-        
+
+        // Restore collider
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight;
@@ -250,21 +238,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ─────────────────────────────────────
+    //  Sprint
+    // ─────────────────────────────────────
     void HandleSprint()
     {
-        if (sprintCooldownTimer > 0) 
+        // Cooldown timer
+        if (sprintCooldownTimer > 0)
             sprintCooldownTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded && !isSprinting && sprintCooldownTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift)
+            && !isSprinting
+            && sprintCooldownTimer <= 0)
         {
             isSprinting = true;
             sprintTimer = sprintDuration;
         }
 
+        // Sprint timer
         if (isSprinting)
         {
             sprintTimer -= Time.deltaTime;
-            if (sprintTimer <= 0 || !isGrounded)
+            if (sprintTimer <= 0)
             {
                 isSprinting = false;
                 sprintCooldownTimer = sprintCooldown;
@@ -272,82 +267,98 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ─────────────────────────────────────
+    //  Attack
+    // ─────────────────────────────────────
     void HandleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.F) ||
+            Input.GetMouseButtonDown(0))
         {
             isPunching = true;
-            
+
+            // Detect enemies in range
             if (attackPoint != null)
             {
-                Collider[] hits = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer | breakableLayer);
-                
-                foreach (Collider hit in hits)
+                // Hit enemies
+                Collider[] hitEnemies = Physics.OverlapSphere(
+                    attackPoint.position,
+                    attackRange,
+                    enemyLayer
+                );
+                foreach (Collider enemy in hitEnemies)
                 {
-                    if (((1 << hit.gameObject.layer) & enemyLayer) != 0)
-                    {
-                        hit.GetComponent<EnemyBase>()?.TakeDamage(1);
-                    }
-                    else if (((1 << hit.gameObject.layer) & breakableLayer) != 0)
-                    {
-                        Destroy(hit.gameObject);
-                    }
+                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                    if (enemyScript != null)
+                        enemyScript.TakeDamage(1);
                 }
+
+                // Hit breakables
+                Collider[] hitBreakables = Physics.OverlapSphere(
+                    attackPoint.position,
+                    attackRange,
+                    breakableLayer
+                );
+                foreach (Collider breakable in hitBreakables)
+                    Destroy(breakable.gameObject);
+
+                // Play punch sound
+                if (AudioManager.instance != null)
+                    AudioManager.instance.PlayPunch();
             }
-            
-            Invoke(nameof(ResetPunch), 0.3f);
+
+            // Reset punch animation after short delay
+            Invoke("ResetPunch", 0.3f);
         }
     }
 
-    void ResetPunch() => isPunching = false;
-
-    public void TakeDamage()
+    void ResetPunch()
     {
-        if (isDead || isHurt) return;
-
-        isHurt = true;
-        rb.linearVelocity = new Vector3(-5f, 8f, 0f);
-
-        Invoke(nameof(ResetHurt), 0.5f);
-
-        if (RunnerGameManager.instance != null)
-            RunnerGameManager.instance.PlayerHit();
+        isPunching = false;
     }
 
-    void ResetHurt() => isHurt = false;
-
-    public void Die()
+    // ─────────────────────────────────────
+    //  Damage / Death / Respawn
+    // ─────────────────────────────────────
+    public void TakeDamage()
     {
         if (isDead) return;
 
-        isDead = true;
-        StopRunningSound();
-        PlaySound(deathSound);
+        isHurt = true;
+        Invoke("ResetHurt", 0.5f);
 
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.useGravity = false;
-        }
+        if (GameManager.instance != null)
+            GameManager.instance.PlayerHit();
     }
 
-    public void Respawn(Vector3 pos)
+    void ResetHurt()
     {
+        isHurt = false;
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        rb.linearVelocity = Vector3.zero;
+        rb.useGravity = false;
+    }
+
+    public void Respawn(Vector3 respawnPosition)
+    {
+        // Reset all states
         isDead = false;
         isHurt = false;
-        isJumping = false;
-        isPunching = false;
         isSliding = false;
-        jumpCount = 0;
+        isPunching = false;
+        isSprinting = false;
+        sprintCooldownTimer = 0f;
 
-        if (rb != null)
-        {
-            rb.useGravity = true;
-            rb.linearVelocity = Vector3.zero;
-        }
+        // Reset physics
+        rb.useGravity = true;
+        rb.linearVelocity = Vector3.zero;
+        transform.position = respawnPosition;
 
-        transform.position = pos;
-
+        // Reset collider in case player died while sliding
         if (capsuleCollider != null)
         {
             capsuleCollider.height = originalColliderHeight;
@@ -355,44 +366,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void HandleRunningSound()
+    // ─────────────────────────────────────
+    //  Public Getters (for HUD + other scripts)
+    // ─────────────────────────────────────
+    public float GetSprintCooldownPercent()
     {
-        if (rb == null || runningAudioSource == null || runningSound == null)
-            return;
-
-        bool shouldPlayRunSound = isGrounded && !isSliding && !isDead && Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-
-        if (shouldPlayRunSound)
-        {
-            if (!runningAudioSource.isPlaying)
-                runningAudioSource.Play();
-        }
-        else
-        {
-            StopRunningSound();
-        }
+        if (sprintCooldownTimer <= 0f) return 1f;
+        return 1f - (sprintCooldownTimer / sprintCooldown);
     }
 
-    void StopRunningSound()
+    public bool IsSprinting()
     {
-        if (runningAudioSource != null && runningAudioSource.isPlaying)
-            runningAudioSource.Stop();
+        return isSprinting;
     }
 
-    void PlaySound(AudioClip clip)
+    public bool IsGrounded()
     {
-        if (audioSource != null && clip != null)
-            audioSource.PlayOneShot(clip);
+        return isGrounded;
     }
 
+    // ─────────────────────────────────────
+    //  Gizmos (Editor Visualization)
+    // ─────────────────────────────────────
     void OnDrawGizmosSelected()
     {
+        // Show ground check radius
         if (groundCheck != null)
         {
-            Gizmos.color = isGrounded ? Color.green : Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
+        // Show attack range
         if (attackPoint != null)
         {
             Gizmos.color = Color.red;
