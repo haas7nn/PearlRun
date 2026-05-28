@@ -16493,8 +16493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fba852d196d41a09757026b2c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleHitTrigger
-  enemyChase: {fileID: 0}
-  hasHitPlayer: 0
 --- !u!1001 &202575776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71094,8 +71092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fba852d196d41a09757026b2c885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleHitTrigger
-  enemyChase: {fileID: 0}
-  hasHitPlayer: 0
 --- !u!1001 &812917736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103261,10 +103257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21bf6e4f01718d4a95d608ec811f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
-  pearlType: 0
-  collectEffect: {fileID: 6626223528557895538, guid: 7e9d9ae7059f7554399f663ff9ce9f06, type: 3}
-  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
-  collected: 0
 --- !u!1001 &1184689599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128543,6 +128535,10 @@ PrefabInstance:
       value: 0.8839019
       objectReference: {fileID: 0}
     - target: {fileID: 130545760682670924, guid: a3060feacece8014684e4ba38fce8ab8, type: 3}
+      propertyPath: nextLevelSceneName
+      value: Level4_Desert
+      objectReference: {fileID: 0}
+    - target: {fileID: 130545760682670924, guid: a3060feacece8014684e4ba38fce8ab8, type: 3}
       propertyPath: buttonSelectedColor.b
       value: 0.8616352
       objectReference: {fileID: 0}
@@ -140635,10 +140631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21bf6e4f01718d4a95d608ec811f24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3PearlPickup
-  pearlType: 0
-  collectEffect: {fileID: 0}
-  collectSound: {fileID: 0}
-  collected: 0
 --- !u!1001 &1648398590
 PrefabInstance:
   m_ObjectHideFlags: 0

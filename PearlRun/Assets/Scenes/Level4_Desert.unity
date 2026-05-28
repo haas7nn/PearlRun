@@ -88778,6 +88778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1807588015}
+  - {fileID: 1980246020}
   - {fileID: 881308030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89253,6 +89254,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973356550}
   m_Mesh: {fileID: 289301614986012343, guid: 81f20bfb3dbff76489c957bdd927b0e5, type: 3}
+--- !u!1001 &1974997834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1959764385}
+    m_Modifications:
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -581
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.146431
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3087386861439080378, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: hudObject
+      value: 
+      objectReference: {fileID: 1379849316649383197}
+    - target: {fileID: 3087386861439080378, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: victoryPanel
+      value: 
+      objectReference: {fileID: 8474297691632751063}
+    - target: {fileID: 5631830502262358212, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+      propertyPath: m_Name
+      value: FinishZone (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
 --- !u!1 &1975168883
 GameObject:
   m_ObjectHideFlags: 0
@@ -89455,6 +89521,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978743186}
   m_Mesh: {fileID: 289301614986012343, guid: 81f20bfb3dbff76489c957bdd927b0e5, type: 3}
+--- !u!4 &1980246020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1623882747302443350, guid: b58dbf384bb1ceb489fd76a2d5a6490c, type: 3}
+  m_PrefabInstance: {fileID: 1974997834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1981682320
 GameObject:
   m_ObjectHideFlags: 0
@@ -128065,6 +128136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130545760682670924, guid: a3060feacece8014684e4ba38fce8ab8, type: 3}
+      propertyPath: nextLevelSceneName
+      value: Level5_Amwaj
+      objectReference: {fileID: 0}
     - target: {fileID: 830761356639689996, guid: a3060feacece8014684e4ba38fce8ab8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

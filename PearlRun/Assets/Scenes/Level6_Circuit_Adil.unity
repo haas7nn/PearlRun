@@ -29173,16 +29173,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7692976728218399939, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
   m_PrefabInstance: {fileID: 1175628353}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1175628355 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5483507717254468980, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
-  m_PrefabInstance: {fileID: 1175628353}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1175628356 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7028185250714726009, guid: 59af6011a8fef024588a6da306ded6a0, type: 3}
-  m_PrefabInstance: {fileID: 1175628353}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1175628357
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29292,13 +29282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece2b4aa91e09d34d9985405e23da469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level3Checkpoint
-  flagRenderer: {fileID: 1175628355}
-  activatedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  visualRoot: {fileID: 1175628356}
-  activatedScale: 1.2
-  activationSound: {fileID: 8300000, guid: e5a0362637d540245a440dede80c3c48, type: 3}
-  soundVolume: 1
-  audioSource: {fileID: 1175628357}
 --- !u!82 &1175628359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53277,7 +53260,6 @@ GameObject:
   - component: {fileID: 4540228998735180060}
   - component: {fileID: 4540228998735180059}
   - component: {fileID: 4540228998735180058}
-  - component: {fileID: 4540228998735180061}
   m_Layer: 6
   m_Name: Awal
   m_TagString: Player
@@ -56565,18 +56547,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4540228998735180061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782702500033757899}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec47a9e4becf5646a3cd53f938f1cc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaypointPathFollower
 --- !u!4 &4548762041187175685
 Transform:
   m_ObjectHideFlags: 0
@@ -58881,11 +58851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a644fc99b2f96db4db69a31d9f1add31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunnerHUD
-  scoreText: {fileID: 6166875519274671623}
-  livesText: {fileID: 0}
-  gameOverPanel: {fileID: 4578771589896590282}
-  gameOverDelay: 1.8
-  freezeAfterPanel: 1
 --- !u!4 &6450602045381868955
 Transform:
   m_ObjectHideFlags: 0
