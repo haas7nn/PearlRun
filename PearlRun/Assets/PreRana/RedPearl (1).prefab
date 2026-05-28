@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1423210098914258574
+--- !u!1 &1416971138416894520
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5955940190115095541}
-  - component: {fileID: 7664090974597998984}
-  - component: {fileID: 3047839108288812330}
-  - component: {fileID: 5208483405136324185}
+  - component: {fileID: 6302251833232627647}
+  - component: {fileID: 1132231419625147798}
+  - component: {fileID: 6169808694454823474}
+  - component: {fileID: 3558213441559518274}
+  - component: {fileID: 8257563695469150005}
+  - component: {fileID: 126421139310391789}
   m_Layer: 0
-  m_Name: Benche
-  m_TagString: Untagged
+  m_Name: RedPearl (1)
+  m_TagString: Pearl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5955940190115095541
+--- !u!4 &6302251833232627647
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423210098914258574}
+  m_GameObject: {fileID: 1416971138416894520}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 73.8, y: 12.81, z: -257.45}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7664090974597998984
+--- !u!33 &1132231419625147798
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423210098914258574}
-  m_Mesh: {fileID: -3190376153068187366, guid: 5cc0dc82a7b7e6f4a8ea3797e6588ba5, type: 3}
---- !u!23 &3047839108288812330
+  m_GameObject: {fileID: 1416971138416894520}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6169808694454823474
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423210098914258574}
+  m_GameObject: {fileID: 1416971138416894520}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -67,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd1975821d392a94d91a58c890003a41, type: 2}
+  - {fileID: 2100000, guid: 1d7238180fa8ad14294ff31302b15e45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5208483405136324185
-BoxCollider:
+--- !u!135 &3558213441559518274
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423210098914258574}
+  m_GameObject: {fileID: 1416971138416894520}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -106,9 +108,39 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23592633, y: 1.1259085, z: 2.503994}
-  m_Center: {x: -0.3190157, y: 0.56295425, z: 0.0024187565}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8257563695469150005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416971138416894520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa0458a31b5a4241b9398ec82de78a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PearlPickup
+  pearlType: 3
+  collectEffect: {fileID: 8129476902046414101, guid: b2b19ec3c2c4de6499789d843bfb02f4, type: 3}
+  collectSound: {fileID: 8300000, guid: 2c876f760cb55af47810079b466fcd0b, type: 3}
+--- !u!114 &126421139310391789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416971138416894520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a97c6960551130458782ac8417bb931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PearlBobSpin
+  rotationSpeed: 60
+  floatSpeed: 2
+  floatHeight: 0.25

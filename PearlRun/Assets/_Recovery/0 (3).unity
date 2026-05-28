@@ -25186,6 +25186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680130024}
+  - component: {fileID: 680130023}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -25193,6 +25194,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &680130023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680130022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd9a5212bc2174418a3ef32776cc972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  menuMusic: {fileID: 0}
+  level1Music: {fileID: 0}
+  level2Music: {fileID: 0}
+  level3Music: {fileID: 0}
+  level4Music: {fileID: 0}
+  level5Music: {fileID: 0}
+  level6Music: {fileID: 0}
+  victoryMusic: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  slideSound: {fileID: 0}
+  punchSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  footstepSound: {fileID: 0}
+  pearlCollectSound: {fileID: 0}
+  lifePickupSound: {fileID: 0}
+  powerUpSound: {fileID: 0}
+  buttonClickSound: {fileID: 0}
+  buttonHoverSound: {fileID: 0}
+  gameOverSound: {fileID: 0}
+  levelCompleteSound: {fileID: 0}
+  checkpointSound: {fileID: 0}
 --- !u!4 &680130024
 Transform:
   m_ObjectHideFlags: 0
@@ -168715,7 +168756,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: ddacc529948469341bdf99ef5f641bc9, type: 3}
   attackClip: {fileID: 8300000, guid: a6fe1cb4c6dd1df49973fbac784e9f8a, type: 3}
   runningClip: {fileID: 8300000, guid: df467f6e2c17aec448be2cd976610d11, type: 3}
-  backgroundMusic: {fileID: 8300000, guid: 8836ad003c997394ca73d17a03199c73, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 821301448e4f70b41b592520877276ed, type: 3}
   sfxVolume: 0.792
   runVolume: 0.371
   musicVolume: 0.687
@@ -204183,7 +204224,7 @@ Transform:
   m_GameObject: {fileID: 1388567266620097443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 11.48, y: -0.16, z: -0.81}
+  m_LocalPosition: {x: 11.48, y: -0.16, z: -0.66}
   m_LocalScale: {x: 1.5, y: 1.4, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
