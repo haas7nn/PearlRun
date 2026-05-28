@@ -95,7 +95,7 @@ public class MainMenuManager : MonoBehaviour
     public void NewGame()
     {
         PlayClick();
-        SceneManager.LoadScene("Level1_Muharraq");
+        SceneManager.LoadScene("Level1_Muharraq New");
     }
 
     public void LevelSelect()
